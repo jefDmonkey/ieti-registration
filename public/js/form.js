@@ -14,6 +14,7 @@ let currentStep = 0;
 
 // Function to update the form step visibility and progress bar
 function updateForm() {
+   
     formSteps.forEach((step, index) => {
         if (index === currentStep) {
             step.classList.add('form-step-active');
@@ -28,6 +29,9 @@ function updateForm() {
     const progress = ((currentStep + 1) / formSteps.length) * 100;
     document.getElementById('progress').style.width = `${progress}%`;
 }
+
+
+
 
 
 
@@ -49,7 +53,7 @@ function prevStep() {
         updateForm();
     }
 }
-
+//***************************************** */
 
 // Summary of data
 
@@ -106,6 +110,7 @@ function handdleSubmit () {
     localStorage.setItem("MIDDLEINITIAL", middlename);
 
     return;
+   
 }
 
 
