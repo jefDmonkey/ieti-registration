@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/register.css">
+  <title>Registration</title>
+</head>
+<body>
+  <%- include('navbar') %>
+   
+
+
+   <div class="registration-container">
+    <form action="submit_url_here" class="form" id="form"> 
+      <h1 id="title">Registration Form</h1>
+
+      <!-- Progress bar -->
+      <div class="progressbar">
+          <div class="progress" id="progress"></div>
+          <div class="progress-step progress-step-active" data-title="student"></div>
+          <div class="progress-step" data-title="personal Info"></div>
+          <div class="progress-step" data-title="academic Record"></div>
+          <div class="progress-step" data-title="creating account "></div>
+          <div class="progress-step" data-title="verify "></div>
+      </div>
+
+      <!-- Form steps -->
+      <div class="form-step form-step-active">
+          <!-- Step 1 content here -->
+          <div class="input-group">
+              <label for="Name">Lastname</label>
+              <input type="text" name="lastname" id="lastname" placeholder="Enter your LastName" required>
+              <div class="error"></div>
+              </div>
+              <div class="input-group">
+              <label for="Name">Firstname</label>
+              <input type="text" name="firstname" id="firstname" placeholder="Enter your Firstname" required>
+              </div>
+              <div class="input-group">
+              <label for="Name">MI</label>
+              <input type="text" name="middlename" id="middlename" placeholder="Middle Initial" required>
+              </div>
+       
+          <div class="container">
+          <div class="selectedCourse">
+      <label class = "course" for = "course">Course</label>
+                <select id="course" required>
+                  <option value="please select course!!!">Select Course</option>
+                  <option value="bsit">BSIT</option>
+                  <option value="bscpe">BSCpE</option>
+                  <option value="beed">BEED</option>
+                  <option value="bsba">BSBA</option>
+                  <option value="bshrm">BSHRM</option>
+                  <option value="bsca">BSCA</option>
+                  <option value="bsed-eng">BSED ENG</option>
+                  <option value="bsed-math">BSED MATH</option>
+                </select>
+              </div>
+              <div class="year">
+                  <label class = "enrollee" for = "enrollee">Year</label>
+                  <select id="year" required>
+                  <option value="pleace select year!!">Select Year</option>
+                    <option value="1st year">1st Year</option>
+                    <option value="2nd year">2nd Year</option>
+                    <option value="3rd year">3rd Year</option>
+                    <option value="4th year">4th Year</option>
+                  </select>
+                </div>
+              <div class="container2">
+              <div class="position">
+              <label class = "enrollee" for = "enrollee">Student</label>
+              <select id="student" required>
+                <option value="New">New Student</option>
+                <option value="re-enrollee">Re-enrollee</option>
+                <option value="cross-enrollee">Cross enrollee</option>
+                
+              </select>
+            </div>
+            <div class="semester">
+              <label class = "sem" for = "semester">Semester</label>
+              <select id="semester" required>
+                <option value="1stsem">1st sem</option>
+                <option value="2ndsem">2nd sem</option>
+              </select>
+            </div>
+            <div class="gender">
+              <label class = "gender" for = "gender">Sex</label>
+              <select id="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+               <div class="">
+                <button class="btn btn-next width-50 ml-auto" class="submit"  id="submit" type="submit">Next</button>
+                  <!--<a href="#" class="btn btn-next width-50 ml-auto"  id="" type="submit">Next</a>-->
+               </div>
+            
+      </div>
+
+      <div class="form-step">
+          <!-- Step 2 content here -->
+          <div class="container5">
+              <div class="input-group">
+                  <label class="date">date of birth</label>
+                  <input type="date" class="date" id="date" required>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="telephone">place of birth</label>
+                    <input type="text" name="birthplace" id="birthplace" placeholder="Place of Birth" required>
+                    </div>
+                  </div>
+                  <div class="container3">
+                  <div class="input-group">
+                  <label for="status">Status</label>
+                  <input type="text" name="status" id="status" placeholder="Status" required>
+                  </div>
+
+                  <div class="input-group">
+                  <label for="nationality">nationality</label>
+                  <input type="text" name="status" id="nationality" placeholder="Enter your Nationality" required>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="religion">religion</label>
+                    <input type="text" name="religion" id="religion" placeholder="Enter your Religion" required>
+                    </div>
+                </div>
+
+                  <div class="container4">
+                  <div class="input-group">
+                  <label for="telephone">telephone no</label>
+                  <input type="number" name="telephone" id="telephone" placeholder="Your Number" maxlength="11" required>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="email">email</label>
+                    <input type="text" name="email" id="email" placeholder="Enter Your Email" required>
+                    </div>
+                  </div>
+                   
+                    <div class="container6">
+                    <div class="input-group">
+                        <label for="parent">parent or guardian</label>
+                        <input type="text" name="parent" id="parent" placeholder="Parent or Guardian" required>
+                      </div>
+
+                      <div class="input-group">
+                        <label for="occupation">occupation</label>
+                        <input type="text" name="occupation" id="occupation" placeholder="Occupation" required>
+                      </div>
+                      </div>
+
+                      <div class="input-group">
+                        <label for="province">Provincial address</label>
+                        <input type="text" name="province" id="province" placeholder="Brgy/Municipality/Province" required>
+                      </div>
+
+
+                    <div class="container7">
+                      <div class="input-group">
+                        <label for="address">current address</label>
+                        <input type="text" name="address" id="address" placeholder="Brgy/Municipality/Province" required>
+                      </div>
+
+                      <div class="input-group">
+                        <label for="telephone2">tel no. a</label>
+                        <input type="text" name="telephone2" id="telephone2" placeholder="tel no of guardian" required>
+                      </div>
+                      </div>
+                    
+                    <div class="btns-group">
+                      <a href="#" class="btn btn-previous"  id="">Previous</a>
+                      <a href="#" class="btn btn-next"  id="">Next</a>
+                   </div>
+      </div>
+
+      <div class="form-step form2">
+          <!-- Step 3 content here -->
+          <div class="container8">
+              <div class="input-group">
+              <label for="Name">grade 6</label>
+              <input type="text" name="grade6" id="grade6" required>
+              </div>
+              <div class="input-group">
+              <label for="Name">year</label>
+              <input type="text" name="g6year" id="g6year" required>
+              </div>
+            </div>
+
+            <div class="container9">
+              <div class="input-group">
+              <label for="Name">grade 10</label>
+              <input type="text" name="grade10" id="grade10" required>
+              </div>
+              <div class="input-group">
+              <label for="Name">year</label>
+              <input type="text" name="g10year" id="g10year" required>
+              </div>
+            </div>
+
+            <div class="container10">
+              <div class="input-group">
+              <label for="Name">grade 12</label>
+              <input type="text" name="grade12" id="grade12" required>
+              </div>
+              <div class="input-group">
+              <label for="Name">year</label>
+              <input type="text" name="g12year" id="g12year" required>
+              </div>
+            </div>
+
+            <div class="container11">
+              <div class="input-group">
+              <label for="Name">Degree earned</label>
+              
+              <input type="text" name="degree" id="degree" required>
+              </div>
+              <div class="input-group">
+              <label for="Name">year</label>
+              <input type="text" name="degree" id="degree" required>
+              </div>
+            </div>
+            <div class="btns-group">
+              <a href="#" class="btn btn-previous"  id="">Previous</a>
+              <a href="#" class="btn btn-next"  id="" onclick="handdleSubmit()">Done</a>
+              <!--<input type="submit" value="submit" class="btn" onclick="handdleSubmit()>-->
+           </div>
+      </div>
+      <div class="form-step form-step-active">
+        <!-- Step 4 content here -->
+        <div class="input-group">
+            <label for="name">email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            <div class="error"></div>
+            </div>
+            <div class="input-group">
+            <label for="Name">password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+            </div>
+        
+            <div class="btns-group">
+              <a href="#" class="btn btn-previous"  id="">Previous</a>
+              <a href="#" class="btn btn-next"  id="">Next</a>
+           </div> 
+          </div>
+
+      <!-- Summary -->
+      <div class="form-step">
+           <h3>Please check the data</h3>
+           <div class="summary">
+           <p>
+            Name: <span id="result-name"></span>
+           </p>
+           <p>
+            middle: <span id="result-mi"></span>
+          </p>
+          <p>
+            lastname: <span id="result-lastname"></span>
+          </p>
+          <p>
+            course: <span id="result-course"></span>
+          </p>
+          <p>
+            year: <span id="result-year"></span>
+          </p>
+          <p>
+            student: <span id="result-student"></span>
+          </p>
+          <p>
+              semester: <span id="result-semester"></span>
+          </p>
+          <p>
+              Sex: <span id="result-sex"></span>
+          </p>
+          <p>
+              Birthdate: <span id="result-date"></span>
+          </p>
+          <p>
+            place of birth: <span id="result-pbirth"></span>
+          </p>
+          <p>
+            status: <span id="result-status"></span>
+          </p>
+          <p>
+            nationality: <span id="result-nationality"></span>
+          </p>
+          <p>
+            religion: <span id="result-religion"></span>
+          </p>
+          <p>
+            telephone no: <span id="result-telno"></span>
+          </p>
+          <p>
+            email: <span id="result-email"></span>
+          </p>
+          <p>
+            parent or guardian: <span id="result-parent"></span>
+          </p>
+          <p>
+            occupation: <span id="result-occupation"></span>
+          </p>
+          <p>
+            Provincial address: <span id="result-provincial"></span>
+          </p>
+          <p>
+            Current address: <span id="result-current"></span>
+          </p>
+          <p>
+            guardian tel no: <span id="result-guardianNumber"></span>
+          </p>
+         
+        </div>
+        <div class="btns-group">
+        <a href="#" class="btn btn-previous"  id="">Previous</a>
+        <button class="btn btn-next" class="submit"  id="submit" type="submit">Submit</button>
+      </div>
+      </div>
+
+  </form>
+
+  <script type="application/javascript" src="form.js"></script>
+
+   </div>
+  <script type="application/javascript" src="/js/form.js"></script>
+</body>
+</html>

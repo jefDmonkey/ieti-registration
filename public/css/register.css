@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/**::before,
+*::after{
+    box-sizing: border-box;
+}*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+body{
+  background: linear-gradient(rgba(226, 245, 209, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.nav-links .register{
+  background-color: #347C17;
+  
+}
+.nav-links .register a{
+  color: white;
+}
+ 
+/*--------------------form start------------------- */
+
+.registration-container{
+  margin: 20px;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  
+}
+.progressbar{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  counter-reset: step;
+  margin: 3rem 0;
+}
+.progress-step{
+  width: 35px;
+  height: 35px;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-step::before{
+ counter-increment: step;
+ content: counter(step);
+}
+.progress-step::after{
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% - -.25rem);
+  font-size: 0.75rem;
+  color: #666;
+}
+.progress-step-active{
+  background-color: #59a34f;
+  color: white;
+}
+
+
+.progressbar::before, .progress{
+  content: "";
+  background-color: #dcdcdc;
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: -2;
+}
+.progress{
+  background-color: #59a34f;
+  width: 0%;
+  transition: 1s;
+}
+
+
+/*form*/
+
+.form{
+  width: clamp(320px,100%,600px);
+  border: 2px solid #ccc;
+  margin: 0 auto;
+  border-radius: 0.35rem;
+  padding: 1.5rem;
+  background-color: aliceblue;
+  z-index: 0;
+  text-transform: uppercase;
+  
+}
+.form-step{
+  display: none;
+  transform-origin: top;
+  animation: animate 0.5s;
+}
+
+.form-step-active{
+  display: block;
+}
+
+
+/*global stylings*/
+
+input{
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  
+}
+.input-group{
+  margin: 20px 0;
+}
+@keyframes animate{
+  from{
+      transform: scale(1, 0);
+      opacity: 0;
+  }
+  to{
+      transform: scale(1, 1);
+      opacity: 1;
+  }
+}
+.input-group label{
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.form h1{
+  font-size: 20px;
+  text-align: center;
+}
+.width-50{
+  width: 50%;
+}
+.ml-auto{
+  margin-left: auto;
+}
+#course, #year{
+  font-size: 14px;
+  height: 35px;
+  margin: 10px 0 12px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  width: calc(100% / 2 + 95px);
+}
+#course,#year,#student,#semester:hover{
+  cursor: pointer;
+}
+
+.container{
+  margin-top: 10px;
+}
+.container label{
+  margin-right: 10px;
+}
+.year label{
+  margin-right: 30px;
+}
+
+.container2{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+}
+.container2 label{
+ font-size: 12px;
+
+}
+label{
+  text-transform: uppercase;
+}
+
+
+#student,#semester,#gender{
+  font-size: 12px;
+  height: 25px;
+  border-radius: 5px;
+  width: 85px;
+}
+.container3{
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+}
+
+
+.container4{
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+}
+.container5{
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+}
+.container6{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+}
+.container7{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  
+}
+.container8{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  
+}
+.container9{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  
+}
+.container10{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  
+}
+.container11{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  
+}
+
+.summary{
+  position: relative;
+}
+p{
+  text-transform: uppercase;
+  width: 100%;
+  display: flex;
+  height: 40px;
+}
+p span{
+  text-transform: capitalize;
+  position: absolute;
+  margin-left: 52%;
+}
+h3{
+  text-align: center;
+  margin-bottom: 15px;
+}
+#result-email{
+  text-transform: none;
+}
+
+
+
+/*button*/
+.btns-group{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.btn{
+  margin-top: 10px;
+  color: white;
+  display: block;
+  text-decoration: none;
+  padding: 0.75rem;
+  background-image: linear-gradient(to right, rgb(9, 165, 113), rgb(33, 240, 60) );
+  border-radius: .25rem;
+  text-align: center;
+  transition: 0.3s;
+}
+.btn:hover{
+  box-shadow: 0 0 0 2px #59a34f, 0 0 0 3px;
+}
+@media  screen and (max-width: 490px) {
+  .form-step p{
+    font-size: 10px;
+  }
+}
+
