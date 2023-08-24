@@ -5,6 +5,7 @@ $(function(e) {
     const phone = $("#phone")
     const msg = $("#msg")
 
+    //THIS CODE IS FOR CLEAR INPUT
     function clearInput() {
         fname.val("")
         lname.val("")
