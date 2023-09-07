@@ -4,6 +4,7 @@ const port = 3000;
 const connection = require("./config/db")
 const cors = require("cors");
 const multer = require('multer');//file upload
+const RequestModel = require("./models/request")
 
 //database
 // const con = mysql.createConnection({
@@ -19,9 +20,10 @@ const multer = require('multer');//file upload
 
 
 //middleware
-app.set("view engine","ejs");
-app.use(express.json())
 app.use(express.static("public"));
+app.use(express.json())
+app.set("view engine","ejs");
+app.set("views", "views")
 
  app.use(cors())
 
@@ -54,9 +56,8 @@ app.get ('/register', (req, res) => {
   res.render("register.ejs")
 });
 
-app.get ('/admin', (req, res) =>{
-  res.render("admin.ejs")
-})
+// ALL REQUEST (GET, POST, DELETe, PUT, PATCH)
+app.use('/admin', require("./routes/admin"))
 
 app.get ('/navbar', (req, res) =>{
   res.render("navbar.ejs")
@@ -65,6 +66,47 @@ app.get ('/navbar', (req, res) =>{
 app.get('/contacts', (req, res) =>{
   res.render("contacts.ejs")
 })
+
+app.get('/adminDashboard', async (req, res) => {
+
+  const requests = await RequestModel.findAll({ raw: true })
+
+  // console.log(requests)
+
+  res.render('adminDashboard.ejs',
+  {
+    numberOfRequests: requests.length,
+    requests
+  })
+})
+
+app.get('/reg', (req, res) =>{
+  res.render('reg.ejs')
+})
+
+app.get('/sidebar',async (req, res) =>{
+  await RequestModel.bulkCreate([
+    {
+      fullname: "Jeff M. Garcia",
+      course: "BSIT",
+      email: "jeff@gmail.com",
+      contacts: "09999999999",
+      address: "Magsaysay",
+      gender: "Male"
+    },
+    {
+      fullname: "John Jhovir A. Sorila",
+      course: "BSIT",
+      email: "jjj@gmail.com",
+      contacts: "09999999999",
+      address: "San Jose",
+      gender: "Male"
+    }
+  ])
+  res.json("ok")
+})
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

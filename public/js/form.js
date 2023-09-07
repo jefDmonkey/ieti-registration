@@ -3,7 +3,7 @@
 // Get all form steps and progress steps
 const formSteps = document.querySelectorAll('.form-step');
 const progressSteps = document.querySelectorAll('.progress-step');
-const inputForm = document.querySelectorAll('input');
+// const inputForm = document.querySelectorAll('input');
 
 // Get buttons for navigation
 const nextBtns = document.querySelectorAll('.btn-next');
@@ -41,7 +41,7 @@ function nextStep() {
     if (currentStep < formSteps.length - 1) {
         currentStep++;
         updateForm();
-        inputForm();
+        // inputForm();
         
     }
 }
@@ -56,7 +56,58 @@ function prevStep() {
 //***************************************** */
 
 // Summary of data
+// $(function(e) {
+//     const fname = $("#firstname")
+//     const lname = $("#lastname")
+//     const email = $("#email")
+//     const phone = $("#phone")
+   
 
+//     //THIS CODE IS FOR CLEAR INPUT
+//     function clearInput() {
+//         fname.val("")
+//         lname.val("")
+//         email.val("")
+//         phone.val("")
+        
+//     }
+
+//     $("#sumsubmit").click(function(e) {
+
+//         if(!fname.val() || !lname.val() || !email.val() || !phone.val()) return alert("Please complete all fields!")
+
+//         // if(phone.val().length > 11 || phone.val().length < 11) return alert("Invalid phone number")
+
+//         $.ajax({
+//             type: "POST",
+//             url: "/api/register",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             data: JSON.stringify({
+//                 fname: fname.val(),
+//                 lname: lname.val(),
+//                 email: email.val(),
+//                 phone: phone.val(),
+                
+//             }),
+//             success: ({ operation }) => {
+//                 if(operation) alert("MESSAGE SENT")
+//                 clearInput()
+//             },
+//             error: (err) => {
+//                 alert("THERE WAS AN ERROR")
+//                 console.log(err)
+//             }
+//         })
+
+//     })
+
+//     $(".form").submit(function(e){
+//         e.preventDefault()
+//     })
+
+// })
 function handdleSubmit () {
     const name = document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;
@@ -109,7 +160,7 @@ function handdleSubmit () {
     localStorage.setItem("LASTNAME", lastname);
     localStorage.setItem("MIDDLEINITIAL", middlename);
 
-    return;
+   
    
 }
 

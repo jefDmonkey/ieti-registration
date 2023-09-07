@@ -299,7 +299,7 @@ h3{
 .btn:hover{
   box-shadow: 0 0 0 2px #59a34f, 0 0 0 3px;
 }
-@media  screen and (max-width: 490px) {
+@media screen and (max-width: 490px) {
   .form-step p{
     font-size: 10px;
   }
