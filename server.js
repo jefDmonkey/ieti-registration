@@ -3,8 +3,8 @@ const app = express();
 const port = 3000;
 const connection = require("./config/db")
 const cors = require("cors");
-const multer = require('multer');//file upload
 const RequestModel = require("./models/request")
+const chalk = require("chalk")
 
 //database
 // const con = mysql.createConnection({
@@ -21,7 +21,7 @@ const RequestModel = require("./models/request")
 
 //middleware
 app.use(express.static("public"));
-app.use(express.json())
+app.use(express.json(), express.urlencoded({ extended: true }))
 app.set("view engine","ejs");
 app.set("views", "views")
 
@@ -56,6 +56,7 @@ app.get ('/register', (req, res) => {
   res.render("register.ejs")
 });
 
+
 // ALL REQUEST (GET, POST, DELETe, PUT, PATCH)
 app.use('/admin', require("./routes/admin"))
 
@@ -84,31 +85,11 @@ app.get('/reg', (req, res) =>{
   res.render('reg.ejs')
 })
 
-app.get('/sidebar',async (req, res) =>{
-  await RequestModel.bulkCreate([
-    {
-      fullname: "Jeff M. Garcia",
-      course: "BSIT",
-      email: "jeff@gmail.com",
-      contacts: "09999999999",
-      address: "Magsaysay",
-      gender: "Male"
-    },
-    {
-      fullname: "John Jhovir A. Sorila",
-      course: "BSIT",
-      email: "jjj@gmail.com",
-      contacts: "09999999999",
-      address: "San Jose",
-      gender: "Male"
-    }
-  ])
-  res.json("ok")
-})
-
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-  connection.connectToDB()
+  connection.connectToDB().then(() => {
+    console.log(chalk.yellow("All models were synchronized successfully."));
+    console.log(chalk.green(`Listening on port ${port}`))
+  })
 });

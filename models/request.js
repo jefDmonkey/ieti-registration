@@ -10,7 +10,7 @@ const RequestModel = sequelize.define("request",
     },
     date: {
         type: DataTypes.DATEONLY,
-        defaultValue: new Date()
+        defaultValue: sequelize.literal("NOW()")
     },
     fullname: {
         type: DataTypes.STRING(255)
@@ -22,7 +22,7 @@ const RequestModel = sequelize.define("request",
         type: DataTypes.STRING(255)
     },
     password: {
-        type: DataTypes.STRING(255)
+        type: DataTypes.STRING(500)
     },
     contacts: {
         type: DataTypes.STRING(11)
@@ -32,11 +32,13 @@ const RequestModel = sequelize.define("request",
     },
     gender: {
         type: DataTypes.STRING(255)
+    },
+    user_image: {
+        type: DataTypes.STRING(500)
     }
 }, 
 {
-    timestamps: false,
-    freezeTableName: true
+    timestamps: false
 })
 
 module.exports = RequestModel

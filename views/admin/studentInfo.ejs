@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/studentInfo.css">
+</head>
+<body>
+    <%- include("../sidebar.ejs") %>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Student</span>
+                <h2>Information</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Search" id="myInput" onkeyup="myFunction()">
+                </div>
+                <img src="/images/luffy.png" alt="">
+            </div>
+        </div>
+        <div class="tabular--wrapper">
+            <!-- <h3 class="main--title">Student Information</h3> -->
+            <div class="table-container">
+                <table class="list" id="studentInfo">
+                    <thead>
+                        <tr>
+                            <th>Students Number</th>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Tel Number</th>
+                            <th>Email</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                            <th>Date Of Birth</th>
+                            <th>Place Of Birth</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                            <th>Sex</th>
+                            <th>Nationality</th>
+                            <th>Provincial Address</th>
+                            <th>Parents or Guardian</th>
+                            <th>Address of Guardian</th>
+                            <th>Occupation of Parents</th>
+                            <th>Tel number of Parents</th>
+
+                        </tr>
+                    </thead>
+                     <tbody id="hehe">
+                        <tr>
+                            <td>123456789</td>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>Jefferson</td>
+                            <td>0985827209</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>4th Year</td>
+                            <td>BSIT</td>
+                            <td>09-15-00</td>
+                            <td>Rosario Pasig City</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Single</td>
+                            <td>Male</td>
+                            <td>Korean</td>
+                            <td>Poctol San Juan Batangas</td>
+                            <td>Kieciebelle Rancap</td>
+                            <td>Balagastas Batangas City Batangas</td>
+                            <td>Accountant</td>
+                            <td>09298289543</td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="19"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

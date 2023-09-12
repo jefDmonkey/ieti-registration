@@ -32,4 +32,4 @@ const MsgModel = sequelize.define("messages" ,{
     timestamps: false
 })
 
-module.exports = sequelize.models["messages"] || MsgModel
+module.exports = MsgModel

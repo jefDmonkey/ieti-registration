@@ -5,11 +5,12 @@ const AccountsModel = sequelize.define("accounts",
 {
     id: {
         type: DataTypes.UUID,
+
         primaryKey: true
     },
     date: {
         type: DataTypes.DATEONLY,
-        defaultValue: new Date()
+        defaultValue: sequelize.literal("NOW()")
     },
     fullname: {
         type: DataTypes.STRING(255)
@@ -34,8 +35,7 @@ const AccountsModel = sequelize.define("accounts",
     }
 }, 
 {
-    timestamps: false,
-    freezeTableName: true
+    timestamps: false
 })
 
 module.exports = AccountsModel

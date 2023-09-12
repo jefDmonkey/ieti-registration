@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/css/studentCourse.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%- include('../sidebar') %>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <h2>Course</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Search" id="myInput" onkeyup="myFunction()">
+                </div>
+                <img src="/images/luffy.png" alt="">
+            </div>
+        </div>
+        <div class="tabular--wrapper" id="bsit">
+            <h3 class="main--title">BSIT</h3>
+            <button class="view-all-button">View all</button>
+            <ul class="tabs">
+                <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+            </ul>
+            <div class="table-container">
+                
+                <table class="list" id="studentInfo1">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hehe1">
+                        <tr>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>Jefferson</td>
+                            <td>1st Year</td>
+                            <td>BSIT</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- 2nd Year Table -->
+                <table class="list" id="studentInfo2" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hehe2">
+                        <tr>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>Jefferson</td>
+                            <td>2nd Year</td>
+                            <td>BSIT</td>
+                        </tr>
+                       
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- 3nd Year Table -->
+                <table class="list" id="studentInfo3" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hehe3">
+                        <tr>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>keciebelle</td>
+                            <td>3rd Year</td>
+                            <td>BSIT</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                 <!-- 4th Year Table -->
+                 <table class="list" id="studentInfo4" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hehe3">
+                        <tr>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>keciebelle</td>
+                            <td>4th Year</td>
+                            <td>BSIT</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+            </div>
+        </div>
+        <div class="tabular--wrapper" id="beed">
+            <h3 class="main--title">BEED</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BEED Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                    <li class="tab" data-year="2">2nd Year</li>
+                    <li class="tab" data-year="3">3rd Year</li>
+                    <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BEED Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BEED</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BEED</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BEED</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BEED</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    
+        <!-- BSBA Section -->
+        <div class="tabular--wrapper" id="bsba">
+            <h3 class="main--title">BSBA</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BSBA Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BSBA Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BSBA</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BSBA</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BSBA</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BSBA</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <!-- BSCA Section -->
+        <div class="tabular--wrapper" id="bsca">
+            <h3 class="main--title">BSCA</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BSCA Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BSCA Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <!-- BSCPE Section -->
+        <div class="tabular--wrapper" id="bscpe">
+            <h3 class="main--title">BSCPE</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BSCPE Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BSCPE Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BSCPE</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BSCPE</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BSCPE</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BSCPE</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <!-- BSHRM Section -->
+        <div class="tabular--wrapper" id="bshrm">
+            <h3 class="main--title">BSHRM</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BSHRM Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BSHRM Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BSIT</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <!-- BSED ENG/BSED MATH Section -->
+        <div class="tabular--wrapper" id="bsed">
+            <h3 class="main--title">BSED ENG/BSED MATH</h3>
+            <button class="view-all-button">View all</button>
+            <div class="course-content">
+                <ul class="tabs">
+                    <!-- BSED ENG/BSED MATH Tabs go here -->
+                    <li class="tab active" data-year="1">1st Year</li>
+                <li class="tab" data-year="2">2nd Year</li>
+                <li class="tab" data-year="3">3rd Year</li>
+                <li class="tab" data-year="4">4th Year</li>
+                </ul>
+                <div class="table-container">
+                    <!-- BSED ENG/BSED MATH Tables go here -->
+                    <table class="list" id="studentInfo1">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe1">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>1st Year</td>
+                                <td>BSED-ENG</td>
+                            </tr>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 2nd Year Table -->
+                    <table class="list" id="studentInfo2" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe2">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>Jefferson</td>
+                                <td>2nd Year</td>
+                                <td>BSED-ENG</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 3nd Year Table -->
+                    <table class="list" id="studentInfo3" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>3rd Year</td>
+                                <td>BSED-MATH</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                     <!-- 4th Year Table -->
+                     <table class="list" id="studentInfo4" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>MI</th>
+                                <th>First Name</th>
+                                <th>Year</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hehe3">
+                            <tr>
+                                <td>Garcia</td>
+                                <td>M</td>
+                                <td>keciebelle</td>
+                                <td>4th Year</td>
+                                <td>BSED-MATH</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+    <script>
+        // Update your JavaScript to handle the new sections (similar to the BSIT section)
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll(".tab");
+            const tableContainers = document.querySelectorAll(".table-container");
+            const viewAllButtons = document.querySelectorAll(".view-all-button");
+
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach((t) => t.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    const year = tab.getAttribute("data-year");
+                    const course = tab.closest('.tabular--wrapper').id;
+
+                    // Hide all tables
+                    document.querySelectorAll(".list").forEach((table) => {
+                        table.style.display = "none";
+                    });
+
+                    // Show the table for the active year and course
+                    document.querySelector(`#${course} #studentInfo${year}`).style.display = "table";
+                });
+            });
+
+            viewAllButtons.forEach((viewAllButton) => {
+                viewAllButton.addEventListener("click", () => {
+                    // Toggle the 'expanded' class on the corresponding table container
+                    const tableContainer = viewAllButton.closest('.tabular--wrapper').querySelector(".table-container");
+                    tableContainer.classList.toggle("expanded");
+                });
+            });
+        });
+ 
+    </script>
+</body>
+</html>

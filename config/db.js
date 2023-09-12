@@ -1,17 +1,18 @@
 const { Sequelize } = require("sequelize")
+const chalk = require("chalk")
 
 const sequelize = new Sequelize('ieti_registration', 'root', '', {
     host: 'localhost',
     port: 3306,
-    dialect: "mysql"
+    dialect: "mysql",
+    freezeTableName: true
 });
 
 async function connectToDB() {
     try {
         await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-        await sequelize.sync({ alter: true });
-        console.log("All models were synchronized successfully.");
+        console.log(chalk.yellow('Connection has been established successfully.'));
+        return await sequelize.sync({ alter: true });
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

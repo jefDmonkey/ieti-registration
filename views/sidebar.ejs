@@ -11,8 +11,8 @@
 body{
     display: flex;
     /* max-width: 1380px;
-    margin: 0 auto; */
-}
+    /* margin: 0 auto; */
+} 
 .sidebar{
     position: sticky;
     top: 0;
@@ -49,36 +49,40 @@ body{
     padding: 0;
 }
 .menu li{
-    padding: 1rem;
     margin:8px 0;
     border-radius: 8px;
     transition: all 0.5 ease-in-out;
     display: flex;
-    
+    align-items: center;
+    justify-content: center;
+  
 }
-.menu li:hover, .active{
-    background: #e0e0e058;
-    cursor: pointer;
-}
+
 .menu a {
+    padding: 1rem;
     color: #fff;
     font-size: 10px;
     text-decoration: none;
     display: flex !important;
-    align-items: center;
-    /* gap: 1.5rem !important; */
-    margin-right: 2.2rem;
+    align-items: center; 
     
+    gap: 1.5rem !important; 
+    /* margin-right: 2.2rem; */
+   
+    width: 100%;
+    height: 100%;
+   
 }
 .menu a i{
     font-size: 1.2rem;
-   
 }
  .menu a span{
     overflow: hidden;
+    font-size: 15px
 }
 .menu a i{
     font-size: 1.2rem;
+    
 }
 .logout{
     position: absolute;
@@ -92,36 +96,36 @@ body{
     <div class="logo"><img src="/images/logo.png" alt=""></div>
         <ul class="menu">
             <li class="active"> 
-                <a href="#"><i class="fas fa-tachometer-alt"></i></a>
-                <span>Dashboard</span>
+                <a href="/adminDashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+               
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-message"></i></a>
-                <span>Message</span>
+            <li class="mes">
+                <a href="#"><i class="fa-solid fa-message"></i><span>Message</span></a>
+                
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-users"></i></a>
-                <span>Accounts</span>
+            <li class="acc">
+                <a href="/admin/adminRequest"><i class="fa-solid fa-users"></i><span>Accounts</span></a>
+                
             </li>
-            <li>
-                <a href="#"><i class="fa-regular fa-address-card"></i></i></a>
-                <span>Student Info</span>
+            <li class="info">
+                <a href="/admin/studentInfo"><i class="fa-regular fa-address-card"></i></i><span>Student Info</span></a>
+                
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-user-plus"></i></a>
-                <span>Request</span>
+            <li class="form-req">
+                <a href="/admin/formRequest"><i class="fa-solid fa-user-plus"></i><span>Form Request</span></a>
+                
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-user-graduate"></i></a>
-                <span>Course</span>
+            <li class="cour">
+                <a href="/admin/studentCourse"><i class="fa-solid fa-user-graduate"></i><span>Course</span></a>
+                
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-file-circle-check"></i></a>
-                <span>Enrolled Students</span>
+            <li class="enr">
+                <a href="#"><i class="fa-solid fa-file-circle-check"></i><span>Enrolled Students</span></a>
+                
             </li>
             <li class="logout">
-                <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
-                <span>Logout</span>
+                <a href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+                
             </li>
         </ul>
 </div>

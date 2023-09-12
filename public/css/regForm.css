@@ -1,0 +1,318 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+* input{
+    border-bottom: 2px solid ;
+}
+* label{
+    font-size: 10px;
+}
+
+
+body{
+    display: flex;
+}
+.menu li:hover, .form-req{
+    background: #e0e0e058;
+    cursor: pointer;
+}
+.main--content{
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+.form-background{
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+.the-container{
+    border: 2px solid goldenrod;
+    background: #fff;
+    width: 11in; /* Adjust to fit the width of the paper */
+    height: 7.5in ; /* Adjust to fit the height of the paper */
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 0 auto;
+    
+    
+}
+.second-container{
+    width: 50%;
+    border: 2px solid black;
+    height: 100%;
+    
+}
+.view{
+    height: 100%;
+    width: 50%;
+    border: 2px solid red;
+}
+form{
+    padding: 0 1rem;
+    border: 2px solid black;
+    height: 100%;
+    max-width: 800px;
+}
+.title-form{
+    display: flex;
+}
+.form-logo{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-logo img{
+
+    height: 70px;
+    width: 70px;
+}
+.school-name{
+    width: 85%;
+    text-align: center;
+    padding-top: .5rem;
+    padding-right: 2rem;
+}
+.school-name h3{
+    font-size: 15px;
+}
+.school-name h4{
+    font-size: 14px;
+}
+.school-name p{
+   margin-top: 1rem;
+   font-size: 14px;
+   text-align: center;
+
+    
+}
+.title-2{
+    padding: .5rem;
+    text-align: center;
+    font-size: 13px;
+}
+.name-container{
+    display: flex;
+    margin-left: 1rem;
+}
+.info{
+    display: flex;
+    width: 100%;
+}
+.info input{
+    width: 80px;
+    outline: 0;
+    border-bottom: 2px solid;
+    border-width: 0 0 2px;
+}
+.info label{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.info p{
+    font-size: 10px;
+}
+
+.student-num{
+   margin-left: 1rem;
+    
+}
+.student-num input{
+    width: 140px;
+}
+.course-container{
+    padding-top: .5rem;
+}
+.container-major{
+    width: 100%;
+    display: flex;
+   
+}
+p{
+    font-size: 12px;
+}
+.course{
+    font-size: 12px;
+}
+.course input{
+    outline: 0;
+    border-width: 0 0 2px;
+}
+
+.info2{
+    
+    display: flex;
+}
+.main-container{
+    width: 80%;
+    margin-top: 5px;
+    font-size: 10px;
+    
+}
+
+.major-container input{
+    outline: 0;
+    border-width: 0 0 2px;
+   
+}
+.semester input{
+    outline: 0;
+    border-width: 0 0 2px;
+
+}
+.year-container{
+    margin-top: 5px;
+}
+.main-container p{
+    margin-top: 5px;
+}
+.semester{
+    margin-left: 30px;
+}
+.semester input{
+    width: 20px;
+}
+.student-container{
+    width: 20%;
+}
+.student-status{
+    font-size: 10px;
+}
+.container-year{
+    padding-top: 2px;
+}
+.main-container p{
+    padding-top: 2px;
+    font-size: 10px;
+}
+.table-container{
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.table-container table{
+    width: 100%;
+    border: 1px solid;
+}
+.table-container th{
+    border: 1px solid;
+}
+.huhu td{
+    border: 1px solid;
+}
+
+.approved-container{
+    margin-top: 10px;
+}
+.approved{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.approved input{
+    width: 120px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black;
+   
+}
+.approved label{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+/*** table*----------------------------*/
+
+.main--title{
+    color: rgb(113, 99, 186, 255);
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+.tabular--wrapper{
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+.table--container{
+    max-height: 500px;
+    max-width: 1200px;
+    overflow: auto;
+    font-size: 12px;
+}
+.table--container table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table--container thead{
+    background: rgb(113, 99, 186, 255);
+    color: #fff;
+    min-width: 200px;
+    
+    
+}
+.table--container th{
+    padding: 15px;
+    text-align: left;
+}
+#hehe td{
+    min-width: 200px;
+    padding-left: 1rem;
+}
+/* thead, th,td{
+    border: 2px solid red;
+    min-width: 200px;
+    text-align: center;
+} */
+
+.table--container tbody{
+    background: #f2f2f2;
+}
+.table--container td{
+    padding: 5px;
+    font-size: 12px;
+    color: #333;
+}
+.table--container tr:nth-child(even) {
+    background: #fff;
+}
+.table--container tfoot{
+    background-color: rgb(113, 99, 186, 255);
+    font-weight: bold;
+    color: #fff;
+}
+.table--container tfoot td{
+    padding: 15px;
+}
+.table--container #print{
+    color:green;
+    background: none;
+    cursor: pointer;
+
+}
+
+
+/******print********************************/
+
+@media print{
+  .sidebar{
+    display: none;
+  }
+  .tabular--wrapper{
+    display: none;
+  }
+  .form-background{
+    padding: 0;
+    margin-top: 0;
+  }
+  
+}

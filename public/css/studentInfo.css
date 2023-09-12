@@ -1,5 +1,4 @@
-/********************main-content*****************/
-.menu li:hover, .active{
+.menu li:hover, .info{
     background: #e0e0e058;
     cursor: pointer;
 }
@@ -54,103 +53,13 @@
 .search--box i:hover{
     transform: scale(1.2);
 }
+/**********table*********************/
 
-
-/********** card container**************/
-
-.card-container{
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-}
-.card--wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: .5rem;
-}
 .main--title{
     color: rgb(113, 99, 186, 255);
     padding-bottom: 10px;
     font-size: 15px;
 }
-.enrolled--card{
-    background: rgb(229, 223, 223);
-    border-radius: 10px;
-    padding: 1.2rem;
-    width: 250px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.5s ease-in-out;
-}
-.enrolled--card:hover{
-    transform: translateY(-5px);
-}
-.card--header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.enrolled{
-    display: flex;
-    flex-direction: column;
-}
-.title{
-    font-size: 14px;
-    font-weight: 200;
-}
-.enrolled--student{
-    font-size: 24px;
-    font-family: "Courier New", Courier, monospace;
-}
-.icon{
-    color: #fff;
-    padding: 1rem;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    background: rgb(36, 163, 36);
-}
-.card--details{
-    font-size: 12px;
-    color: #777777;
-    letter-spacing: 1px;
-    font-family: "Courier New", Courier, monospace;
-}
-/*****color css**********/
-
-.light-red{
-    background: rgb(251, 233, 233);
-}
-.light-purple{
-    background: rgb(254, 226, 254);
-}
-.light-green{
-    background: rgb(235, 254, 235);
-}
-.light-blue{
-    background: rgb(236, 226, 254);
-}
-.dark-red{
-    background: red;
-}
-.dark-purple{
-    background: purple;
-}
-.dark-green{
-    background: green;
-}
-.dark-blue{
-    background: blue;
-}
-
-/**********table ssection******/
-
 .tabular--wrapper{
     background: #fff;
     margin-top: 1rem;
@@ -158,9 +67,10 @@
     padding: 2rem;
 }
 .table-container{
-    width: 100%;
-    max-height: 300px;
+    max-height: 500px;
+    max-width: 1200px;
     overflow: auto;
+    font-size: 12px;
 }
 table{
     width: 100%;
@@ -169,18 +79,24 @@ table{
 thead{
     background: rgb(113, 99, 186, 255);
     color: #fff;
+    
 }
 th{
     padding: 15px;
     text-align: left;
+}
+thead th,td{
+    border: 2px solid red;
+    min-width: 200px;
+    text-align: center;
 }
 
 tbody{
     background: #f2f2f2;
 }
 td{
-    padding: 15px;
-    font-size: 14px;
+    padding: 5px;
+    font-size: 12px;
     color: #333;
 }
 tr:nth-child(even) {
@@ -200,10 +116,13 @@ tfoot td{
     cursor: pointer;
     margin-right: 10px;
 }
-.table-container #reject{
+.table-container #remove{
     color:red;
     background: none;
     cursor: pointer;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    font-size: 1rem;
+    padding-left: 13px;
 }
-
-  

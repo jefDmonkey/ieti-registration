@@ -3,10 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acounts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/request.css">
 </head>
 <body>
     <%- include('../sidebar') %>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <!-- <span>All</span> -->
+                <h2>Accounts</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Search" id="myInput" onkeyup="myFunction()">
+                </div>
+                <img src="/images/luffy.png" alt="">
+            </div>
+        </div>
+        <div class="tabular--wrapper">
+            <h3 class="main--title">Accounts Details</h3>
+            <div class="table-container">
+                <table class="list" id="studentInfo">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Fullname</th>
+                            <th>Course</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hehe">
+                        <tr>
+                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
+                            <td>Jefferson M. Garcia</td>
+                            <td>BSIT</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>09338952657</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Male</td>
+                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
+                            <td>Jefferson M. Garcia</td>
+                            <td>BSIT</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>09338952657</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Male</td>
+                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
+                            <td>Jefferson M. Garcia</td>
+                            <td>BSIT</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>09338952657</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Male</td>
+                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
+                            <td>Jefferson M. Garcia</td>
+                            <td>BSIT</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>09338952657</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Male</td>
+                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
+                        </tr>
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="8"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

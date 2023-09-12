@@ -16,7 +16,7 @@
     height: 250px;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(226, 245, 209, 0.6), rgba(0, 0, 0, 0.6));
+    /* background: linear-gradient(rgba(226, 245, 209, 0.6), rgba(0, 0, 0, 0.6)); */
   }
   .logo{
     height: 80%;

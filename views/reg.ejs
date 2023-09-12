@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js "></script>
+<link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css " rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,11 +53,13 @@
         input[type="email"],
         input[type="tel"],
         input[type="date"],
+        input[type=password],
         select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            text-transform: capitalize;
         }
 
         select {
@@ -80,30 +84,101 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        /* .contact-bg{
+  border: 2px solid red;
+  height: 40vh;
+  background: linear-gradient(rgba(139, 106, 68, 0.6), rgba(0, 0, 0, 0.6)), url(/images/bg.jpg) no-repeat;
+  background-position:50% 100%;
+  background-size: 100% 100%;
+  background-attachment:scroll;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact-bg h3{
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.contact-bg h2{
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  letter-spacing: 4px;
+}
+.contact-form{
+    padding: 2rem 0;
+    border-top: 1px solid #c7c7c7;
+}
+.contact-form form{
+    padding-bottom: 1rem;
+}
+.registration-form{
+    width: 100%;
+    border: 1.5px solid #c7c7c7;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+}
+.registration-form:focus{
+    box-shadow: 0 0 6px -3px rgba(48, 48, 48, 1);
+}
+.contact-form form div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.6rem;
+}
+.send-btn{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(to right, rgb(9, 165, 113), rgb(33, 240, 60) );;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.send-btn:hover{
+    opacity: 0.8;
+} */
     </style>
 </head>
 <body>
-    <%- include('navbar') %>
+    <!-- <section class = "contact-section">
+        <div class = "contact-bg">
+          <h3>Get in Touch with Us</h3>
+          <h2>contact us</h2>
+          <div class = "line">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <p class = "text">For Question and Inquiries you can reach us by filling up the forms below or you can call us at our telephone number.</p>
+        </div>
+        </section> -->
     <div class="content">
     <div class="container">
-        <h2>Registration Form</h2>
-        <form action="#" method="post" class="form" onsubmit="event.preventDefault();onFormSubmit()" id="registration-form">
-            <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-            </div>
+        <h2 id="h2">Registration Form</h2>
+        <form action="#" method="post" class="form"  id="registration-form">
             <div class="form-group">
                 <label for="fullname">Full Name:</label>
-                <input type="text" id="fullname" name="fullname" required>
+                <input type="text" id="fullname" name="fullname" >
             </div>
             <!-- <div class="form-group">
                 <label for="course">Course:</label>
-                <input type="text" id="course" name="course" required>
+                <input type="text" id="course" name="course" >
             </div> -->
             <div class="form-group">
                 <label class = "course" for = "course">Course</label>
-                          <select id="course" required>
-                            <option value="please select course!!!">Select Course</option>
+                          <select id="course" >
+                            <option disabled selected>Select Course</option>
                             <option value="bsit">BSIT</option>
                             <option value="bscpe">BSCpE</option>
                             <option value="beed">BEED</option>
@@ -116,29 +191,37 @@
                         </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" >
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" >
             </div>
             <div class="form-group">
                 <label for="contact">Contact Number:</label>
-                <input type="tel" id="contact" name="contact" required>
+                <input type="tel" id="contact" name="contact" >
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+                <input type="text" id="address" name="address" >
             </div>
             <div class="form-group gender">
                 <label>Gender:</label>
-                <input type="radio" id="male" name="gender" value="Male" required>
+                <input type="radio" id="male" name="gender" value="Male" >
                 <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="Female" required>
+                <input type="radio" id="female" name="gender" value="Female" >
                 <label for="female">Female</label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn">Submit</button>
+                <input type="file" style="display: none;" id="file">
+                <img height="100px" width="100px" id="img" src="/user_images/default.jpg" style="object-fit: fill; cursor: pointer;" />
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn">Submit</button>
             </div>
         </form>
     </div>
 </div>
-    <script src="script.js"></script>
+    <script src="/js/reg.js"></script>
 </body>
 </html>

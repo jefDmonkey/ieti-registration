@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Request</title>
+    <link rel="stylesheet" href="/css/regForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%- include('../sidebar') %>
+    
+    <div class="main--content">
+        <div class="tabular--wrapper">
+            <!-- <h3 class="main--title">Student Information</h3> -->
+            <div class="table--container">
+                <table class="list" id="studentInfo">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Students Number</th>
+                            <th>Last Name</th>
+                            <th>MI</th>
+                            <th>First Name</th>
+                            <th>Tel Number</th>
+                            <th>Email</th>
+                            <th>Year</th>
+                            <th>Course</th>
+                            <th>Date Of Birth</th>
+                            <th>Place Of Birth</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                            <th>Sex</th>
+                            <th>Nationality</th>
+                            <th>Provincial Address</th>
+                            <th>Parents or Guardian</th>
+                            <th>Address of Guardian</th>
+                            <th>Occupation of Parents</th>
+                            <th>Tel number of Parents</th>
+
+                        </tr>
+                    </thead>
+                     <tbody id="hehe">
+                        <tr>
+                            <td><Button id="print">Print</Button></td>
+                            <td>123456789</td>
+                            <td>Garcia</td>
+                            <td>M</td>
+                            <td>Jefferson</td>
+                            <td>0985827209</td>
+                            <td>garciajeff2000@gmail.com</td>
+                            <td>4th Year</td>
+                            <td>BSIT</td>
+                            <td>09-15-00</td>
+                            <td>Rosario Pasig City</td>
+                            <td>Magsaysay San Pedro laguna</td>
+                            <td>Single</td>
+                            <td>Male</td>
+                            <td>Korean</td>
+                            <td>Poctol San Juan Batangas</td>
+                            <td>Kieciebelle Rancap</td>
+                            <td>Balagastas Batangas City Batangas</td>
+                            <td>Accountant</td>
+                            <td>09298289543</td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="20"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    <div class="form-background">
+    <div class="the-container">
+    <div class="view">
+        <form action="">
+            <div class="reg-form">
+              <div class="title-form">
+                <div class="form-logo"><img src="/images/logo.png" alt=""></div>
+                <div class="school-name">
+                    <h3>IETI College of science & Technology</h3>
+                    <h4>Magsaysay Ave. Brgy. Magsaysay, San Pedro, Laguna</h4>
+                    <p>COLLEGE OF SCIENCE AND TECHNOLOGY</p>
+                </div>
+              </div>
+             
+             <div class="title-2">
+                    <h3>Registration Card</h3>
+                    <h5>Registrar's Copy</h5>
+              </div>
+
+              <div class="info">
+                <p>PRINT NAME:</p>
+                <div class="name-container">
+                 <div class="fullname">
+                    <input type="text" class="lastname" name="lastname">
+                    <label for="lastname">Family</label>
+                 </div>
+                 <div class="fullname">
+                    <input type="text" class="firstname" name="first">
+                    <label for="first">first</label>
+                 </div>
+                 <div class="fullname">
+                    <input type="text" class="middle" name="middle">
+                    <label for="middle">middle</label>
+                 </div>
+                </div>
+                <div class="student-num">
+                    <input type="text" class="student-number" name="student-number">
+                    <label for="student-number">student number</label>
+                </div>
+              </div>
+              <div class="course-container">
+                <div class="course">
+                    <label for="course">Course/Year Level:</label>
+                    <input type="text" class="course" name="course">  
+                </div>
+              </div>
+              <div class="info2">
+                <div class="main-container">
+                <div class="container-major">
+                <div class="major-container">
+                    <label for="major">Major:</label>
+                    <input type="text" class="major" name="major">
+                </div>
+                <div class="semester">
+                    <input type="text" class="major" name="sem">
+                    <label for="sem">Sem.</label>
+                    <label for="sem">/Summer</label>
+                    <input type="text" class="major" name="sem"> 
+                </div>
+               </div>
+               <div class="year-container">
+                <div class="container-year">
+                    <label for="">Curriculum Year: </label>
+                    <input type="checkbox" id="first" name="first" value="1st">
+                    <label for="first">1st</label>
+                     <input type="checkbox" id="second" name="second" value="2nd">
+                    <label for="second">2nd</label>
+                    <input type="checkbox" id="third" name="third" value="3rd">
+                    <label for="third">3rd</label>
+                    <input type="checkbox" id="fourth" name="fourth" value="4th">
+                   <label for="fourth">4th</label>
+                    </div>
+                </div>
+                <p>Credential Submitted: ( )form 138 ( )BC ( )Copy of Grades ( )Others</p>
+               </div>
+               <div class="student-container">
+                <div class="student-status">
+                    
+                    <input type="checkbox" id="new" name="new" value="new">
+                    <label for="new"> New</label><br>
+                    <input type="checkbox" id="re-enrollee" name="re-enrollee" value="Re-enrolle">
+                    <label for="re-enrollee"> Re-enrollee</label><br>
+                    <input type="checkbox" id="cross-enrollee" name="cross-enrollee" value="cross-enrollee">
+                    <label for="cross-enrollee"> Cross-enrollee</label>
+                    
+                  </div>
+               </div>
+            </div>
+            <div class="table-container">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Unit</th>
+                            <th>Time</th>
+                            <th>Days</th>
+                            <th>Room</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="huhu">
+                        <tr>
+                            <td>Math 101</td>
+                            <td>3</td>
+                            <td>9:00 AM</td>
+                            <td>Monday, Wednesday</td>
+                            <td>203</td>
+                            <td>Prof. Smith</td>
+                        </tr>
+                        <tr>
+                            <td>History 201</td>
+                            <td>4</td>
+                            <td>2:00 PM</td>
+                            <td>Tuesday, Thursday</td>
+                            <td>105</td>
+                            <td>Dr. Johnson</td>
+                        </tr>
+                        <tr>
+                            <td>Biology 120</td>
+                            <td>4</td>
+                            <td>11:30 AM</td>
+                            <td>Monday, Friday</td>
+                            <td>301</td>
+                            <td>Dr. Davis</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>3</td>
+                            <td>1:30 PM</td>
+                            <td>Wednesday, Friday</td>
+                            <td>201</td>
+                            <td>Prof. Brown</td>
+                        </tr>
+                        <tr>
+                            <td>English 101</td>
+                            <td>3</td>
+                            <td>10:15 AM</td>
+                            <td>Tuesday, Thursday</td>
+                            <td>102</td>
+                            <td>Prof. White</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="approved-container">
+                <p>Approved:</p>
+                <div class="approved">
+                    <div class="pirma">
+                    <input type="text" id="first" name="first">
+                    <label for="first">College Head</label>
+                </div>
+                <div class="pirma">
+                     <input type="text" id="second" name="second">
+                    <label for="second">Registrar</label>
+                </div>
+                <div class="pirma">
+                    <input type="text" id="third" name="third">
+                    <label for="third">Date of Registration</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+<!-- -------------------------------------------------second container ***********************************************-->
+    <div class="second-container">
+        <form action="">
+            <div class="reg-form">
+              <div class="title-form">
+                <div class="form-logo"><img src="/images/logo.png" alt=""></div>
+                <div class="school-name">
+                    <h3>IETI College of science & Technology</h3>
+                    <h4>Magsaysay Ave. Brgy. Magsaysay, San Pedro, Laguna</h4>
+                    <p>COLLEGE OF SCIENCE AND TECHNOLOGY</p>
+                </div>
+              </div>
+             
+             <div class="title-2">
+                    <h3>Registration Card</h3>
+                    <h5>College Head's Copy</h5>
+              </div>
+
+              <div class="info">
+                <p>PRINT NAME:</p>
+                <div class="name-container">
+                 <div class="fullname">
+                    <input type="text" class="lastname" name="lastname">
+                    <label for="lastname">Family</label>
+                 </div>
+                 <div class="fullname">
+                    <input type="text" class="firstname" name="first">
+                    <label for="first">first</label>
+                 </div>
+                 <div class="fullname">
+                    <input type="text" class="middle" name="middle">
+                    <label for="middle">middle</label>
+                 </div>
+                </div>
+                <div class="student-num">
+                    <input type="text" class="student-number" name="student-number">
+                    <label for="student-number">student number</label>
+                </div>
+              </div>
+              <div class="course-container">
+                <div class="course">
+                    <label for="course">Course/Year Level:</label>
+                    <input type="text" class="course" name="course">  
+                </div>
+              </div>
+              <div class="info2">
+                <div class="main-container">
+                <div class="container-major">
+                <div class="major-container">
+                    <label for="major">Major:</label>
+                    <input type="text" class="major" name="major">
+                </div>
+                <div class="semester">
+                    <input type="text" class="major" name="sem">
+                    <label for="sem">Sem.</label>
+                    <label for="sem">/Summer</label>
+                    <input type="text" class="major" name="sem"> 
+                </div>
+               </div>
+               <div class="year-container">
+                <div class="container-year">
+                    <label for="">Curriculum Year: </label>
+                    <input type="checkbox" id="first" name="first" value="1st">
+                    <label for="first">1st</label>
+                     <input type="checkbox" id="second" name="second" value="2nd">
+                    <label for="second">2nd</label>
+                    <input type="checkbox" id="third" name="third" value="3rd">
+                    <label for="third">3rd</label>
+                    <input type="checkbox" id="fourth" name="fourth" value="4th">
+                   <label for="fourth">4th</label>
+                    </div>
+                </div>
+                <p>Credential Submitted: ( )form 138 ( )BC ( )Copy of Grades ( )Others</p>
+               </div>
+               <div class="student-container">
+                <div class="student-status">
+                    
+                    <input type="checkbox" id="new" name="new" value="new">
+                    <label for="new"> New</label><br>
+                    <input type="checkbox" id="re-enrollee" name="re-enrollee" value="Re-enrolle">
+                    <label for="re-enrollee"> Re-enrollee</label><br>
+                    <input type="checkbox" id="cross-enrollee" name="cross-enrollee" value="cross-enrollee">
+                    <label for="cross-enrollee"> Cross-enrollee</label>
+                    
+                  </div>
+               </div>
+            </div>
+            <div class="table-container">
+                <table border="1" class="form-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Unit</th>
+                            <th>Time</th>
+                            <th>Days</th>
+                            <th>Room</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="huhu">
+                        <tr>
+                            <td>Math 101</td>
+                            <td>3</td>
+                            <td>9:00 AM</td>
+                            <td>Monday, Wednesday</td>
+                            <td>203</td>
+                            <td>Prof. Smith</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>History 201</td>
+                            <td>4</td>
+                            <td>2:00 PM</td>
+                            <td>Tuesday, Thursday</td>
+                            <td>105</td>
+                            <td>Dr. Johnson</td>
+                        </tr>
+                        <tr>
+                            <td>Biology 120</td>
+                            <td>4</td>
+                            <td>11:30 AM</td>
+                            <td>Monday, Friday</td>
+                            <td>301</td>
+                            <td>Dr. Davis</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>3</td>
+                            <td>1:30 PM</td>
+                            <td>Wednesday, Friday</td>
+                            <td>201</td>
+                            <td>Prof. Brown</td>
+                        </tr>
+                        <tr>
+                            <td>English 101</td>
+                            <td>3</td>
+                            <td>10:15 AM</td>
+                            <td>Tuesday, Thursday</td>
+                            <td>102</td>
+                            <td>Prof. White</td>
+                        </tr>
+                        <tr>
+                            <td>Math 101</td>
+                            <td>3</td>
+                            <td>9:00 AM</td>
+                            <td>Monday, Wednesday</td>
+                            <td>203</td>
+                            <td>Prof. Smith</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Math 101</td>
+                            <td>3</td>
+                            <td>9:00 AM</td>
+                            <td>Monday, Wednesday</td>
+                            <td>203</td>
+                            <td>Prof. Smith</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Math 101</td>
+                            <td>3</td>
+                            <td>9:00 AM</td>
+                            <td>Monday, Wednesday</td>
+                            <td>203</td>
+                            <td>Prof. Smith</td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="approved-container">
+                <p>Approved:</p>
+                <div class="approved">
+                    <div class="pirma">
+                    <input type="text" id="first" name="first">
+                    <label for="first">College Head</label>
+                </div>
+                <div class="pirma">
+                     <input type="text" id="second" name="second">
+                    <label for="second">Registrar</label>
+                </div>
+                <div class="pirma">
+                    <input type="text" id="third" name="third">
+                    <label for="third">Date of Registration</label>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
