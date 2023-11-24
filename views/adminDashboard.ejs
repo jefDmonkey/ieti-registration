@@ -63,7 +63,7 @@
                             <span class="title">
                                 Registered Students
                             </span>
-                            <span class="enrolled--student">0</span>
+                            <span class="enrolled--student" id="account-label"><%= numberofAccounts %></span>
                         </div>
                         <i class="fa-solid fa-users icon dark-purple"></i>
                     </div>
@@ -119,7 +119,7 @@
                         <% }) %>
                         <% }else{ %>
                         <tr>
-                            <td colspan="8"><h1 style="text-align: center;">NO DATA TO DISPLAY</h1></td>
+                            <td colspan="8"><h3 style="text-align: center;">NO DATA TO DISPLAY</h3></td>
                         </tr>
                         <% } %>
                     </tbody>

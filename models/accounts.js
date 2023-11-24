@@ -1,3 +1,5 @@
+//1st step
+
 const { sequelize } = require("../config/db")
 const { DataTypes } = require("sequelize")
 
@@ -5,12 +7,10 @@ const AccountsModel = sequelize.define("accounts",
 {
     id: {
         type: DataTypes.UUID,
-
         primaryKey: true
     },
-    date: {
-        type: DataTypes.DATEONLY,
-        defaultValue: sequelize.literal("NOW()")
+    image: {
+        type: DataTypes.STRING
     },
     fullname: {
         type: DataTypes.STRING(255)

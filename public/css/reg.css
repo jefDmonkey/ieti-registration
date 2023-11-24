@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+.content{
+   
+    margin: 2rem auto;
+    width: 90vw;
+    
+}
+.nav-links .register{
+    background-color: #347C17;
+    
+}
+.nav-links .register a{
+    color: white;
+}
+
+.container {
+   
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+}
+.form{
+    padding-right: 1rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.gender{
+    display: flex;
+    justify-content: space-around;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type=password],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="text"]{
+    text-transform: capitalize;
+}
+ 
+
+select {
+    height: 40px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

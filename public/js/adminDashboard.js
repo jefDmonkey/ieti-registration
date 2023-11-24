@@ -1,5 +1,7 @@
 // $(function () {
 //     $("tbody#hehe").on("click", "button#reject", function(e) {
+
+
  
 //         const id = $(this).attr("data-id")
 //         const current = $(this)
@@ -90,26 +92,46 @@ $(function () {
               console.log(error);
             },
           });
-        } else if (
-          /* User clicked the "Cancel" button */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            "Cancelled",
-            "Student Request is safe :)",
-            "error"
-          );
-        }
+        } 
       });
   });
+
+  //2nd step
 
   $("tbody#hehe").on("click", "button#accept", function (e) {
     const id = $(this).attr("data-id");
     const current = $(this);
 
-    alert(id);
+    $.ajax({
+      type: "POST",
+      url: `/admin/postRequest?id=${id}`,
+      success: (res) => {
+        if(!res.operation) return alert("Something went wrong")
+
+        current.closest("tr").remove();
+        $("span#request-label").text(res.numberOfRequests);
+        $("span#account-label").text(res.numberofAccounts);
+        if (res.numberOfRequests <= 0) {
+          $("tbody").html(`
+            <tr>
+                <td colspan="8"><h1 style="text-align: center;">NO DATA TO DISPLAY</h1></td>
+            </tr>
+          `);
+        }
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Student Request Accepted'
+        })
+      },
+      error: (error) => {
+        alert("Server Error")
+        console.log(error)
+      }
+    })
   });
-});
+
+  });
 
 
 function myFunction() {

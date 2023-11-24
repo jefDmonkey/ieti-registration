@@ -18,6 +18,7 @@ const upload = multer({
  })
 const bcrypt = require("bcryptjs")
 const fs = require("fs/promises")
+const AccountsModel = require("../models/accounts")
 
 // BROWSER URL: /admin
 router.get("/", (req, res) =>{
@@ -25,8 +26,14 @@ router.get("/", (req, res) =>{
 })
 
 // BROWSER URL: /admin/adminRequest
-router.get("/adminRequest", (req, res) => {
-    res.render('admin/adminRequest.ejs')
+router.get("/adminRequest", async(req, res) => {
+   const accounts = await AccountsModel.findAll({raw: true});
+   const profile = await AccountsModel.findAll({raw: true})
+    res.render('admin/adminRequest.ejs', 
+    {
+        accounts
+    })
+    console.log(accounts)
 })
 
 router.get("/studentCourse", (req, res) =>{
@@ -41,24 +48,46 @@ router.get("/studentInfo", (req, res) => {
     res.render('admin/studentInfo')
 })
 
+//3rd steps
+//endpoint
+router.post('/postRequest', async(req, res) => {
+    try {
+        // GET THE ID
+        const { id } = req.query
+        // GET THE RECORD 
+        const user = await RequestModel.findByPk(id, {raw: true}) ;
+        //INSERT TO ACCOUNT
+        await AccountsModel.create({
+            ...user,
+            image: user.user_image
+        });
+        await RequestModel.destroy({ where: { id } })
+        const request = await RequestModel.findAll({ raw: true })
+        const accounts =  await AccountsModel.findAll({raw: true})
+        res.json({operation: true , numberOfRequests: request.length, numberofAccounts: accounts.length })
+    } catch (error) {
+        console.log(error)
+        res.json({ operation: false })
+    }
+})
+
 
 // BROWSER URL: /admin/adminRequest
 router.delete('/deleteRequest', async(req, res) => {
     try {
+        // GET THE ID
         const { id } = req.query
 
+        //DELETE PICTURE
         const user = await RequestModel.findByPk(id, { raw: true })
-
-        console.log(user)
-
         const fileLocation = `${process.cwd()}/public/${user.user_image}`
-
         await fs.unlink(fileLocation)
 
+        //DELETE RECORD
         await RequestModel.destroy({ where: { id } })
-
         const requests = await RequestModel.findAll({ raw: true })
 
+        //rESPONSE
         res.json({ operation: true, numberOfRequests: requests.length })
     } catch (error) {
         console.log(error)
@@ -82,7 +111,7 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
             gender: chosenGender,
             user_image: `/user_images/${filename}`
         })
-        res.json({ operation: true })
+        res.json({ operation: true })//heheh
     } catch (error) {
         res.json({ operation: false })
         console.log(error)

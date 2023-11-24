@@ -38,6 +38,10 @@ const FirstYearModel = sequelize.define("course_subject_1styear", {
     "BSED-MATH": {
         type: DataTypes.BOOLEAN,
         defaultValue: false
+    },
+    Semester: {
+        type: DataTypes.INTEGER
+ 
     }
 })
 

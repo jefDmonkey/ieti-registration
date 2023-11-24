@@ -71,7 +71,11 @@
     max-width: 1200px;
     overflow: auto;
     font-size: 12px;
+    transition: all .6s ease-in-out;
 }
+/* .sidebar:hover ~ .main--content .table-container {
+    max-width: 1075px
+} */
 table{
     width: 100%;
     border-collapse: collapse;

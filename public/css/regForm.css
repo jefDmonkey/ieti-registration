@@ -23,6 +23,8 @@ body{
     background: #ebe9e9;
     width: 100%;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 .form-background{
     background: #fff;
@@ -31,7 +33,7 @@ body{
     margin-top: 1rem;
 }
 .the-container{
-    border: 2px solid goldenrod;
+
     background: #fff;
     width: 11in; /* Adjust to fit the width of the paper */
     height: 7.5in ; /* Adjust to fit the height of the paper */
@@ -44,18 +46,16 @@ body{
 }
 .second-container{
     width: 50%;
-    border: 2px solid black;
     height: 100%;
     
 }
 .view{
     height: 100%;
     width: 50%;
-    border: 2px solid red;
+    
 }
 form{
     padding: 0 1rem;
-    border: 2px solid black;
     height: 100%;
     max-width: 800px;
 }
@@ -148,19 +148,18 @@ p{
 }
 
 .info2{
-    
     display: flex;
 }
 .main-container{
     width: 80%;
     margin-top: 5px;
     font-size: 10px;
-    
 }
 
 .major-container input{
     outline: 0;
-    border-width: 0 0 2px;
+    /* border-width: 0 0 2px; */
+    width: 150px;
    
 }
 .semester input{
@@ -175,7 +174,7 @@ p{
     margin-top: 5px;
 }
 .semester{
-    margin-left: 30px;
+    margin-left: 60px;
 }
 .semester input{
     width: 20px;
@@ -314,5 +313,817 @@ p{
     padding: 0;
     margin-top: 0;
   }
-  
+  .ibabako{
+    margin-top: 5rem;
+  }
+  /* .last--form{
+    margin-top: 5rem;
+  } */
+  * input{
+    font-size: 10px;
+  }
+ 
+}
+
+
+/*---------------------form 2-----------------------*/
+
+
+* .super--container label{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+* .super--container p{
+    font-size: 11px;
+}
+*.super--container input{
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: black;
+}
+
+.super--container{
+    width: 11in;
+    height: 7.5in;
+    margin: 0 auto;
+    display: flex;
+}
+.form1{
+
+    width: 50%;
+    height: 100%;
+    padding-right: 2rem;
+}
+.form2{
+   
+    width: 50%;
+    height: 100%;
+    padding-left: 2rem; 
+}
+.title--container{
+    text-align: center;   
+}
+.title--container p{
+    padding-top: .5rem;
+    text-decoration: underline;
+}
+.name-info{
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+}
+.print-name{
+    width: 20%;
+   
+}
+.name-container{
+    width: 80%;
+    display: flex;
+    margin-left: 1rem;
+}
+.fullnames{
+    width: 50%;
+    text-align: center;
+}
+.name-container label{
+    text-transform: uppercase;
+    font-size: 9px;
+}
+.name-container input{
+    outline: none;
+    border-color: black;
+    border-width: 0 0 2px;
+    width: 100%;
+    display: block;
+}
+.student--number{
+    width: 30%;
+    text-align: center;
+    margin-left: 1rem;
+}
+.student--number input{
+    width: 80px;
+    display: block;
+    width: 100%;
+    outline: none;
+    border-color: black;
+    border-width: 0 0 2px;
+}
+.student--number label{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 9px;
+   
+}
+
+/*info2-container----------------*/
+
+.info2-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info2-container label{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.info2-container input{
+    width: 100px;
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: black;
+}
+
+/*info3-container------------------*/
+
+.info3-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info3-container label{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.national input{
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: black;
+    width: 80px;
+}
+.PoB input{
+    width: 230px;
+}
+
+/*info4-container------------------------*/
+
+.info4-container{
+    display: flex;
+    margin-top: .5rem;
+    justify-content: space-between;
+}
+.info4-container label{
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.address-container input{
+    width: 295px;
+    border-width: 0 0 2px;
+    border-color: black;
+    outline: none;
+}
+.tel-container input{
+    width: 89px;
+    border-width: 0 0 2px;
+    border-color: black;
+    outline: none;
+}
+
+/*info5-container------------------------*/
+
+.info5-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.email-container input{
+    width: 250px;
+}
+.religion-container input{
+    width: 140px;
+}
+
+/*info6-container------------------------*/
+
+.info6-container{
+    margin-top: .5rem;
+}
+.provincial-container input{
+    width: 365px;
+}
+
+/*info7-container------------------------*/
+
+.info7-container{
+    margin-top: .5rem;
+    display: flex;
+}
+.parents-container input{
+    width: 200px;
+}
+.occupation-container input{
+    width: 95px;
+}
+
+/*INFO 8 ---------------*/
+
+.tel-container1 input{
+   width: 89px;
+}
+.tel-container1 label{
+    font-size: 9px;
+}
+.address-container2 input{
+    width: 260px;
+}
+
+/*/////info 9--------------*/
+
+.info9-container{
+    margin-top: .5rem;
+}
+.job-container input{
+    width: 270px;
+}
+.employers-container{
+    margin-top: .5rem;
+}
+.employers-container input{
+    width: 365px;
+}
+
+/*info10 ----------------------*/
+
+.info10-container{
+    margin-top: .5rem;
+}
+.scholar-container{
+    margin-top: .5rem;
+}
+.scholar-container input{
+    width: 225px;
+}
+
+/*acdemic--------------------------------*/
+
+.academic-container{
+    margin-top: 1rem;
+}
+.academic-title h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.academics{
+    margin-top: 1rem;
+}
+.academic{
+    display: grid;
+    position: relative;
+    grid-template-columns: 20% 50% 10% 20%;
+}
+.input-container input{
+    width: 95%;
+}
+.yearInput-container input{
+   width: 70px;
+}
+.studentSignature{
+    margin-top: 2rem;
+    float: right;
+    text-align: center;
+}
+.studentSignature input{
+    display: block;
+}
+
+
+/*form3-----------------------------------------------*/
+.instibidow{
+    height: 880px;
+}
+.form3--container{
+    display: flex;
+    padding: 0;
+    background: #fff;
+    width: 11in; /* Adjust to fit the width of the paper */
+    height: 7.5in ; /* Adjust to fit the height of the paper */
+   margin: 0 auto;
+}
+.form--one{
+    width: 50%;
+    padding: 0;
+    padding-right: 1rem;
+}
+.form--two{
+    width: 50%;
+    padding: 0;
+    padding-left: 1rem;
+}
+.header--container{
+    display: flex;
+    gap: 1rem;
+}
+.header--container .title--container{
+    text-transform: capitalize;
+}
+.title--container{
+    text-transform: uppercase;
+}
+.title--container h4{
+    font-size: 12px;
+}
+.card--title{
+    text-align: center;
+    position: relative;
+    height: 75px
+}
+.card--title h3{
+    text-transform: uppercase;
+}
+.card--title p{
+    text-transform: capitalize;
+}
+.control--container {
+   position: absolute;
+   right: 0;
+   text-transform: capitalize;
+}
+.control--container input{
+    width: 130px;
+}
+.fullname--container{
+    display: grid;
+    text-transform: uppercase;
+    grid-template-columns: 18% 62% 20%;
+}
+.name--container{
+    display: flex;
+}
+.name--container input{
+    display: block;
+    width: 100px;
+}
+.student--container input{
+    display: block;
+    width: 100px;
+}
+.course--container{
+    text-transform: capitalize;
+
+}
+
+/*form 1 table*/
+
+.table1{
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 40% 10% 30% 20%; /* Create 3 columns with equal width */
+     /* Add a border for the table */
+}
+.table1 .row{
+    display: grid;
+    grid-template-rows: 40px 20px 20px 20px 20px 20px 20px 20px  20px 20px 20px 20px 20px  /* Match the number of columns in the table */
+}
+.table1 .cell{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.footer-container{
+    display: flex;
+}
+.footer-container{
+    padding-top: 1.3rem;
+    display: flex;
+    font-size: 13px;
+}
+
+.aprroved--container{
+    width: 40%;
+    font-size: 13px;
+}
+
+.approve{
+    margin-bottom: 15px;
+
+}
+
+.head--name{
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 5px;
+}
+.line{
+    border: 1px solid;
+}
+.date--container{
+    padding-top: 5px;
+}
+.date--container input{
+    width: 130px;
+}
+.total--container{
+    padding-left: 1rem;
+    width: 60%;
+}
+.footers--last{
+    display: flex;
+    text-transform: capitalize;
+    height: 120px;
+    justify-content: space-between;
+    padding-top: 10px;
+    
+}
+.total{
+    text-transform: uppercase;
+    margin-top: 40px;
+    
+}
+.total{
+    text-transform: uppercase;
+    margin-top: 40px;
+    
+}
+.payment--container{
+    height: 135px;
+}
+.pesos{
+    height: 135px;
+}
+
+/*form3 2*/
+
+
+.container--major{
+    display: flex;
+    gap: 1rem;
+}
+.container--major input{
+    width: 100px;
+}
+.semesterist input{
+    width: 30px;
+}
+.year-containerist p{
+    font-size: 10px;
+}
+
+/*table form 3 2*/
+
+
+.tabletwo{
+    display: grid;
+    grid-template-columns: 30% 10% 15% 10% 15% 20%;
+    text-align: center;
+}
+.tabletwo .row{
+    display: grid;
+    grid-template-rows: 40px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+}
+.tabletwo .cell{
+    border: 1px solid black;
+    text-align: center;
+}
+
+/*lastt-------------------------------------*/
+
+.last--container{
+    font-size: 13px;
+    width: 11in;
+    height: 7.5in;
+    display: flex;
+    margin: 0 auto;
+}
+.container--boxes{
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+}
+.last--form{
+    width: 50%;
+    padding-right: 1rem;
+}
+.first--box{
+    border: 1px solid black;
+    text-align: center;
+}
+.first--box h3{
+    text-transform: uppercase;
+}
+.payments{
+    padding-top:5px ;
+    display: flex;
+    justify-content: space-between;
+}
+.content--one{
+    text-align: left;
+}
+.content--one h5{
+    padding-top: 20px;
+    text-transform: uppercase; 
+    font-weight: none;
+}
+.content--two{
+    height: 100px;
+    padding-right: 4px;
+    
+}
+.second--box{
+    border: 1px solid black;
+}
+.second--box h3{
+    text-align: center;
+    text-transform: uppercase;
+}
+.third--box{
+ padding-left: .5rem;
+}
+.down{
+    padding-top: 1rem;
+}
+.Cash{
+    padding-top: 1rem;
+}
+.payment--two{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+.box--third h3{
+    text-align: center;
+}
+.cont{
+    display: flex;
+
+}
+.box--third{
+    border: 1px solid black;
+}
+.ewan{
+    width: 100px;
+    height: 70px;
+    position: relative;
+}
+.ewanko{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.nakakapusa{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fullname--container{
+    display: grid;
+    padding-top: 1rem;
+    grid-template-columns: 20% 80%;
+}
+.fullname--container label{
+    text-transform: uppercase;
+}
+.name--container{
+    display: flex;
+}
+.name--container input{
+    display: block;
+    width: 135px;
+    outline: none;
+    border-width: 0 0 2px;
+}
+
+.print--name p{
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.instruction--container{
+    height: 530px;
+    padding-left: 1rem;
+    
+}
+.instruction--container h3{
+    padding-top: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.container--paragraph ol{
+    padding-left: 2rem;
+    font-size: 11px;
+}
+.container--paragraph li{
+    padding-top: 5px;
+}
+
+/*super last*************************************/
+
+.cashiersCopy{
+    padding-left: 1rem;
+    width: 50%;
+}
+.cashiersCopy label{
+    text-transform: uppercase;
+}
+.title--two h3{
+    text-align: center;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+.curriculums--container{
+    display: flex;
+    width: 100%;
+}
+.cur{
+    width: 35%;
+}
+.taon{
+    width: 65%;
+    padding-left: 2rem;
+}
+.cur input{
+    width: 80px;
+}
+.taon input{
+    width: 45px;
+}
+.taon #fourth{
+    width: 50px;
+}
+
+.fullnames--container{
+    display: grid;
+    padding-top: 10px;
+    grid-template-columns: 18% 62% 20%;
+}
+.names--container{
+    display: flex;
+}
+.names--container input{
+    display: block;
+    width: 100px;
+}
+
+.Students--container input{
+    display: block;
+    width: 100px;
+}
+.printing--name p{
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.info2-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info2-container label{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.info2-container input{
+    width: 100px;
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: black;
+}
+
+/*info3-container------------------*/
+
+.info3-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.info3-container label{
+    font-size: 11px;
+    text-transform: uppercase;
+}
+.national input{
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: black;
+    width: 80px;
+}
+.PoB input{
+    width: 230px;
+}
+
+/*info4-container------------------------*/
+
+.info4-container{
+    display: flex;
+    margin-top: .5rem;
+    justify-content: space-between;
+}
+.info4-container label{
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.address-container input{
+    width: 295px;
+    border-width: 0 0 2px;
+    border-color: black;
+    outline: none;
+}
+.tel-container input{
+    width: 89px;
+    border-width: 0 0 2px;
+    border-color: black;
+    outline: none;
+}
+
+/*info5-container------------------------*/
+
+.info5-container{
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.email-container input{
+    width: 250px;
+}
+.religion-container input{
+    width: 140px;
+}
+
+/*info6-container------------------------*/
+
+.info6-container{
+    margin-top: .5rem;
+}
+.provincial-container input{
+    width: 365px;
+}
+
+/*info7-container------------------------*/
+
+.info7-container{
+    margin-top: .5rem;
+    display: flex;
+}
+.parents-container input{
+    width: 200px;
+}
+.occupation-container input{
+    width: 95px;
+}
+
+/*INFO 8 ---------------*/
+
+.tel-container1 input{
+   width: 89px;
+}
+.tel-container1 label{
+    font-size: 9px;
+}
+.address-container2 input{
+    width: 260px;
+}
+
+/*/////info 9--------------*/
+
+.info9-container{
+    margin-top: .5rem;
+}
+.job-container input{
+    width: 270px;
+}
+.employers-container{
+    margin-top: .5rem;
+}
+.employers-container input{
+    width: 365px;
+}
+
+/*info10 ----------------------*/
+
+.info10-container{
+    margin-top: .5rem;
+}
+.scholar-container{
+    margin-top: .5rem;
+}
+.scholar-container input{
+    width: 225px;
+}
+
+/*student pledge*------------------------------d*/
+
+
+.student-pledge{
+    padding-top: .5rem;
+    text-align: center;
+}
+.student-pledge h3{
+    text-transform: uppercase;
+}
+.authorize{
+    padding-top: .5rem;
+    text-transform: uppercase;
+    text-align: justify;
+    
+}
+
+.students-signature{
+    padding-top: .5rem;
+    display: block;
+    float: right;
+    text-align: center;
+}
+.students-signature input{
+    display: block;
+    width: 200px;
 }

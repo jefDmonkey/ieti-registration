@@ -70,51 +70,307 @@
     max-height: 500px;
     overflow: auto;
 }
-table{
+.table-container table{
     width: 100%;
     border-collapse: collapse;
 }
-thead{
+.ulo{
     background: rgb(113, 99, 186, 255);
     color: #fff;
 }
-th{
+.ulo th{
     padding: 15px;
-    text-align: left;
 }
 
 tbody{
     background: #f2f2f2;
 }
-td{
+#hehe td{
     padding: 15px;
     font-size: 14px;
     color: #333;
 }
+#hehe img{
+   height: 50px;
+   width: 50px; 
+}
+.table-container .action-table{
+    height: 100%;
+    padding: 15px;
+}
 tr:nth-child(even) {
     background: #fff;
 }
-tfoot{
+.paa{
     background-color: rgb(113, 99, 186, 255);
     font-weight: bold;
     color: #fff;
 }
-tfoot td{
+.paa td{
     padding: 15px;
 }
-.table-container #accept{
-    color:green;
-    background: none;
-    cursor: pointer;
-    margin-right: 10px;
+.action-table{
+    height: 100%;
 }
-.table-container #remove{
+
+.action-table #view{
+    cursor: pointer;
+    padding-left: 10px;
+    font-size: 16px;
+    background: none;
+}
+.action-table #remove{
     color:red;
     background: none;
     cursor: pointer;
-    display: flex;
-    align-items: center ;
-    justify-content: center;
-    font-size: 1rem;
-    padding-left: 13px;
+    font-size: 16px;
+    padding-left: 15px;
 }
+
+/*popup form*-------------------------------------*/
+
+.for-popup{
+    display: none;
+    position: fixed;
+    inset:0;
+    z-index: 9;
+    min-height: 97vh;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+        }
+        .container-ko {
+            margin: 0 auto;
+            max-width:80vw;
+            display: flex;
+            padding: 1rem;
+            border: 2px solid #ccc;
+            gap: 1rem;
+            max-height: 650px;
+            border-radius: 10px;
+            background: #fff;
+            
+        }
+        .container-1{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 1rem;
+            gap: .5rem;
+            background: #fff;
+        }
+
+        .profile {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            max-width: 100%;
+            height: 170px;  
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 10px;
+            background: #fff;
+        }
+        .stud-name{
+            height: 80%;
+            padding: .5rem;
+            font-size: 12px;
+            width: 33%;
+            text-align:left;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-evenly;
+        }
+        .stud-course{
+            height: 80%;
+            width: 33%;
+            padding: .5rem;
+            font-size: 12px;
+            text-align:left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .profile-header{
+            font-size: 10px;
+            width: 33%;
+            height: 100%;
+            padding: 0 .5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+        .profile-header img{
+            height: 140px;
+            width: 140px;
+        }
+        .profile-header h1{
+            font-size: 15px;
+            
+            margin: 0;
+        }
+        .subjects {
+            clear: both;
+            width: 50%;
+            border: 1px solid #ccc;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        .notes-container{
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            background: #e3e79a3d;
+            border-color: #afb35cf6;
+        }
+        .notes-container p{
+            margin: 0;
+            font-size: 12px;
+            padding: .5rem;
+        }
+        .notes-container h5{
+            margin: 0;
+            gap: 10px;
+        }
+        .notes-container i{
+            padding-right: 5px;
+            color: red;
+        }
+        .container-ko table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .krung-1 th{
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .krung-2 td{
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+        .taken{
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .taken .easy{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        .taken table{
+            font-size: 13px;
+        }
+        .taken #finish{
+            font-size: 13px;
+            cursor: pointer;
+            padding: 3px;
+            background: none;
+            color: green;
+        }
+        #finish:hover{
+            color: rgb(12, 223, 12);
+        }
+        .taken #drop{
+            color: orange;
+            font-size: 17px;
+            background: none;
+            cursor: pointer;
+        }
+        .taken #drop:hover{
+            color: rgb(239, 218, 28);
+        }
+        .taken #passed{
+            color: green;
+            font-size: 17px;
+            background: none;
+            cursor: pointer;
+        }
+        .taken #passed:hover{
+            color: rgb(12, 223, 12);
+        }
+        .taken #failed{
+            color: red;
+            font-size: 17px;
+            background: none;
+            cursor: pointer;
+        }
+        .taken #failed:hover{
+            color: rgb(234, 98, 40);
+        }
+        .taken h2{
+            font-size: 14px;
+        }
+        .subjects h2{
+            text-align: center;
+        }
+        .subjects h3, table{
+            margin-top:1rem ;
+            text-align: center;
+        }
+        .subjects h4{
+            padding-top: 1rem;
+            font-size: 13px;
+        }
+        .subjects table{
+            font-size: 13px;
+        }
+        .subjects #back{
+            font-size: 40px;
+            color: red;
+            position: absolute;
+            right: 9%;
+            top: 0%;
+            background: none;
+            cursor: pointer; 
+        }
+        .subjects #back:hover{
+            color: rgb(205, 67, 67);
+        }
+        .subjects button{
+            font-size: 17px;
+            cursor: pointer;
+            color: green;
+            background: none;
+        }
+        .subjects button:hover{
+            color: rgb(110, 234, 110);
+        }
+        
+        .line{
+            width: 100%;
+            padding: .5rem;
+            margin-top: 1rem;
+        }
+        .linya{
+            width: 100%;
+            border-top: 1px solid #c7c7c7;
+        }
+        select{
+            cursor: pointer;
+        }
+        
+        select option:first-child{
+            color: green;
+        }
+        select option:nth-child(2){
+            color: orange;
+        }
+        select option:nth-child(3){
+            color: red;
+        }

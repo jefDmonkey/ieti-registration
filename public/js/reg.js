@@ -51,16 +51,20 @@ $(function() {
             })
          
         }
+        const capitalizedFullname = fullname.val().toUpperCase();
+        const capitalizedCourse = course.val().toUpperCase();
+        const capitalizedAddress = address.val().toUpperCase()
+
 
         const chosenFile = file.prop("files")[0]
 
         const formData = new FormData();
-        formData.append("fullname", fullname.val())
-        formData.append("course", course.val())
+        formData.append("fullname", capitalizedFullname)
+        formData.append("course", capitalizedCourse)
         formData.append("email", email.val())
         formData.append("password", password.val())
         formData.append("contact", contact.val())
-        formData.append("address", address.val())
+        formData.append("address", capitalizedAddress)
         formData.append("chosenFile", chosenFile)
         formData.append("chosenGender", chosenGender)
 

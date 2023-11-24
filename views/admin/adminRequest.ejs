@@ -30,69 +30,588 @@
             <h3 class="main--title">Accounts Details</h3>
             <div class="table-container">
                 <table class="list" id="studentInfo">
-                    <thead>
+                    <thead class="ulo">
                         <tr>
                             <th>Image</th>
                             <th>Fullname</th>
                             <th>Course</th>
                             <th>Email</th>
-                            <th>Number</th>
-                            <th>Address</th>
-                            <th>Gender</th>
+                            <th>Phone Number</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="hehe">
-                        <tr>
-                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
-                            <td>Jefferson M. Garcia</td>
-                            <td>BSIT</td>
-                            <td>garciajeff2000@gmail.com</td>
-                            <td>09338952657</td>
-                            <td>Magsaysay San Pedro laguna</td>
-                            <td>Male</td>
-                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
+                        <% if(accounts.length >= 1) { %>
+                        <% accounts.forEach((account) =>{ %>
+                            <tr>
+                            <td><img src="<%= account.image %>"></td>
+                            <td><%= account.fullname %></td>
+                            <td><%= account.course %></td>
+                            <td><%= account.email %></td>
+                            <td><%= account.contacts %></td>
+                            <td class="action-table">
+                                <button id="view" data-id="<%= account.id %>" onclick="openform()"><i class="fa-regular fa-eye"></i></button>
+                                <button id="remove" data-id="<%= account.id %>"><i class="fa-solid fa-trash-can"></i></button>
+                                
+                            </td>
                         </tr>
-                        <tr>
-                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
-                            <td>Jefferson M. Garcia</td>
-                            <td>BSIT</td>
-                            <td>garciajeff2000@gmail.com</td>
-                            <td>09338952657</td>
-                            <td>Magsaysay San Pedro laguna</td>
-                            <td>Male</td>
-                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
-                            <td>Jefferson M. Garcia</td>
-                            <td>BSIT</td>
-                            <td>garciajeff2000@gmail.com</td>
-                            <td>09338952657</td>
-                            <td>Magsaysay San Pedro laguna</td>
-                            <td>Male</td>
-                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="/user_images/default.jpg" alt="" height="50px" width="50px"></td>
-                            <td>Jefferson M. Garcia</td>
-                            <td>BSIT</td>
-                            <td>garciajeff2000@gmail.com</td>
-                            <td>09338952657</td>
-                            <td>Magsaysay San Pedro laguna</td>
-                            <td>Male</td>
-                            <td><button id="remove"><i class="fa-solid fa-trash-can"></i></button></td>
-                        </tr>
-                        
+                      <%  }) %>
+                        <% }else{ %>
+                       <tr>
+                        <td colspan="6"><h1 style="text-align: center;">NO DATA TO DISPLAY</h1></td>
+                       </tr>
+                       <% } %>
                     </tbody>
-                    <tfoot>
+                    <tfoot class="paa">
                         <tr>
-                            <td colspan="8"></td>
+                            <td colspan="6"></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
+        
+         
+<!------------------------------------------ popup form  ----------------------------------------->
+<div class="for-popup" id="popupForm">
+    <div class="container-ko">
+        <div class="container-1">
+        <div class="profile">
+            <div class="profile-header">
+                <h1>Student Profile</h1>
+                <img src="/images/admin.png" alt="Student Image" width="150">
+            </div>
+            <div class="stud-name">
+                <p><strong>Name:</strong> Jefferson Garcia</p>
+                <p><strong>Course:</strong> BSIT</p>
+                <p><strong>Year:</strong> 4th Year</p>
+                
+            </div>
+            <div class="stud-course">
+                <p><strong>Student Number:</strong> 123456</p>
+                <p><strong>Semester:</strong> 2023</p>
+                <p><strong>Address:</strong> Magsaysay San Pedro Laguna</p>
+            </div>
+        </div>
+        <div class="notes-container">
+            <h5><i class="fa-solid fa-circle-exclamation"></i>Information</h5>
+                <p>1. Semester registration must be performed first before you can add subjects for this students</p>
+                <p>2. You cannot drop any subjects that are already published</p>
+                <p>3. Subject cannot be added if student is not registered on current Academic Session</p>  
+        </div>
+        <div class="taken">
+            <div class="easy">
+                <h2>Current Enrolled Subjects</h2>
+                <button id="finish">Finish all</button>
+            </div>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>DROP</th>
+                        <th>Passed</th>
+                        <th>Failed</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE1</td>
+                        <td>Mathematics</td>
+                        <td>3</td>
+                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE1</td>
+                        <td>Mathematics</td>
+                        <td>3</td>         
+                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE1</td>
+                        <td>Mathematics</td>
+                        <td>3</td>  
+                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE1</td>
+                        <td>Mathematics</td>
+                        <td>3</td>
+                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE1</td>
+                        <td>Computer Science</td>
+                        <td>4</td>
+                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
     </div>
+
+<!-- --------------------------------add -->
+
+        <div class="subjects">
+            <button id="back" onclick="closeForm()"><i class="fa-solid fa-circle-xmark"></i></button>
+            <h2>BSIT Subjects</h2>
+            <h3>1st year</h3>
+            <h4>1st Sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <h4>2nd sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <div class = "line">
+                <div class="linya"></div>
+              </div>
+            <!-- 2nd year -->
+
+
+            <h3>2nd year</h3>
+            <h4>1st Sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+
+            <h4>2nd sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <div class = "line">
+                <div class="linya"></div>
+              </div>
+            <!-- 3rd year -->
+
+
+            <h3>3rd year</h3>
+            <h4>1st Sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <h4>2nd sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <div class = "line">
+                <div class="linya"></div>
+              </div>
+            <!-- 4th year -->
+
+
+            <h3>4th year</h3>
+            <h4>1st Sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <h4>2nd sem</h4>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+            <div class = "line">
+                <div class="linya"></div>
+              </div>
+            <h3>Bridging Subjects</h3>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                        <th>ADD</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td>
+                            finished
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Cisco</td>
+                        <td>4</td>
+                        <td>
+                          Ongoing
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>GE2</td>
+                        <td>Netcad</td>
+                        <td>3</td>
+                        <td>
+                           Pending
+                        </td>
+                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        
+        document.getElementById("myInput").addEventListener("keyup", function() {
+            var filter, table, tr, td, i, txtValue;
+            filter = this.value.toUpperCase();
+            table = document.getElementById("studentInfo");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Change index to the column you want to search
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        });
+    
+        $(document).ready(function(){
+        $("#view").click(function(){
+            $("#popupForm").fadeToggle();
+            
+            $("#back").click(function(){
+                $("#popupForm").fadeOut("slow");
+            
+            })
+        });
+  
+ 
+});
+
+</script>
 </body>
 </html>

@@ -4,7 +4,8 @@ const port = 3000;
 const connection = require("./config/db")
 const cors = require("cors");
 const RequestModel = require("./models/request")
-const chalk = require("chalk")
+const chalk = require("chalk");
+const AccountsModel = require('./models/accounts');
 
 //database
 // const con = mysql.createConnection({
@@ -60,6 +61,8 @@ app.get ('/register', (req, res) => {
 // ALL REQUEST (GET, POST, DELETe, PUT, PATCH)
 app.use('/admin', require("./routes/admin"))
 
+app.use('/student', require("./routes/student"))
+
 app.get ('/navbar', (req, res) =>{
   res.render("navbar.ejs")
 })
@@ -71,14 +74,16 @@ app.get('/contacts', (req, res) =>{
 app.get('/adminDashboard', async (req, res) => {
 
   const requests = await RequestModel.findAll({ raw: true })
-
+  const accounts = await AccountsModel.findAll({raw: true})
   // console.log(requests)
 
   res.render('adminDashboard.ejs',
   {
     numberOfRequests: requests.length,
-    requests
+    requests,
+    numberofAccounts: accounts.length
   })
+  // console.log(accounts);
 })
 
 app.get('/reg', (req, res) =>{
