@@ -19,6 +19,7 @@ const upload = multer({
 const bcrypt = require("bcryptjs")
 const fs = require("fs/promises")
 const AccountsModel = require("../models/accounts")
+const StdInfoModel = require("../models/studentInfo")
 
 // BROWSER URL: /admin
 router.get("/", (req, res) =>{
@@ -40,8 +41,10 @@ router.get("/studentCourse", (req, res) =>{
     res.render('admin/studentCourse.ejs')
 })
 
-router.get("/formRequest", (req, res) => {
-    res.render('admin/formRequest.ejs')
+router.get("/formRequest", async(req, res) => {
+    const registration_forms = await StdInfoModel.findAll({ raw: true })
+
+    res.render('admin/formRequest.ejs', { registration_forms })
 })
 
 router.get("/studentInfo", (req, res) => {
@@ -115,6 +118,81 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
     } catch (error) {
         res.json({ operation: false })
         console.log(error)
+    }
+})
+
+//REGISTER STUDENT (ENROLMENT FORM)
+router.post("/registerform", async(req, res) => {
+    try {
+        let {
+            fname,
+            mname,
+            lname,
+            course,
+            year,
+            sem,
+            s_number,
+            classy,
+            dob,
+            pob,
+            sex,
+            nationality,
+            status,
+            religion,
+            contact,
+            email,
+            address,
+            province,
+            guardian,
+            guardian_num,
+            occupation,
+            six,
+            six_year,
+            ten,
+            ten_year,
+            twelve,
+            twelve_year,
+            degree,
+            deg_year
+        } = req.body
+
+
+        await StdInfoModel.create({
+            "Stud_ID": s_number,
+            FirstName: fname,
+            LastName: lname,
+            MiddleName: mname,
+            Course: course,
+            Year: year,
+            Semester: sem,
+            Classification: classy,
+            Email: email,
+            Phone: contact,
+            "date_of_Birth": dob,
+            "Place_of_Birth": pob,
+            Status: status,
+            Gender: sex,
+            Religion: religion,
+            Nationality: nationality,
+            "Current_Address": address,
+            "Parent_or_Guardian": guardian,
+            "Guardian_PhoneNumber": guardian_num,
+            "Provincial_Address": province,
+            Occupation: occupation,
+            "sixth_grade_school": six,
+            "sixth_grade_year": six_year,
+            "tenth_grade_school": ten,
+            "tenth_grade_year": ten_year,
+            "twelve_grade_school": twelve,
+            "twelve_grade_year": twelve_year,
+            "college_school": degree,
+            "college_year": deg_year
+        })
+
+        res.status(200).json({ msg: "Data sent" })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "Server Error" })
     }
 })
 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css " rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.js"></script>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="/css/studAccounts/studReg.css">
+</head>
+<body>
+    <div class="main-container">
+        <section class="header--container">
+            <div class="for-logo">
+                <img src="/images/logo.png" alt="">
+                <h4>IETI College of Science and Technology</h4>
+            </div>
+            <div class="title-form">
+                <p>Online Registration</p>
+            </div>
+        </section>
+
+        <section class="main--content">
+            <div class="form-step form-step-active">
+                <div class="line"></div>
+            
+                <div class="fullname">
+                    <div class="firstname">
+                        <input type="text" id="firstname" placeholder="Firstname" required>
+                        <input type="text" id="lastname" placeholder="Lastname" required>
+                        <input type="text" id="middlename" placeholder="M.I" required>
+                        <input type="text" id="studnumber" placeholder="Student ID or None if you don't have one " required>
+                    </div>
+                    <div class="firstname">
+                        <select id="course" required>
+                            <option disabled selected>Select Course</option>
+                            <option value="bsit">BSIT</option>
+                            <option value="bscpe">BSCpE</option>
+                            <option value="beed">BEED</option>
+                            <option value="bsba">BSBA</option>
+                            <option value="bshrm">BSHRM</option>
+                            <option value="bsca">BSCA</option>
+                            <option value="bsed-eng">BSED ENG</option>
+                            <option value="bsed-math">BSED MATH</option>
+                        </select>
+                        <select name="" id="year" required>
+                            <option disabled selected>Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                        <select name="" id="sem" required>
+                            <option disabled selected>Select Semester</option>
+                            <option value="1st">1st Sem</option>
+                            <option value="2nd">2nd Sem</option>
+                        </select>
+                        <select name="" id="classification" required>
+                            <option disabled selected>Select Classification</option>
+                            <option value="new">new</option>
+                            <option value="re-enrollee">Re-enrollee</option>
+                            <option value="cross-enrollee">Cross-enrollee</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="second-info">
+                    <div class="title-two">
+                        <p>Personal Information</p>
+                    </div>
+                    <div class="fullname">
+                        <div class="firstname">
+                            <input type="date" id="dob" placeholder="Date of Birth" required> 
+                            <input type="text" id="pob" placeholder="Place of Birth" required>
+                            <input type="text" name="gender" id="sex" placeholder="Gender" required>
+                            <input type="text" id="nationality" placeholder="Nationality" required>
+                        </div>
+                        <div class="firstname">
+                            <input type="text" placeholder="Status" id="status" required>
+                            <input type="text" name="" id="religion" placeholder="Religion" required>
+                            <input type="tel" id="contact" placeholder="telephone number" required>
+                            <input type="email" placeholder="E-mail" id="email" required>
+                        </div>
+                        <div class="firstname hifive">
+                            <input type="text" placeholder="Current Address" id="address" required>
+                            <input type="text" placeholder="Provincial Address" id="province" required>
+                            <input type="text" placeholder="Guardian or Parent" id="guardian" required>
+                            <input type="tel" placeholder="Guardian Number" id="guardian_num" required>
+                            <input type="text" placeholder="Occupation" id="occupation" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="for-button">
+                    <input type = "submit" class = "send-btn btn1" id="send-btn" value = "Next">
+                </div>
+            </div>
+            
+            <!---------------------------------------------------------------------- next-content --------------------------------------------------------------------->
+
+            
+            <div class="form-step">
+               <div class="line"></div>
+               <div class="fullname">
+                  <div class="title-two"><p>Academic Record</p></div>
+                  <div class="academics">
+                    <input type="text" id="g6" placeholder="Grade 6">
+                    <input type="text" id="g6_year" placeholder="Year">
+                  </div>
+                  <div class="academics">
+                    <input type="text" id="g10" placeholder="Grade 10">
+                    <input type="text" id="g10_year" placeholder="Year">
+                  </div>
+                  <div class="academics">
+                    <input type="text" id="g12" placeholder="Grade 12">
+                    <input type="text" id="g12_year" placeholder="Year">
+                  </div>
+                  <div class="academics">
+                    <input type="text" id="degree" placeholder="Degree Earned">
+                    <input type="text" id="deg_year" placeholder="Year">
+                  </div>
+               </div>
+               <div class="button-container">
+                    <div class="for-button">
+                        <input type = "submit" class = "send-btn" id="send-btn" value = "Previous">
+                    </div>
+                    <div class="for-button">
+                        <input type = "submit" class="send-btn btn2" id="send-btn" value = "Next">
+                    </div>
+               </div>
+            </div>
+
+            <div class="form-step">
+                <div class="line"></div>
+                <div class="summary">
+                    <div class="warning"><i class="fa-solid fa-circle-info"></i><p>Double-check the entered data for accuracy prior to final submission to avoid any potential errors or discrepancies.</p></div>
+
+                    <div class="data-summary">
+                        <div class="data">
+                            <p>First Name:</p> <span id="Result-fn"></span>
+                        </div>
+                        <div class="data">
+                            <p>M.I:</p> <span id="Result-mi"></span>
+                        </div>
+                        <div class="data">
+                            <p>Last Name:</p> <span id="Result-ln"></span>
+                        </div>
+                        <div class="data">
+                            <p>Student Number:</p> <span id="Result-sn"></span>
+                        </div>
+                        <div class="data">
+                            <p>Course:</p> <span id="Result-cs"></span>
+                        </div>
+                        <div class="data">
+                            <p>Year:</p> <span id="Result-yr"></span>
+                        </div>
+                        <div class="data">
+                            <p>Semester:</p> <span id="Result-sem"></span>
+                        </div>
+                        <div class="data">
+                            <p>Classification:</p> <span id="Result-cl"></span>
+                        </div>
+                        <div class="data">
+                            <p>Birth Date:</p> <span id="Result-bd"></span>
+                        </div>
+                        <div class="data">
+                            <p>Place of Birth:</p> <span id="Result-pb"></span>
+                        </div>
+                        <div class="data">
+                            <p>Gender:</p> <span id="Result-sex"></span>
+                        </div>
+                        <div class="data">
+                            <p>Nationality:</p> <span id="Result-nt"></span>
+                        </div>
+                        <div class="data">
+                            <p>Status:</p> <span id="Result-st"></span>
+                        </div>
+                        <div class="data">
+                            <p>Religion:</p> <span id="Result-re"></span>
+                        </div>
+                        <div class="data">
+                            <p>Telephone Number:</p> <span id="Result-tel"></span>
+                        </div>
+                        <div class="data">
+                            <p>E-mail:</p> <span id="Result-em"></span>
+                        </div>
+                        <div class="data">
+                            <p>Current Address:</p> <span id="Result-ca"></span>
+                        </div>
+                        <div class="data">
+                            <p>Provincial Address:</p> <span id="Result-pa"></span>
+                        </div>
+                        <div class="data">
+                            <p>Guardian:</p> <span id="Result-gd"></span>
+                        </div>
+                        <div class="data">
+                            <p>Guardian Number:</p> <span id="Result-gn"></span>
+                        </div>
+                        <div class="data">
+                            <p>Occupation:</p> <span id="Result-oc"></span>
+                        </div>
+        
+                        <div class="data">
+                            <p>Grade6:</p> <span id="Result-g6"></span> 
+                            <p>Year:</p> <span id="year-g6"></span>
+                        </div>
+                        <div class="data">
+                            <p>Grade10:</p> <span id="Result-g10"></span> 
+                            <p>Year:</p> <span id="year-g10"></span>
+                        </div>
+                        <div class="data">
+                            <p>Grade12:</p> <span id="Result-g12"></span> 
+                            <p>Year:</p> <span id="year-g12"></span>
+                        </div>
+                        <div class="data">
+                            <p>Degree Earned:</p> <span id="Result-degree"></span> 
+                            <p>Year:</p> <span id="year-degree"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <div class="for-button">
+                        <input type = "submit" class = "send-btn" id="send-btn" value = "Previous">
+                    </div>
+                    <div class="for-button">
+                        <input type = "submit" class="send-btn final-btn" id="send-btn" value = "Submit">
+                    </div>
+               </div>
+            </div>
+        </section>
+    </div>
+
+<!-- Your existing HTML code -->
+
+<script type="text/javascript" src="/js/studentRegistration.js"></script>
+
+</body>
+</html>

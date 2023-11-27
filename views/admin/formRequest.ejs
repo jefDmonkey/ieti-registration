@@ -20,56 +20,22 @@
                 <table class="list" id="studentInfo">
                     <thead>
                         <tr>
-                            <th>Action</th>
-                            
+                            <th>Action</th>       
                             <th>Last Name</th>
                             <th>MI</th>
                             <th>First Name</th>
-                            <!-- 
-                            <th>Tel Number</th>
-                            <th>Email</th>
-                            <th>Year</th>
-                            <th>Course</th>
-                            <th>Date Of Birth</th>
-                            <th>Place Of Birth</th>
-                            <th>Address</th>
-                            <th>Status</th>
-                            <th>Sex</th>
-                            <th>Nationality</th>
-                            <th>Provincial Address</th>
-                            <th>Parents or Guardian</th>
-                            <th>Address of Guardian</th>
-                            <th>Occupation of Parents</th>
-                            <th>Tel number of Parents</th> -->
 
                         </tr>
                     </thead>
                      <tbody id="hehe">
-                        <tr>
-                            <td><Button id="print">Print</Button></td>
-                            
-                             <td>Garcia</td>
-                            <td>M</td>
-                            <td>Jefferson</td>
-                            <!--
-                            <td>0985827209</td>
-                            <td>garciajeff2000@gmail.com</td>
-                            <td>4th Year</td>
-                            <td>BSIT</td>
-                            <td>09-15-00</td>
-                            <td>Rosario Pasig City</td>
-                            <td>Magsaysay San Pedro laguna</td>
-                            <td>Single</td>
-                            <td>Male</td>
-                            <td>Korean</td>
-                            <td>Poctol San Juan Batangas</td>
-                            <td>Kieciebelle Rancap</td>
-                            <td>Balagastas Batangas City Batangas</td>
-                            <td>Accountant</td>
-                            <td>09298289543</td> -->
-                        </tr>
-                        
-                        
+                        <% registration_forms.forEach((form) => { %>
+                            <tr>
+                                <td><Button id="print">Print</Button></td>
+                                <td><%= form.FirstName %></td>
+                                <td><%= form.MiddleName %></td>
+                                <td><%= form.LastName %></td>
+                            </tr>
+                        <% }) %>
                     </tbody>
                     <tfoot>
                         <tr>

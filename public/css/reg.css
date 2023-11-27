@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
-.content{
+/* .content{
    
     margin: 2rem auto;
     width: 90vw;
@@ -83,4 +83,89 @@ input[type="radio"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+} */
+.content{
+    padding: 1rem;
+}
+
+.header-container{
+    border: 2px solid red;
+}
+
+.image-holder{
+    display: flex;
+    gap: 0.6rem;
+    border: 2px solid blue;
+}
+
+.image-holder img{
+    height: 70px;
+    width: 70px;
+    
+}
+
+.image-holder p{
+    font-size: 1.5rem;
+    color: rgb(30, 104, 30)
+}
+
+.container-button{
+    padding-top: 1rem;
+}
+.container-button .back{
+   border: none;
+   background: none;
+}
+
+.container{
+    border: 2px solid black;
+}
+
+.paragraph{
+    border: 2px solid red;
+    width: 50%;
+}
+
+.paragraph h3{
+    font-size: 1.5rem;
+
+}
+
+.main-content{
+    display: flex;
+}
+
+.form{
+    width: 50%;
+    border: 2px solid green;
+}
+
+.image-container{
+    border: 2px solid black;
+    width: 50%;
+}
+
+.form-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.6rem;
+}
+
+.form-group input, select{
+    border: 1.5px solid #c7c7c7;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+    text-transform: capitalize;
+}
+
+#password{
+    text-transform: none;
+}
+
+#email{
+    text-transform: none;
 }

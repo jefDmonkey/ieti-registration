@@ -1,4 +1,3 @@
-const { defaultValueSchemable } = require("sequelize/types/utils");
 const { sequelize } = require("../config/db");
 const { DataTypes } = require("sequelize");
 
@@ -16,6 +15,26 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
      type: DataTypes.STRING(255),
      defaultValue: null
     },
+    MiddleName:{
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    Course: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    Year: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    Semester: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    Classification: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
     Email: {
      type: DataTypes.STRING(255),
      defaultValue: null
@@ -25,7 +44,7 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
      defaultValue: null
     },
     "date_of_Birth": {
-     type: DataTypes.DATE(255),
+     type: DataTypes.STRING(255),
      defaultValue: null
     },
     "Place_of_Birth": {
@@ -44,6 +63,10 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
         type: DataTypes.STRING(2555),
         defaultValue: null
     },
+    Nationality: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
     "Current_Address": {
         type: DataTypes.STRING(255),
         defaultValue:null
@@ -59,10 +82,38 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
         type: DataTypes.STRING(255),
         defaultValue: null
     },
+    Occupation: {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "sixth_grade_school": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "sixth_grade_year": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "tenth_grade_school": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "twelve_grade_year": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "college_school": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "college_year": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    }
     
  },
  {
      timestamps: false
  })
  
- module.exports = sequelize.models["studentinfo"] || StdInfoModel
+ module.exports = StdInfoModel
