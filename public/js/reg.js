@@ -5,7 +5,8 @@ $(function() {
     const password = $("#password")
     const contact = $("#contact")
     const address = $("#address")
-    const gender = $("input[name=gender]")
+    const gender = $("#gender")
+    // const gender = $("input[name=gender]")
     const file = $("#file")
     const img = $("#img")
     let chosenGender = null
@@ -18,7 +19,10 @@ $(function() {
         password.val("")
         contact.val("")
         address.val("")
-        gender.prop("checked", false)
+        $("#gender option").prop("selected", function(e) {
+            return this.defaultSelected
+        })
+        // gender.prop("checked", false)
         file.val("")
         chosenGender = null
     }
@@ -75,14 +79,13 @@ $(function() {
         }).then((res) => res.json())
         .then((res) => {
             if(!res.operation) return Swal.fire({
-                title: 'Error!',
-                text: 'Failed!',
+                title: res.msg,
                 icon: 'error',
                 confirmButtonText: 'okay'
             })
 
             Swal.fire({
-                title: 'Data Sent',
+                title: res.msg,
                 icon: 'success',
                 confirmButtonText: 'okay'
             })

@@ -12,22 +12,33 @@
 
 </head>
 <body>
-    <div class="content"></div>
+    <div class="content">
         <header class="header-container">
             <div class="image-holder">
                 <img src="/images/logo.png" alt="">
                 <p>IETI College of Science and Technology</p>
             </div>
             <div class="container-button">
-                <i class="fa-solid fa-less-than"></i><button class="back">Back</button>
+                </i><button class="back"><i class="fa-solid fa-less-than"></i>Back</button>
             </div>
         </header>
         <div class="container">
-            <div class="paragraph">
-                <h3>Create your free account</h3>
-            </div>
            <section class="main-content">
             <form action="#" method="post" class="form"  id="registration-form">
+                <div class="paragraph">
+                    <h3>Create your free account</h3>
+                    <p>Creating an account is free and easy</p>
+                </div>
+                <div class="button--container1">
+                    <a href="login">Proceed to the login page to sign in.</a>
+                </div>
+
+                <div class = "line">
+                    <div></div>
+                    <div><p>or</p></div>
+                    <div></div>
+                  </div>
+
                 <div class="form-group">
                     <input type="text" id="fullname" name="fullname" placeholder="Full Name" >
                     <select id="course" >
@@ -51,22 +62,32 @@
                     <input type="text" id="address" name="address" placeholder="Address">
                 </div>
                 <div class="form-group gender">
-                    <label>Gender:</label>
-                    <input type="radio" id="male" name="gender" value="Male" >
+                    <!-- <input type="radio" id="male" name="gender" value="Male" >
                     <label for="male">Male</label>
                     <input type="radio" id="female" name="gender" value="Female" >
-                    <label for="female">Female</label>
+                    <label for="female">Female</label> -->
+                    <select id="gender">
+                        <option selected disabled>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="file" style="display: none;" id="file">
                     <img height="100px" width="100px" id="img" src="/user_images/default.jpg" style="object-fit: fill; cursor: pointer;" />
                 </div>
-                <div class="form-group">
-                    <button type="submit" id="submit" class="btn">Submit</button>
+                <div class="buttons">
+                    <button type="submit" id="submit" class="btn">Submit<i class="fa-solid fa-greater-than"></i></button>
                 </div>
             </form>
             <div class="image-container">
-
+               <div class="images">
+                <img src="images/register.jpg" alt="">
+               </div>
+                <div class="ins">
+                    <h4>Please be patient for a 24-hour confirmation period to finalize your account verification.</h4>
+                    <p>To access our platform's full features and personalized content, please create an account by providing your essential information and setting up a secure password.</p>
+                </div>
             </div>
            </section>
         </div>

@@ -102,6 +102,17 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
     try {
         let { fullname, course, email, contact, address, chosenGender, password, filename } = req.body
 
+        const checkEmail = await RequestModel.findAll({
+            where: {
+                email: email
+            },
+            raw: true
+        })
+
+        if(checkEmail.length >= 1){
+            return res.json({ operation: false, msg: "Email already exist" })
+        }
+
         password = await bcrypt.hash(password, 10)
 
         await RequestModel.create({
@@ -114,9 +125,9 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
             gender: chosenGender,
             user_image: `/user_images/${filename}`
         })
-        res.json({ operation: true })//heheh
+        res.json({ operation: true, msg: "Data Sent" })//heheh
     } catch (error) {
-        res.json({ operation: false })
+        res.json({ operation: false, msg: "Server Error" })
         console.log(error)
     }
 })
