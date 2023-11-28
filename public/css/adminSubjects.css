@@ -1,0 +1,143 @@
+.menu li:hover, .subj{
+    background: #e0e0e058;
+    cursor: pointer;
+}
+
+.main-container{
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.content--wrapper{
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 2rem;
+    width: 100%;
+    color: rgb(113, 99, 186, 255);
+    margin-bottom: 1rem;
+}
+
+.main-wrapper{
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 2rem 10px 2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-child{
+    width: 100%;
+    
+}
+
+.children{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );
+    column-gap: 0.6rem;
+    position: relative; 
+    padding-right: 3.5rem;
+}
+
+.children input, select{
+    width: 100%;
+    border: 1.5px solid #c7c7c7;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+    text-transform: capitalize;
+}
+
+.for-button{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.select2-container--default .select2-selection--multiple {
+
+    width: 100%;
+    border: 1.5px solid #c7c7c7;
+    border-radius: 5px;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0; 
+
+}
+.for-button .btn{
+    color: green;
+    font-size: 20px;
+    background: none;
+}
+
+.btn:hover{
+    color: rgb(26, 188, 26);
+    cursor: pointer;
+}
+
+/*------------------------table-----------------------*/
+
+.tabular--wrapper{
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 2rem 10px 2rem;
+    width: 100%;
+}
+
+.table-container{
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;
+    padding: 1rem 0 1rem 0;
+}
+
+.table-container table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablehead{
+    background: rgb(113, 99, 186, 255);
+    color: #fff;
+}
+
+.tablehead th{
+    padding: 15px;
+}
+
+.tblbody{
+    background: #f2f2f2;
+}
+
+.tblbody td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.actions i{
+    font-size: 20px;
+}
+
+.btnedit i{
+    cursor: pointer;
+    color: rgb(0, 13, 255);
+}
+
+.btndel i{
+    cursor: pointer;
+    color: red;
+}

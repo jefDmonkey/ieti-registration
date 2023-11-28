@@ -20,11 +20,14 @@ const bcrypt = require("bcryptjs")
 const fs = require("fs/promises")
 const AccountsModel = require("../models/accounts")
 const StdInfoModel = require("../models/studentInfo")
+const SubjectsModel = require("../models/subjects")
 
 // BROWSER URL: /admin
 router.get("/", (req, res) =>{
     res.render("admin.ejs")
 })
+
+
 
 // BROWSER URL: /admin/adminRequest
 router.get("/adminRequest", async(req, res) => {
@@ -41,6 +44,10 @@ router.get("/studentCourse", (req, res) =>{
     res.render('admin/studentCourse.ejs')
 })
 
+router.get("/enrolledStud", (req, res) =>{
+    res.render('admin/enrolledStud.ejs')
+})
+
 router.get("/formRequest", async(req, res) => {
     const registration_forms = await StdInfoModel.findAll({ raw: true })
 
@@ -49,6 +56,12 @@ router.get("/formRequest", async(req, res) => {
 
 router.get("/studentInfo", (req, res) => {
     res.render('admin/studentInfo')
+})
+
+router.get("/adminSubjects", async(req, res) => {
+    const subjects = await SubjectsModel.findAll({ raw: true })
+
+    res.render('admin/adminSubjects.ejs', { subjects })
 })
 
 //3rd steps
@@ -204,6 +217,58 @@ router.post("/registerform", async(req, res) => {
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: "Server Error" })
+    }
+})
+
+
+router.post("/jeffersonpogi", async(req, res) => {
+    try {
+        const { code, s_name, units, year, semester, courses } = req.body
+
+        const checkExisting = await SubjectsModel.findAll({
+            where: {
+                code
+            },
+            raw: true
+        })
+
+        if(checkExisting.length >= 1) return res.json({ operation: false, msg: "Subject already exist" })
+
+        await SubjectsModel.create({
+            code,
+            subject_name: s_name,
+            units,
+            year_level: year,
+            semester,
+            BEED: courses.includes("BEED"),
+            BSIT: courses.includes("BSIT"),
+            BSCpE: courses.includes("BSCpE"),
+            BSED_ENG: courses.includes("BSED_ENG"),
+            BSED_MATH: courses.includes("BSED_MATH"),
+            BSBA: courses.includes("BSBA"),
+            BSCA: courses.includes("BSCA"),
+            BSHRM: courses.includes("BSHRM")
+        })
+
+        return res.json({ operation: true,  msg: "Success" })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ operation: false, msg:"Server Error" })
+    }
+})
+
+router.delete("/deleteSubject", async(req, res) => {
+    try {
+        const { code } = req.query
+        await SubjectsModel.destroy({
+            where: {
+                code
+            }
+        })
+        return res.json({ operation: true, msg: "Success" })
+    } catch (error) {
+        console.log(error)
+        res.json({ operation: false })
     }
 })
 

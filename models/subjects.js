@@ -1,14 +1,18 @@
 const { sequelize } = require("../config/db")
 const { DataTypes } = require("sequelize") 
 
-const FirstYearModel = sequelize.define("course_subject_1styear", {
+const SubjectsModel = sequelize.define("subjects", {
     code: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING,
         defaultValue: null,
-        unique: true
+        primaryKey: true
     },
-    subjects: {
-        type: DataTypes.STRING(200),
+    subject_name: {
+        type: DataTypes.STRING,
+        defaultValue: null
+    },
+    units: {
+        type: DataTypes.INTEGER,
         defaultValue: null
     },
     BEED: {
@@ -31,18 +35,27 @@ const FirstYearModel = sequelize.define("course_subject_1styear", {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    "BSED-ENG": {
+    BSED_ENG: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    "BSED-MATH": {
+    BSED_MATH: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    Semester: {
+    BSCpE: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    semester: {
         type: DataTypes.INTEGER
  
+    },
+    year_level: {
+        type: DataTypes.STRING
     }
+}, {
+    timestamps: false
 })
 
-module.exports = sequelize.models["course_subject_1styear"] || FirstYearModel
+module.exports = SubjectsModel

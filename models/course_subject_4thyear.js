@@ -11,6 +11,10 @@ const FourthYearModel = sequelize.define("course_subject_4thyear", {
         type: DataTypes.STRING(200),
         defaultValue: null
     },
+    units: {
+        type: DataTypes.STRING(200),
+        defaultValue: null
+    },
     BEED: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
