@@ -649,13 +649,13 @@ p{
     display: grid;
     text-transform: uppercase;
     grid-template-columns: 18% 62% 20%;
+
 }
 .name--container{
     display: flex;
 }
 .name--container input{
     display: block;
-    width: 100px;
 }
 .student--container input{
     display: block;
@@ -870,7 +870,7 @@ p{
     justify-content: space-between;
 }
 
-.fullname--container{
+.fullname---container{
     display: grid;
     padding-top: 1rem;
     grid-template-columns: 20% 80%;

@@ -171,6 +171,142 @@
     float: right;
 }
 
+/*---------------------------------------subjects-----------------------------------------*/
+
+.subjects{
+    display: flex;
+}
+
+.adding-subjects{
+    text-align: center;
+    width: 100%;
+}
+
+.krung-1 th{
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+.krung-2 td{
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.subjects table{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.taken{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    max-height: 500px;
+    /* overflow-y: auto; */
+}
+.taken .easy{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.taken table{
+    font-size: 13px;
+}
+.taken #finish{
+    font-size: 13px;
+    cursor: pointer;
+    padding: 3px;
+    background: none;
+    color: green;
+}
+#finish:hover{
+    color: rgb(12, 223, 12);
+}
+.taken #drop{
+    color: orange;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+.taken #drop:hover{
+    color: rgb(239, 218, 28);
+}
+.taken #passed{
+    color: green;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+.taken #passed:hover{
+    color: rgb(12, 223, 12);
+}
+.taken #failed{
+    color: red;
+    font-size: 17px;
+    background: none;
+    cursor: pointer;
+}
+.taken #failed:hover{
+    color: rgb(234, 98, 40);
+}
+.taken h2{
+    font-size: 14px;
+}
+.subjects h2{
+    text-align: center;
+}
+.subjects h3, table{
+    margin-top:1rem ;
+    text-align: center;
+}
+.subjects h4{
+    padding-top: 1rem;
+    font-size: 13px;
+}
+.subjects table{
+    font-size: 13px;
+}
+.subjects #back{
+    font-size: 40px;
+    color: red;
+    position: absolute;
+    right: 9%;
+    top: 0%;
+    background: none;
+    cursor: pointer; 
+}
+.subjects #back:hover{
+    color: rgb(205, 67, 67);
+}
+button{
+    border: none;
+}
+.subjects button{
+    font-size: 17px;
+    cursor: pointer;
+    color: green;
+    background: none;
+}
+.subjects button:hover{
+    color: rgb(110, 234, 110);
+}
+
+.line{
+    width: 100%;
+    padding: .5rem;
+    margin-top: 1rem;
+}
+.linya{
+    width: 100%;
+    border-top: 1px solid #c7c7c7;
+}
+select{
+    cursor: pointer;
+}
+
+
 /*----------------------------------------summary--------------------------------------*/
 
 .warning{

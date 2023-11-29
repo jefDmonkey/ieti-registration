@@ -4,6 +4,7 @@ $(function(e) {
     const email = $("#email")
     const phone = $("#phone")
     const msg = $("#msg")
+    const form = $('#contact_form')
 
     //THIS CODE IS FOR CLEAR INPUT
     function clearInput() {
@@ -13,6 +14,23 @@ $(function(e) {
         phone.val("")
         msg.val("")
     }
+
+    function sendEmail() {
+        const bodyMessage = `Full Name: ${fname.val()}<br> Last Name: ${lname.val()}<br> Email: ${email.val()}<br> Phone Number: ${phone.val()}<br> Message: ${msg.val()}`
+
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "jeffandkeiciebelle@gmail.com",
+            Password : "2D740458EA400D86738E0291C5DB7D559CFE",
+            To : 'jeffandkeiciebelle@gmail.com',
+            From : "jeffandkeiciebelle@gmail.com",
+            Subject : "This is the subject",
+            Body : bodyMessage
+        }).then(
+          message => alert(message)
+        );
+    }
+
 
     $("#send-btn").click(function(e) {
 
@@ -35,7 +53,9 @@ $(function(e) {
             }),
             success: ({ operation }) => {
                 if(operation) alert("MESSAGE SENT")
+                sendEmail()
                 clearInput()
+                
             },
             error: (err) => {
                 alert("THERE WAS AN ERROR")

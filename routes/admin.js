@@ -64,6 +64,10 @@ router.get("/adminSubjects", async(req, res) => {
     res.render('admin/adminSubjects.ejs', { subjects })
 })
 
+router.get("/msgInbox", (req, res) => {
+   res.render('admin/msgInbox.ejs')
+})
+
 //3rd steps
 //endpoint
 router.post('/postRequest', async(req, res) => {
