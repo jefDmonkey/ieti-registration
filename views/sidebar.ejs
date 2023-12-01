@@ -127,8 +127,23 @@ body{
                 
             </li> -->
             <li class="logout">
-                <a href="/login"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
-                
+                <a id="logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
             </li>
         </ul>
 </div>
+
+<script>
+    $(function(e) {
+        $("#logout").click(function(e) {
+            $.ajax({
+                type: "POST",
+                url: "/logout",
+                success: (res) => {
+                    if(res.operation){
+                        location.reload(1)
+                    }
+                }
+            })
+        })
+    })
+</script>

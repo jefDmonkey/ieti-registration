@@ -93,11 +93,11 @@
                         <tr>
                             <th>Date</th>
                             <th>Fullname</th>
-                            <th>Course</th>
+                            <!-- <th>Course</th> -->
                             <th>Email</th>
                             <th>Number</th>
-                            <th>Address</th>
-                            <th>Gender</th>
+                            <!-- <th>Address</th>
+                            <th>Gender</th> -->
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -107,11 +107,10 @@
                             <tr>
                                 <td><%= request.date %></td>
                                 <td><%= request.fullname %></td>
-                                <td><%= request.course %></td>
+                                
                                 <td><%= request.email %></td>
                                 <td><%= request.contacts %></td>
-                                <td><%= request.address %></td>
-                                <td><%= request.gender %></td>
+                                
                                 <td><button id="accept" data-id="<%= request.id %>">Accept</button>
                                     <button id="reject" data-id="<%= request.id %>">Reject</button>
                                 </td>

@@ -17,7 +17,7 @@
                     <div class="content--container" id="content--container">
                         <div class="header-title">
                             <div class="header--title">
-                                <h1>Hey There,<span class="name-student"> Jefferson!</span></h1>
+                                <h1>Hey There,<span class="name-student"> <%= student.fullname %>!</span></h1>
                                 <p>Have a good day Wishing you a wonderful day filled with happiness and success!</p>
                             </div>
                         <div class="user-cicle">
@@ -33,7 +33,7 @@
                                 <div class="mess-container">
                                     <h1>Enroll Now</h1>
                                     <p>Register now to kickstart your educational journey during this enrollment season.</p>
-                                    <button><i class="fa-solid fa-circle-arrow-right dark-green"></i></button>
+                                    <button id="register"><i class="fa-solid fa-circle-arrow-right dark-green"></i></button>
                                 </div>
                             </div>
                             
@@ -58,7 +58,7 @@
                                     <img src="/images/jef.png" alt="">
                                 </div>
                                 <div class="user-name">
-                                    <h4 class="name">Jefferson M. Garcia</h4>
+                                    <h4 class="name"><%= student.fullname %></h4>
                                     <h5 class="course">BSIT</h5>
                                 </div>
                             </div>
@@ -114,7 +114,23 @@
 
                 </div>
         </div> 
+      
+      <script type="text/javascript" src="/js/studDashboard.js"></script>
       <script>
+            $(function(e) {
+                $("#logout").click(function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/logout",
+                        success: (res) => {
+                            if(res.operation){
+                                location.reload(1)
+                            }
+                        }
+                    })
+                })
+            })
+
           function myFunction() {
             document.getElementById('content--container').style.display = "none";
             document.getElementById('profile-infoContainer2').style.display = "flex";

@@ -9,6 +9,7 @@
     <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css " rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
     <link rel="stylesheet" href="/css/reg.css">
+    <link rel="icon" href="/images/logo.png">
 
 </head>
 <body>
@@ -41,7 +42,8 @@
 
                 <div class="form-group">
                     <input type="text" id="fullname" name="fullname" placeholder="Full Name" >
-                    <select id="course" >
+                    <input type="tel" id="contact" name="contact" placeholder="Phone Number">
+                    <!-- <select id="course" >
                         <option disabled selected>Select Course</option>
                         <option value="bsit">BSIT</option>
                         <option value="bscpe">BSCpE</option>
@@ -51,27 +53,23 @@
                         <option value="bsca">BSCA</option>
                         <option value="bsed-eng">BSED ENG</option>
                         <option value="bsed-math">BSED MATH</option>
-                    </select>
+                    </select> -->
                 </div>
                 <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Email">
                     <input type="password" id="password" name="password" placeholder="Password" >
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="contact" name="contact" placeholder="Phone Number">
-                    <input type="text" id="address" name="address" placeholder="Address">
+                    
+                    <!-- <input type="text" id="address" name="address" placeholder="Address"> -->
                 </div>
-                <div class="form-group gender">
-                    <!-- <input type="radio" id="male" name="gender" value="Male" >
-                    <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="Female" >
-                    <label for="female">Female</label> -->
+                <!-- <div class="form-group gender">
                     <select id="gender">
                         <option selected disabled>Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <input type="file" style="display: none;" id="file">
                     <img height="100px" width="100px" id="img" src="/user_images/default.jpg" style="object-fit: fill; cursor: pointer;" />

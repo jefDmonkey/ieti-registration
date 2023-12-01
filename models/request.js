@@ -15,9 +15,9 @@ const RequestModel = sequelize.define("request",
     fullname: {
         type: DataTypes.STRING(255)
     },
-    course: {
-        type: DataTypes.STRING(255)
-    },
+    // course: {
+    //     type: DataTypes.STRING(255)
+    // },
     email: {
         type: DataTypes.STRING(255)
     },
@@ -27,12 +27,12 @@ const RequestModel = sequelize.define("request",
     contacts: {
         type: DataTypes.STRING(11)
     },
-    address: {
-        type: DataTypes.STRING(255)
-    },
-    gender: {
-        type: DataTypes.STRING(255)
-    },
+    // address: {
+    //     type: DataTypes.STRING(255)
+    // },
+    // gender: {
+    //     type: DataTypes.STRING(255)
+    // },
     user_image: {
         type: DataTypes.STRING(500)
     }

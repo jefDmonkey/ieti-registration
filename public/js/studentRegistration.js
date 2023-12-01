@@ -59,8 +59,7 @@ $(function(e) {
     const year_12 = $("#year-g12")
     const result_degree = $("#Result-degree")
     const year_degree = $("#year-degree")
-
-
+    
     $("input.final-btn").click(function(e) {
         $.ajax({
             type: "POST",

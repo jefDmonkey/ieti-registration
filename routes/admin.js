@@ -21,16 +21,17 @@ const fs = require("fs/promises")
 const AccountsModel = require("../models/accounts")
 const StdInfoModel = require("../models/studentInfo")
 const SubjectsModel = require("../models/subjects")
+const { isLogout, isLoginAdmin } = require("../middleware/isLogin")
 
 // BROWSER URL: /admin
-router.get("/", (req, res) =>{
+router.get("/", isLoginAdmin, (req, res) =>{
     res.render("admin.ejs")
 })
 
 
 
 // BROWSER URL: /admin/adminRequest
-router.get("/adminRequest", async(req, res) => {
+router.get("/adminRequest", isLoginAdmin, async(req, res) => {
    const accounts = await AccountsModel.findAll({raw: true});
    const profile = await AccountsModel.findAll({raw: true})
     res.render('admin/adminRequest.ejs', 
@@ -40,31 +41,31 @@ router.get("/adminRequest", async(req, res) => {
     console.log(accounts)
 })
 
-router.get("/studentCourse", (req, res) =>{
+router.get("/studentCourse",isLoginAdmin, (req, res) =>{
     res.render('admin/studentCourse.ejs')
 })
 
-router.get("/enrolledStud", (req, res) =>{
+router.get("/enrolledStud", isLoginAdmin, (req, res) =>{
     res.render('admin/enrolledStud.ejs')
 })
 
-router.get("/formRequest", async(req, res) => {
+router.get("/formRequest", isLoginAdmin, async(req, res) => {
     const registration_forms = await StdInfoModel.findAll({ raw: true })
 
     res.render('admin/formRequest.ejs', { registration_forms })
 })
 
-router.get("/studentInfo", (req, res) => {
+router.get("/studentInfo", isLoginAdmin, (req, res) => {
     res.render('admin/studentInfo')
 })
 
-router.get("/adminSubjects", async(req, res) => {
+router.get("/adminSubjects",isLoginAdmin,  async(req, res) => {
     const subjects = await SubjectsModel.findAll({ raw: true })
 
     res.render('admin/adminSubjects.ejs', { subjects })
 })
 
-router.get("/msgInbox", (req, res) => {
+router.get("/msgInbox", isLoginAdmin, (req, res) => {
    res.render('admin/msgInbox.ejs')
 })
 
