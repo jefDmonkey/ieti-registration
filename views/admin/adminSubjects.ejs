@@ -50,8 +50,8 @@
                         </select>
                         <select name="" id="semester">
                             <option disabled selected>Select Semester</option>
-                            <option value="1st sem">1st Sem</option>
-                            <option value="2nd sem">2nd Sem</option>
+                            <option value="1st">1st Sem</option>
+                            <option value="2nd">2nd Sem</option>
                         </select>
                         <div class="for-button">
                             <button class="btn" id="add-btn"><i class="fa-solid fa-circle-plus"></i></button>
@@ -70,24 +70,45 @@
                             <th>Code</th>
                             <th>Subjects</th>
                             <th>Units</th>
+                            <th>Course</th>
                             <th>Action</th>
+                            
                        </tr>
                     </thead>
                     <tbody class="tblbody">
-                        <% subjects.forEach((subj) => { %>
+                        <% 
+                        subjects.forEach((subj) => { 
+                            const courses = []
+                            for(key in subj){
+                                if(key == "BSED_ENG" ||
+                                 key == "BSIT" ||
+                                 key == "BSCpE" ||
+                                 key == "BSED_MATH" ||
+                                 key == "BEED" ||
+                                 key == "BSBA" ||
+                                 key == "BSCA" ||
+                                 key == "BSHRM"){
+                                    if(subj[key] == 1) courses.push(key)
+                                }
+                            }
+                            
+                        %>
                         
                             <tr>
                                 <td><%= subj.code %></td>
                                 <td><%= subj.subject_name %></td>
                                 <td><%= subj.units %></td>
-                                <td class="actions"><button class="btnedit"><i class="fa-solid fa-pen-to-square"></i></button><button class="btndel" id="<%= subj.code %>"><i class="fa-solid fa-trash"></i></button></td>
+                                <td><%= courses.join(",") %></td>
+                                <td class="actions">
+                                    <button class="btndel" id="<%= subj.code %>"><i class="fa-solid fa-trash"></i></button>
+                                </td>
                             </tr>
 
                         <% }) %>
                     </tbody>
                     <tfoot class="tblfoot">
                         <tr>
-                            <td colspan="4"></td>
+                            <td colspan="5"></td>
                         </tr>
                     </tfoot>
                 </table>

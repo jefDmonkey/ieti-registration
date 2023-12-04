@@ -4,7 +4,6 @@ const { DataTypes } = require("sequelize")
 const SubjectsModel = sequelize.define("subjects", {
     code: {
         type: DataTypes.STRING,
-        defaultValue: null,
         primaryKey: true
     },
     subject_name: {
@@ -48,7 +47,7 @@ const SubjectsModel = sequelize.define("subjects", {
         defaultValue: false
     },
     semester: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
  
     },
     year_level: {

@@ -10,6 +10,8 @@ const bcrypt = require("bcryptjs");
 const cookieSession = require('cookie-session');
 const AdminAccountModel = require("./models/admin_account")
 const { isLogout, isLoginAdmin } = require("./middleware/isLogin")
+const sequelize = require("./config/db").sequelize
+const { QueryTypes } = require("sequelize");
 
 
 app.use(cookieSession({
@@ -86,7 +88,8 @@ app.post("/login", async(req, res) => {
       req.session.student = {
         fullname: account.fullname,
         id: account.id,
-        email: account.email
+        email: account.email,
+        phone: account.contacts
       }
       return res.json({ operation: true, msg: "student" })
     }
@@ -133,15 +136,17 @@ app.get('/adminDashboard', isLoginAdmin, async (req, res) => {
 
   const requests = await RequestModel.findAll({ raw: true })
   const accounts = await AccountsModel.findAll({raw: true})
-  // console.log(requests)
+  const enrolled = await sequelize.query(`SELECT * FROM accounts AS ac INNER JOIN studentinfos AS si ON ac.id=si.id WHERE si.enrolment_status='ENROLLED'`, { type: QueryTypes.SELECT })
 
   res.render('adminDashboard.ejs',
   {
     numberOfRequests: requests.length,
     requests,
-    numberofAccounts: accounts.length
+    numberofAccounts: accounts.length,
+    enrolled: enrolled.length,
+    unenrolled: accounts.length - enrolled.length
   })
-  // console.log(accounts);
+
 })
 
 app.get('/reg', (req, res) =>{

@@ -2,10 +2,13 @@ const { sequelize } = require("../config/db");
 const { DataTypes } = require("sequelize");
 
 const StdInfoModel = sequelize.define("studentinfo" ,{
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true
+    },
     "Stud_ID": {
-     type: DataTypes.UUID,
-     defaultValue: DataTypes.UUIDV4,
-     primaryKey: true
+        type: DataTypes.STRING
     },
     FirstName: {
      type: DataTypes.STRING(255),
@@ -98,6 +101,14 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
         type: DataTypes.STRING(255),
         defaultValue: null
     },
+    "tenth_grade_year": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
+    "twelve_grade_school": {
+        type: DataTypes.STRING(255),
+        defaultValue: null
+    },
     "twelve_grade_year": {
         type: DataTypes.STRING(255),
         defaultValue: null
@@ -109,8 +120,19 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
     "college_year": {
         type: DataTypes.STRING(255),
         defaultValue: null
+    },
+    selected_subjects: {
+        type: DataTypes.TEXT("long"),
+        defaultValue: null
+    },
+    enrolment_status: {
+        type: DataTypes.STRING,
+        defaultValue: "PENDING",
+    },
+    passed_subjects: {
+        type: DataTypes.TEXT("long"),
+        defaultValue: null
     }
-    
  },
  {
      timestamps: false

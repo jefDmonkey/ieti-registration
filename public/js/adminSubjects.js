@@ -39,6 +39,8 @@ $(function(e) {
         })
     })
 
+   /// 2nd 
+    
     $("#add-btn").click(function(e) {
 
         if(!subject_code.val() || !subject_name.val() || !subject_units.val() || !subject_year.val() || !subject_sem.val() || courses.val().length <= 0) return alert("Please complete all input")
@@ -67,7 +69,8 @@ $(function(e) {
                         <td>${subject_code.val()}</td>
                         <td>${subject_name.val()}</td>
                         <td>${subject_units.val()}</td>
-                        <td class="actions"><button class="btnedit"><i class="fa-solid fa-pen-to-square"></i></button><button class="btndel" id="${subject_code.val()}"><i class="fa-solid fa-trash"></i></button></td>
+                        <td>${courses.val().join(",")}</td>
+                        <td class="actions"><button class="btndel" id="${subject_code.val()}"><i class="fa-solid fa-trash"></i></button></td>
                     </tr>
                 `)
 
@@ -78,5 +81,37 @@ $(function(e) {
                 console.log(error)
             }
         })
+
+        $.ajax({
+            type: "POST",
+            url: "/student/subjectCourse",
+            headers: {
+                "Content-type": "application/json"
+            },
+            data: JSON.stringify({
+                code: subject_code.val(),
+                s_name: subject_name.val(),
+                units: subject_units.val(),
+            }),
+            success: (res) => {
+                if (!res.operation) return alert(res.msg)
+
+                alert(res.msg)
+
+                $("table.list tbody").append(`
+                <tr>
+                    <td>${subject_code.val()}</td>
+                    <td>${subject_name.val()}</td>
+                    <td>${subject_units.val()}</td>
+                    <td>${courses.val()}</td>
+                </tr>
+                `)
+            },
+            error: (error) => {
+                alert("Something went wrong")
+                console.log(error)
+            }
+        })
     })
+
 })

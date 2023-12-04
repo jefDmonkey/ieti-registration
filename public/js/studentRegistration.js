@@ -59,6 +59,64 @@ $(function(e) {
     const year_12 = $("#year-g12")
     const result_degree = $("#Result-degree")
     const year_degree = $("#year-degree")
+    const selectedSubjects = []
+
+    $("table tbody").on("change", "input[type=checkbox]", function(e) {
+        const currentSubject = $(this)
+        if(currentSubject.prop("checked") == true){
+            selectedSubjects.push(currentSubject.attr("id"))
+        }else{
+            const toRemoveSubject = selectedSubjects.indexOf(currentSubject.attr("id"))
+            selectedSubjects.splice(toRemoveSubject, 1)
+        }
+        console.log(selectedSubjects)
+    })
+
+    $("#course,#year,#sem").change(function(e) {
+        if(!course.val() || !year.val() || !sem.val()) return null
+
+        const selectedCourse = course.val()
+        const selectedYear = year.val()
+        const selectedSem = sem.val()
+
+        $("#course_title").text(`${selectedCourse.replace("_", " ")} Subjects`)
+        $("#year_title").text(selectedYear)
+
+        $.ajax({
+            type: "GET",
+            url: `/student/get_course_subject?selectedCourse=${selectedCourse}&selectedYear=${selectedYear}&selectedSem=${selectedSem}`,
+            success: ({ semester_subjects, bridging_subjects }) => {
+                $("tbody.semester,tbody.bridging").html(``)
+
+                semester_subjects.forEach((subj) => {
+                    $("tbody.semester").append(`
+                    <tr>
+                        <td>${subj.code}</td>
+                        <td>${subj.subject_name}</td>
+                        <td>${subj.units}</td>
+                        <td><input type="checkbox" id="${subj.code}"></td>
+                    </tr>
+                    `)
+                })
+
+                bridging_subjects.forEach((subj) => {
+                    $("tbody.bridging").append(`
+                    <tr>
+                        <td>${subj.code}</td>
+                        <td>${subj.subject_name}</td>
+                        <td>${subj.units}</td>
+                        <td><input type="checkbox" id="${subj.code}"></td>
+                    </tr>
+                    `)
+                })
+            },
+            error: (error) => {
+                console.log(error)
+                alert("Something went wrong")
+            }
+        })
+
+    })
     
     $("input.final-btn").click(function(e) {
         $.ajax({
@@ -96,7 +154,8 @@ $(function(e) {
                 twelve: result_g12.text(),
                 twelve_year: year_12.text(),
                 degree: result_degree.text(),
-                deg_year: year_degree.text()
+                deg_year: year_degree.text(),
+                selected_subjects: selectedSubjects
             }),
             success: (res) => {
                 Swal.fire({
@@ -164,6 +223,12 @@ $(function(e) {
          var prevStep = currentStep.prev(".form-step");
 
          if ($(this).val() === "Next" && validateInputs(currentStep)) {
+            if(currentStep.find("div.subjects").length >= 1){
+                if(selectedSubjects.length <= 0) {
+                    alert("Please select a subject")
+                    return null
+                }
+             }
              currentStep.hide();
              nextStep.show();
          } else if ($(this).val() === "Previous" && prevStep.length > 0) {

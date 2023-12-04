@@ -4,12 +4,19 @@ const { DataTypes } = require("sequelize")
 const BridgingSubjectModel = sequelize.define("bridging_subject", {
     code: {
         type: DataTypes.STRING(100),
-        defaultValue: null,
-        unique: true
+        primaryKey: true
     },
-    subjects: {
+    subject_name: {
         type: DataTypes.STRING(200),
         defaultValue: null
+    },
+    units: {
+        type: DataTypes.STRING(200),
+        defaultValue: null
+    },
+    BSCpE: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     },
     BEED: {
         type: DataTypes.BOOLEAN,
@@ -31,18 +38,20 @@ const BridgingSubjectModel = sequelize.define("bridging_subject", {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    "BSED-ENG": {
+    "BSED_ENG": {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    "BSED-MATH": {
+    "BSED_MATH": {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
     isopen: {
         type: DataTypes.BOOLEAN,
     }
-    
+},
+{
+    timestamps: false
 })
 
 module.exports = BridgingSubjectModel

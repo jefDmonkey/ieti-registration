@@ -30,7 +30,11 @@
                      <tbody id="hehe">
                         <% registration_forms.forEach((form) => { %>
                             <tr>
-                                <td><Button id="print">Print</Button></td>
+                                <td>
+                                    <button class="print" id="<%= form.id %>">Print</button>
+                                    <button class="accept" data-action="ACCEPT" id="<%= form.id %>">Accept</button>
+                                    <button class="reject" data-action="REJECT"  id="<%= form.id %>">Reject</button>
+                                </td>
                                 <td><%= form.FirstName %></td>
                                 <td><%= form.MiddleName %></td>
                                 <td><%= form.LastName %></td>
@@ -68,7 +72,7 @@
                 <p>PRINT NAME:</p>
                 <div class="name-container">
                  <div class="fullname">
-                    <input type="text" class="lastname" name="lastname">
+                    <input type="text" class="lastname" name="lastname" value="">
                     <label for="lastname">Family</label>
                  </div>
                  <div class="fullname">
@@ -99,7 +103,7 @@
                     <input type="text" class="major" name="major">
                 </div>
                 <div class="semester">
-                    <input type="text" class="major" name="sem">
+                    <input type="text" class="major" id="sem" name="sem">
                     <label for="sem">Sem.</label>
                     <label for="sem">/Summer</label>
                     <input type="text" class="major" name="sem"> 
@@ -108,13 +112,13 @@
                <div class="year-container">
                 <div class="container-year">
                     <label for="">Curriculum Year: </label>
-                    <input type="checkbox" id="first" name="first" value="1st">
+                    <input type="checkbox" id="1st" name="first" value="1st">
                     <label for="first">1st</label>
-                     <input type="checkbox" id="second" name="second" value="2nd">
+                     <input type="checkbox" id="2nd" name="second" value="2nd">
                     <label for="second">2nd</label>
-                    <input type="checkbox" id="third" name="third" value="3rd">
+                    <input type="checkbox" id="3rd" name="third" value="3rd">
                     <label for="third">3rd</label>
-                    <input type="checkbox" id="fourth" name="fourth" value="4th">
+                    <input type="checkbox" id="4th" name="fourth" value="4th">
                    <label for="fourth">4th</label>
                     </div>
                 </div>
@@ -123,72 +127,134 @@
                <div class="student-container">
                 <div class="student-status">
                     
-                    <input type="checkbox" id="new" name="new" value="new">
+                    <input type="checkbox" id="new" name="asd1" value="new">
                     <label for="new"> New</label><br>
-                    <input type="checkbox" id="re-enrollee" name="re-enrollee" value="Re-enrolle">
+                    <input type="checkbox" id="re-enrollee" name="asd1" value="Re-enrollee">
                     <label for="re-enrollee"> Re-enrollee</label><br>
-                    <input type="checkbox" id="cross-enrollee" name="cross-enrollee" value="cross-enrollee">
+                    <input type="checkbox" id="cross-enrollee" name="asd1" value="cross-enrollee">
                     <label for="cross-enrollee"> Cross-enrollee</label>
                     
                   </div>
                </div>
             </div>
-            <div class="table-container">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Course Title</th>
-                            <th>Unit</th>
-                            <th>Time</th>
-                            <th>Days</th>
-                            <th>Room</th>
-                            <th>Instructor</th>
-                        </tr>
-                    </thead>
-                    <tbody class="huhu">
-                        <tr>
-                            <td>Math 101</td>
-                            <td>3</td>
-                            <td>9:00 AM</td>
-                            <td>Monday, Wednesday</td>
-                            <td>203</td>
-                            <td>Prof. Smith</td>
-                        </tr>
-                        <tr>
-                            <td>History 201</td>
-                            <td>4</td>
-                            <td>2:00 PM</td>
-                            <td>Tuesday, Thursday</td>
-                            <td>105</td>
-                            <td>Dr. Johnson</td>
-                        </tr>
-                        <tr>
-                            <td>Biology 120</td>
-                            <td>4</td>
-                            <td>11:30 AM</td>
-                            <td>Monday, Friday</td>
-                            <td>301</td>
-                            <td>Dr. Davis</td>
-                        </tr>
-                        <tr>
-                            <td>Computer Science</td>
-                            <td>3</td>
-                            <td>1:30 PM</td>
-                            <td>Wednesday, Friday</td>
-                            <td>201</td>
-                            <td>Prof. Brown</td>
-                        </tr>
-                        <tr>
-                            <td>English 101</td>
-                            <td>3</td>
-                            <td>10:15 AM</td>
-                            <td>Tuesday, Thursday</td>
-                            <td>102</td>
-                            <td>Prof. White</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <!-- <div class="table-container">
+                <div class="table5">
+                    <div class="row">
+                      <div class="cell">Course Title</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      
+                     
+                      
+                    </div>
+                    <div class="row">
+                      <div class="cell">Unit</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+               
+                      
+                    </div>
+                    <div class="row">
+                      <div class="cell">time</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                
+                    </div>
+                    <div class="row">
+                        <div class="cell">days</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="cell">Room</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    
+                      </div>
+                      <div class="row">
+                        <div class="cell">Instructor</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                      
+                      </div>
+                  </div>
+            </div> -->
+            <div class="table-container1">
+                <div class="grid">
+                    <div class="header">
+                      <div class="head">Course Title</div>
+                      <div class="head">Unit</div>
+                      <div class="head">Time</div>
+                      <div class="head">Days</div>
+                      <div class="head">Room</div>
+                      <div class="head">Instructor</div>
+                   </div>
+                   <div class="section first-table">
+                      <div class="cell">1</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                   </div>
+                   
+                 </div>
+                </div>
             <div class="approved-container">
                 <p>Approved:</p>
                 <div class="approved">
@@ -263,7 +329,7 @@
                     <input type="text" class="major" name="major">
                 </div>
                 <div class="semester">
-                    <input type="text" class="major" name="sem">
+                    <input type="text" class="major" id="sem" name="sem">
                     <label for="sem">Sem.</label>
                     <label for="sem">/Summer</label>
                     <input type="text" class="major" name="sem"> 
@@ -272,13 +338,13 @@
                <div class="year-container">
                 <div class="container-year">
                     <label for="">Curriculum Year: </label>
-                    <input type="checkbox" id="first" name="first" value="1st">
+                    <input type="checkbox" id="1st" name="first" value="1st">
                     <label for="first">1st</label>
-                     <input type="checkbox" id="second" name="second" value="2nd">
+                     <input type="checkbox" id="2nd" name="second" value="2nd">
                     <label for="second">2nd</label>
-                    <input type="checkbox" id="third" name="third" value="3rd">
+                    <input type="checkbox" id="3rd" name="third" value="3rd">
                     <label for="third">3rd</label>
-                    <input type="checkbox" id="fourth" name="fourth" value="4th">
+                    <input type="checkbox" id="4th" name="fourth" value="4th">
                    <label for="fourth">4th</label>
                     </div>
                 </div>
@@ -287,107 +353,134 @@
                <div class="student-container">
                 <div class="student-status">
                     
-                    <input type="checkbox" id="new" name="new" value="new">
+                    <input type="checkbox" id="new" name="asd2" value="new">
                     <label for="new"> New</label><br>
-                    <input type="checkbox" id="re-enrollee" name="re-enrollee" value="Re-enrolle">
+                    <input type="checkbox" id="re-enrollee" name="asd2" value="Re-enrolle">
                     <label for="re-enrollee"> Re-enrollee</label><br>
-                    <input type="checkbox" id="cross-enrollee" name="cross-enrollee" value="cross-enrollee">
+                    <input type="checkbox" id="cross-enrollee" name="asd2" value="cross-enrollee">
                     <label for="cross-enrollee"> Cross-enrollee</label>
                     
                   </div>
                </div>
             </div>
-            <div class="table-container">
-                <table border="1" class="form-table">
-                    <thead>
-                        <tr>
-                            <th>Course Title</th>
-                            <th>Unit</th>
-                            <th>Time</th>
-                            <th>Days</th>
-                            <th>Room</th>
-                            <th>Instructor</th>
-                        </tr>
-                    </thead>
-                    <tbody class="huhu">
-                        <tr>
-                            <td>Math 101</td>
-                            <td>3</td>
-                            <td>9:00 AM</td>
-                            <td>Monday, Wednesday</td>
-                            <td>203</td>
-                            <td>Prof. Smith</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>History 201</td>
-                            <td>4</td>
-                            <td>2:00 PM</td>
-                            <td>Tuesday, Thursday</td>
-                            <td>105</td>
-                            <td>Dr. Johnson</td>
-                        </tr>
-                        <tr>
-                            <td>Biology 120</td>
-                            <td>4</td>
-                            <td>11:30 AM</td>
-                            <td>Monday, Friday</td>
-                            <td>301</td>
-                            <td>Dr. Davis</td>
-                        </tr>
-                        <tr>
-                            <td>Computer Science</td>
-                            <td>3</td>
-                            <td>1:30 PM</td>
-                            <td>Wednesday, Friday</td>
-                            <td>201</td>
-                            <td>Prof. Brown</td>
-                        </tr>
-                        <tr>
-                            <td>English 101</td>
-                            <td>3</td>
-                            <td>10:15 AM</td>
-                            <td>Tuesday, Thursday</td>
-                            <td>102</td>
-                            <td>Prof. White</td>
-                        </tr>
-                        <tr>
-                            <td>Math 101</td>
-                            <td>3</td>
-                            <td>9:00 AM</td>
-                            <td>Monday, Wednesday</td>
-                            <td>203</td>
-                            <td>Prof. Smith</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Math 101</td>
-                            <td>3</td>
-                            <td>9:00 AM</td>
-                            <td>Monday, Wednesday</td>
-                            <td>203</td>
-                            <td>Prof. Smith</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Math 101</td>
-                            <td>3</td>
-                            <td>9:00 AM</td>
-                            <td>Monday, Wednesday</td>
-                            <td>203</td>
-                            <td>Prof. Smith</td>
-                            
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <!-- <div class="table-container">
+                <div class="table5">
+                    <div class="row">
+                      <div class="cell">Course Title</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      
+                     
+                      
+                    </div>
+                    <div class="row">
+                      <div class="cell">Unit</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+               
+                      
+                    </div>
+                    <div class="row">
+                      <div class="cell">time</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                
+                    </div>
+                    <div class="row">
+                        <div class="cell">days</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="cell">Room</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    
+                      </div>
+                      <div class="row">
+                        <div class="cell">Instructor</div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                      
+                      </div>
+                  </div>
+            </div> -->
+            <div class="table-container1">
+                <div class="grid">
+                    <div class="header">
+                      <div class="head">Course Title</div>
+                      <div class="head">Unit</div>
+                      <div class="head">Time</div>
+                      <div class="head">Days</div>
+                      <div class="head">Room</div>
+                      <div class="head">Instructor</div>
+                   </div>
+                   <div class="section second-table">
+                      <div class="cell">1</div>
+                      <div class="cell">2</div>
+                      <div class="cell">3</div>
+                      <div class="cell">4</div>
+                      <div class="cell">5</div>
+                      <div class="cell">6</div>
+                      <div class="cell">7</div>
+                      <div class="cell">8</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                   </div>
+                   
+                 </div>
+                </div>
             <div class="approved-container">
                 <p>Approved:</p>
                 <div class="approved">
@@ -439,7 +532,7 @@
                             </div>
                         </div>
                         <div class="student--number">
-                            <input type="text" id="student-number" name="student-number">
+                            <input type="text" id="student-number" class="student-number" name="student-number">
                             <label for="student-number">student number</label>
                         </div>
                     </div>
@@ -448,7 +541,7 @@
                 <div class="info2-container">
                     <div class="bday-container">
                         <label for="birthday">date of birth</label>
-                        <input type="date" name="" id="birthday">
+                        <input type="text" name="" id="birthday">
                     </div>
                     <div class="status-container">
                         <label for="status">status</label>
@@ -554,14 +647,14 @@
                                 <label for="grade">Grade 6:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade6">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year6">
                             </div>
                          </div>
         
@@ -570,14 +663,14 @@
                                 <label for="grade">Grade 10:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade10">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year10">
                             </div>
                          </div>
                          <div class="academic">
@@ -585,14 +678,14 @@
                                 <label for="grade">Grade 12:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade12">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year12">
                             </div>
                          </div>
                          <div class="academic">
@@ -600,14 +693,14 @@
                                 <label for="grade">Degree earned</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="de">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="deyear">
                             </div>
                          </div>
                      </div>
@@ -648,7 +741,7 @@
                             </div>
                         </div>
                         <div class="student--number">
-                            <input type="text" id="student-number" name="student-number">
+                            <input type="text" id="student-number" class="student-number" name="student-number">
                             <label for="student-number">student number</label>
                         </div>
                     </div>
@@ -657,7 +750,7 @@
                 <div class="info2-container">
                     <div class="bday-container">
                         <label for="birthday">date of birth</label>
-                        <input type="date" name="" id="birthday">
+                        <input type="text" name="" id="birthday">
                     </div>
                     <div class="status-container">
                         <label for="status">status</label>
@@ -763,14 +856,14 @@
                                 <label for="grade">Grade 6:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade6">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year6">
                             </div>
                          </div>
         
@@ -779,14 +872,14 @@
                                 <label for="grade">Grade 10:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade10">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year10">
                             </div>
                          </div>
                          <div class="academic">
@@ -794,14 +887,14 @@
                                 <label for="grade">Grade 12:</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="grade12">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="year12">
                             </div>
                          </div>
                          <div class="academic">
@@ -809,14 +902,14 @@
                                 <label for="grade">Degree earned</label>
                             </div>
                             <div class="input-container">
-                                <input type="text">
+                                <input type="text" id="de">
                             </div>
                          
                             <div class="yearlabel-container">
                                 <label for="year">Year</label>
                             </div>
                             <div class="yearInput-container">
-                                <input type="text" name="" id="year">
+                                <input type="text" name="" id="deyear">
                             </div>
                          </div>
                      </div>
@@ -882,20 +975,32 @@
                         
                     </div>
                     <div class="student--container">
-                        <input type="text" id="studentNum">
+                        <input type="text" id="studentNum" class="student-number">
                         <label for="studentNum">students number</label>
                     </div>
                     
                 </div>
                 <div class="course--container">
                     <label for="course">Course/Year:</label>
-                    <input type="text" id="course">
+                    <input type="text" id="course" class="course">
                 </div>
     
-                <div class="table--container">
-                    <div class="table1">
-                        <div class="row">
-                          <div class="cell">Course Number and Course Title</div>
+                
+                <div class="table-container2">
+                    <div class="grid">
+                        <div class="header2">
+                          <div class="head">Course Number and Course Title</div>
+                          <div class="head">Unit</div>
+                          <div class="head">Description Fee</div>
+                          <div class="head">Amout</div>
+                       </div>
+                       <div class="section2 third-table">
+                          <div class="cell">1</div>
+                          <div class="cell">2</div>
+                          <div class="cell">3</div>
+                          <div class="cell">4</div>
+                          <div class="cell">5</div>
+                          <div class="cell">6</div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
@@ -908,11 +1013,6 @@
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
-                         
-                          
-                        </div>
-                        <div class="row">
-                          <div class="cell">Unit</div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
@@ -925,49 +1025,40 @@
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
-                          
-                          
-                        </div>
-                        <div class="row">
-                          <div class="cell">Desciption Fee</div>
-                          <div class="cell"></div>
-                          <div class="cell">Tuition</div>
-                          <div class="cell">Matriculation</div>
-                          <div class="cell">Miscellaneous</div>
-                          <div class="cell">Laboratory Fee</div>
-                          <div class="cell">Computer</div>
-                          <div class="cell">I.D Fee</div>
-                          <div class="cell">Others Fees</div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
-                      
-                          
-                          
-                        </div>
-                        <div class="row">
-                            <div class="cell">Amount</div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            
-                           
-                            
-                            
-                          </div>
-                      </div>
-                </div>
-    
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                       </div>
+                       
+                     </div>
+                    </div>
                 <div class="footer-container">
                     <div class="aprroved--container">
                         <p class="approve">Approved:</p>
@@ -1053,7 +1144,7 @@
                         
                     </div>
                     <div class="student--container">
-                        <input type="text" id="studentNum">
+                        <input type="text" id="studentNum" class="student-number">
                         <label for="studentNum">students number</label>
                     </div>
                     
@@ -1073,7 +1164,7 @@
                             <input type="text" class="major" name="major">
                         </div>
                         <div class="semesterist">
-                            <input type="text" class="major" name="sem">
+                            <input type="text" class="major" id="sem" name="sem">
                             <label for="sem">Sem.</label>
                             <label for="sem">/Summer</label>
                             <input type="text" class="major" name="sem"> 
@@ -1082,13 +1173,13 @@
                        <div class="year-containerist">
                         <div class="container--year">
                             <label for="">Curriculum Year: </label>
-                            <input type="checkbox" id="first" name="year" value="1st">
+                            <input type="checkbox" id="1st" name="year" value="1st">
                             <label for="first">1st</label>
-                             <input type="checkbox" id="second" name="year" value="2nd">
+                             <input type="checkbox" id="2nd" name="year" value="2nd">
                             <label for="second">2nd</label>
-                            <input type="checkbox" id="third" name="year" value="3rd">
+                            <input type="checkbox" id="3rd" name="year" value="3rd">
                             <label for="third">3rd</label>
-                            <input type="checkbox" id="fourth" name="year" value="4th">
+                            <input type="checkbox" id="4th" name="year" value="4th">
                            <label for="fourth">4th</label>
                             </div>
                         </div>
@@ -1097,21 +1188,29 @@
                        <div class="student--containerist">
                         <div class="student--status">
                             
-                            <input type="checkbox" id="new" name="new" value="new">
+                            <input type="checkbox" id="new" name="asd3" value="new">
                             <label for="new"> New</label><br>
-                            <input type="checkbox" id="re-enrollee" name="re-enrollee" value="Re-enrolle">
+                            <input type="checkbox" id="re-enrolle" name="asd3" value="Re-enrolle">
                             <label for="re-enrollee"> Re-enrollee</label><br>
-                            <input type="checkbox" id="cross-enrollee" name="cross-enrollee" value="cross-enrollee">
+                            <input type="checkbox" id="cross-enrollee" name="asd3" value="cross-enrollee">
                             <label for="cross-enrollee"> Cross-enrollee</label>
                             
                           </div>
                        </div>
                 </div>
     
-                <div class="table--container">
-                    <div class="tabletwo">
-                        <div class="row">
-                          <div class="cell">Course Number and Course Title</div>
+                <div class="table-container1">
+                    <div class="grid">
+                        <div class="header3">
+                          <div class="head">Course Number and Course Title</div>
+                          <div class="head">Unit</div>
+                          <div class="head">Time</div>
+                          <div class="head">Days</div>
+                          <div class="head">Room</div>
+                          <div class="head">Instructor</div>
+                       </div>
+                       <div class="section3 fourth-table">
+                          <div class="cell">1</div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
@@ -1123,88 +1222,10 @@
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
-                          
-                          
-                        </div>
-                        <div class="row">
-                          <div class="cell">Unit</div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          
-                          
-                        </div>
-                        <div class="row">
-                          <div class="cell">Time</div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          <div class="cell"></div>
-                          
-                          
-                          
-                        </div>
-                        <div class="row">
-                            <div class="cell">Days</div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                          </div>
-    
-                          <div class="row">
-                            <div class="cell">Room</div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                          </div>
-    
-                          <div class="row">
-                            <div class="cell">Instructor</div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                          </div>
-                      </div>
-                </div>
+                       </div>
+                       
+                     </div>
+                    </div>
     
                 <div class="footer-container">
                     <div class="aprroved--container">
@@ -1377,13 +1398,13 @@
                 </div>
                 <div class="taon">
                     <label for="first">1st</label>
-                    <input type="text" id="first">
+                    <input type="text" id="1st">
                     <label for="second">2nd</label>
-                    <input type="text" id="second">
+                    <input type="text" id="2nd">
                     <label for="third">3rd</label>
-                    <input type="text" id="third">
+                    <input type="text" id="3rd">
                     <label for="fourth">4th</label>
-                    <input type="text" id="fourth">
+                    <input type="text" id="4th">
                 </div>
             </div>
             <div class="fullnames--container">
@@ -1406,7 +1427,7 @@
                     
                 </div>
                 <div class="Students--container">
-                    <input type="text" id="studentNum">
+                    <input type="text" id="studentNum" class="student-number">
                     <label for="studentsNum">students number</label>
                 </div>
                 
@@ -1414,7 +1435,7 @@
             <div class="info2-container">
                 <div class="bday-container">
                     <label for="birthday">date of birth</label>
-                    <input type="date" name="" id="birthday">
+                    <input type="text" name="" id="birthday">
                 </div>
                 <div class="status-container">
                     <label for="status">status</label>
@@ -1525,5 +1546,6 @@
 </div>
     
 </div>
+<script type="text/javascript" src="/js/formRequest.js"></script>
 </body>
 </html>

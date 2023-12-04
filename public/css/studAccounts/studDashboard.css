@@ -61,11 +61,11 @@
 
 .cardings-wrapper{
     padding: 1rem;
+    gap: 1rem;
     min-height: 450px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     border: 2px solid #ebe9e9;
     border-radius: 10px;
     
@@ -74,9 +74,10 @@
     color: #b886c9;
 }
 .cardings-wrapper .card{
-    height: 170px;
+    height: 200px;
     border-radius: 10px;
     display: flex;
+    justify-content: space-between;
     gap: 3rem;
     transition: all 0.5s ease-in-out;
 }

@@ -9,6 +9,12 @@
     <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/request.css">
+    <script src="
+        https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
+        "></script>
+        <link href="
+        https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
+        " rel="stylesheet">
 </head>
 <body>
     <%- include('../sidebar') %>
@@ -21,7 +27,7 @@
             <div class="user--info">
                 <div class="search--box">
                   <i class="fa-solid fa-magnifying-glass"></i>
-                  <input type="text" placeholder="Search" id="myInput" onkeyup="myFunction()">
+                  <input type="text" placeholder="Search" id="myInput">
                 </div>
                 <!-- <img src="/images/luffy.png" alt=""> -->
             </div>
@@ -46,11 +52,10 @@
                             <tr>
                             <td><img src="<%= account.image %>"></td>
                             <td><%= account.fullname %></td>
-                            
                             <td><%= account.email %></td>
                             <td><%= account.contacts %></td>
                             <td class="action-table">
-                                <button id="view" data-id="<%= account.id %>" onclick="openform()"><i class="fa-regular fa-eye"></i></button>
+                                <button id="view" data-id="<%= account.id %>"><i class="fa-regular fa-eye"></i></button>
                                 <button id="remove" data-id="<%= account.id %>"><i class="fa-solid fa-trash-can"></i></button>
                                 
                             </td>
@@ -79,18 +84,18 @@
         <div class="profile">
             <div class="profile-header">
                 <h1>Student Profile</h1>
-                <img src="/images/admin.png" alt="Student Image" width="150">
+                <img src="/images/admin.png" id="profile" alt="Student Image" width="150">
             </div>
             <div class="stud-name">
-                <p><strong>Name:</strong> Jefferson Garcia</p>
-                <p><strong>Course:</strong> BSIT</p>
-                <p><strong>Year:</strong> 4th Year</p>
+                <p id="fullname"></p>
+                <p id="course"></p>
+                <p id="year_level"></p>
                 
             </div>
             <div class="stud-course">
-                <p><strong>Student Number:</strong> 123456</p>
-                <p><strong>Semester:</strong> 2023</p>
-                <p><strong>Address:</strong> Magsaysay San Pedro Laguna</p>
+                <p id="s_number"></p>
+                <p id="sem"></p>
+                <p id="addr"></p>
             </div>
         </div>
         <div class="notes-container">
@@ -111,52 +116,19 @@
                         <th>Course Title</th>
                         <th>Units</th>
                         <th>DROP</th>
-                        <th>Passed</th>
-                        <th>Failed</th>
+                        <!-- <th>Passed</th> -->
+                        <!-- <th>Failed</th> -->
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 enrolled-tbody">
                     <tr>
                         <td>GE1</td>
                         <td>Mathematics</td>
                         <td>3</td>
-                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        <!-- <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td> -->
                         <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
                     </tr>
-                    <tr>
-                        <td>GE1</td>
-                        <td>Mathematics</td>
-                        <td>3</td>         
-                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
-                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>GE1</td>
-                        <td>Mathematics</td>
-                        <td>3</td>  
-                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
-                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>GE1</td>
-                        <td>Mathematics</td>
-                        <td>3</td>
-                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
-                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>GE1</td>
-                        <td>Computer Science</td>
-                        <td>4</td>
-                        <td><button onclick="deleteSubject(this)" id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td>
-                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
-                    </tr>
-                    
                 </tbody>
             </table>
         </div>
@@ -166,7 +138,7 @@
 <!-- --------------------------------add -->
 
         <div class="subjects">
-            <button id="back" onclick="closeForm()"><i class="fa-solid fa-circle-xmark"></i></button>
+            <button id="back"><i class="fa-solid fa-circle-xmark"></i></button>
             <h2>BSIT Subjects</h2>
             <h3>1st year</h3>
             <h4>1st Sem</h4>
@@ -176,39 +148,12 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
-                    <tr>
-                        <td>GE2</td>
-                        <td>programming</td>
-                        <td>3</td>
-                        <td>
-                            finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>GE2</td>
-                        <td>Cisco</td>
-                        <td>4</td>
-                        <td>
-                          Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>GE2</td>
-                        <td>Netcad</td>
-                        <td>3</td>
-                        <td>
-                           Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
-                    </tr>
-                    <!-- Add subjects for other years as needed -->
+                <tbody class="krung-2 1tbodyfirst">
+                    
                 </tbody>
             </table>
             <h4>2nd sem</h4>
@@ -218,37 +163,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 1tbodysecond">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -267,37 +212,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 2tbodyfirst">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -310,37 +255,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 2tbodysecond">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -359,37 +304,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 3tbodyfirst">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -401,37 +346,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 3tbodysecond">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -450,37 +395,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 4tbodyfirst">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -492,37 +437,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 4tbodysecond">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -537,37 +482,37 @@
                         <th>Code</th>
                         <th>Course Title</th>
                         <th>Units</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>ADD</th>
                     </tr>
                 </thead>
-                <tbody class="krung-2">
+                <tbody class="krung-2 bridging">
                     <tr>
                         <td>GE2</td>
                         <td>programming</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                             finished
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Cisco</td>
                         <td>4</td>
-                        <td>
+                        <!-- <td>
                           Ongoing
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <tr>
                         <td>GE2</td>
                         <td>Netcad</td>
                         <td>3</td>
-                        <td>
+                        <!-- <td>
                            Pending
-                        </td>
-                        <td><button type="button" onclick="addSubject(1, this)"><i class="fa-solid fa-circle-plus"></i></button></td>
+                        </td> -->
+                        <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>
@@ -578,40 +523,6 @@
 
     </div>
 
-    <script>
-        
-        document.getElementById("myInput").addEventListener("keyup", function() {
-            var filter, table, tr, td, i, txtValue;
-            filter = this.value.toUpperCase();
-            table = document.getElementById("studentInfo");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1]; // Change index to the column you want to search
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        });
-    
-        $(document).ready(function(){
-        $("#view").click(function(){
-            $("#popupForm").fadeToggle();
-            
-            $("#back").click(function(){
-                $("#popupForm").fadeOut("slow");
-            
-            })
-        });
-  
- 
-});
-
-</script>
+    <script type="text/javascript" src="/js/adminRequest.js"></script>
 </body>
 </html>

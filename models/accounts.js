@@ -15,9 +15,6 @@ const AccountsModel = sequelize.define("accounts",
     fullname: {
         type: DataTypes.STRING(255)
     },
-    course: {
-        type: DataTypes.STRING(255)
-    },
     email: {
         type: DataTypes.STRING(255)
     },
@@ -26,12 +23,6 @@ const AccountsModel = sequelize.define("accounts",
     },
     contacts: {
         type: DataTypes.STRING(11)
-    },
-    address: {
-        type: DataTypes.STRING(255)
-    },
-    gender: {
-        type: DataTypes.STRING(255)
     }
 }, 
 {

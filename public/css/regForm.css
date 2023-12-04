@@ -195,8 +195,126 @@ p{
 .table-container{
     margin-top: 10px;
     font-size: 10px;
+   
+}
+.table-container1 {
+    font-size: 12px;
+    width: 500px;
+    border: 2px solid red;
+    height: 300px;
 }
 
+.header {
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    height: 35px;
+    align-items: center;
+    grid-template-columns: 30% 10% 15% 15% 10% 20%;
+}
+
+.section {
+    text-align: center;
+    font-size: 12;
+    display: grid;
+    height: 15px;
+    grid-template-columns: 30% 10% 15% 15% 10% 20%;
+}
+.header2 {
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    height: 40px;
+    align-items: center;
+    grid-template-columns: 80% 20%;
+}
+.section3 {
+    text-align: center;
+    font-size: 12;
+    display: grid;
+    height: 20px;
+    grid-template-columns: 80% 20%;
+}
+.table-container1 {
+    font-size: 12px;
+    width: 500px;
+}
+
+.table-container2{
+    height: 350px;
+    border: 2px solid red;
+}
+
+
+
+.header2 {
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    height: 40px;
+    align-items: center;
+    grid-template-columns: 50% 10% 25% 15%;
+}
+
+.section2 {
+    text-align: center;
+    font-size: 11px;
+    display: grid;
+    grid-template-columns: 50% 10% 25% 15%;
+}
+.head{
+    border: 1px solid;
+    padding: .5rem;
+}
+.cell {
+    border: 1px solid;
+    height: 20px;
+    overflow: hidden !important;
+}
+.table-container1 {
+    font-size: 12px;
+    width: 500px;
+}
+
+.header3 {
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    height: 40px;
+    align-items: center;
+    grid-template-columns: 45% 10% 10% 10% 10% 15% ;
+}
+
+.section3 {
+    text-align: center;
+    font-size: 12;
+    display: grid;
+    grid-template-columns: 45% 10% 10% 10% 10% 15% ;
+}
+/* .section2 {
+    text-align: center;
+    font-size: 12;
+    display: grid;
+    height: 20px;
+    grid-template-columns: 90% 10%;
+}
+.head{
+    border: 1px solid;
+    padding: .5rem;
+}
+.cell {
+    border: 1px solid;
+    padding: 1px;
+}
+.cell2{
+    border: 1px solid;
+    padding: .6rem;
+}
+.cell3{
+    border: 1px solid;
+    height: 1.3rem;
+} */
+/* 
 .table-container table{
     width: 100%;
     border: 1px solid;
@@ -206,8 +324,22 @@ p{
 }
 .huhu td{
     border: 1px solid;
+} */
+.table5{
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 30% 10% 15% 15% 10% 20%; /* Create 3 columns with equal width */
+     /* Add a border for the table */
 }
-
+.table5 .row{
+    display: grid;
+    grid-template-rows: 40px 20px 20px 20px 20px 20px 20px 20px  20px 20px 20px  /* Match the number of columns in the table */
+}
+.table5 .cell{
+    border: 1px solid black;
+    padding: 3px;
+}
 .approved-container{
     margin-top: 10px;
 }
@@ -247,6 +379,7 @@ p{
     max-width: 1200px;
     overflow: auto;
     font-size: 12px;
+   
 }
 .table--container table{
     width: 100%;
@@ -292,7 +425,7 @@ p{
 .table--container tfoot td{
     padding: 15px;
 }
-.table--container #print{
+.table--container .print{
     color:green;
     background: none;
     cursor: pointer;
@@ -672,8 +805,13 @@ p{
     text-align: center;
     font-size: 12px;
     display: grid;
-    grid-template-columns: 40% 10% 30% 20%; /* Create 3 columns with equal width */
+    grid-template-columns: 60% 40%; /* Create 3 columns with equal width */
      /* Add a border for the table */
+}
+
+.section6{
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .table1 .row{
     display: grid;
@@ -769,18 +907,30 @@ p{
 
 .tabletwo{
     display: grid;
-    grid-template-columns: 30% 10% 15% 10% 15% 20%;
+    grid-template-columns: 45% 55%;
     text-align: center;
 }
 .tabletwo .row{
     display: grid;
     grid-template-rows: 40px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
 }
+
 .tabletwo .cell{
     border: 1px solid black;
     text-align: center;
 }
-
+.section5{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 40%;
+}
+.sectionss{
+    display: grid;
+    grid-template-columns: 80% 20%; 
+}
+.ro1{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
 /*lastt-------------------------------------*/
 
 .last--container{

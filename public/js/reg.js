@@ -45,6 +45,7 @@ $(function() {
     // })
 
     $("#submit").click(function(e) {
+       
         const current = $(this)
 
         if(!fullname.val() || !email.val() || !password.val() || !contact.val() ||  file.prop("files").length <= 0 ) {
