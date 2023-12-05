@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="icon" href="/images/logo.png">
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
+    " rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -18,6 +24,9 @@
                 <h2>Academic Profile</h2>
             </div>
             <div class="user--info">
+                <div class="unerolled">
+                    <button id="finish">Finish All</button>
+                </div>
                 <div class="search--box">
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <input type="text" placeholder="Search" id="myInput" onkeyup="myFunction()">
@@ -36,7 +45,7 @@
             </ul>
             <div class="table-container">
                 
-                <table class="list" id="studentInfo1">
+                <table class="list bsit" id="studentInfo1">
                     <thead>
                         <tr>
                             <th>Last Name</th>
@@ -44,18 +53,22 @@
                             <th>First Name</th>
                             <th>Year</th>
                             <th>Course</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="hehe1">
-                        <tr>
-                            <td>Garcia</td>
-                            <td>M</td>
-                            <td>Jefferson</td>
-                            <td>1st Year</td>
-                            <td>BSIT</td>
-                            <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                        </tr>
+                        
+                        <% BSIT.length >= 1 && BSIT.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                            <tr>
+                                <td><%= stud["FirstName"] %></td>
+                                <td><%= stud["MiddleName"] %></td>
+                                <td><%= stud["LastName"] %></td>
+                                <td><%= stud["Year"] %></td>
+                                <td><%= stud["Course"] %></td>
+                                <td><%= stud["enrolment_status"] %></td>
+                            </tr>
+                        <% } }) %>
+                        
                     </tbody>
                     <tfoot>
                         <tr>
@@ -64,7 +77,7 @@
                     </tfoot>
                 </table>
                 <!-- 2nd Year Table -->
-                <table class="list" id="studentInfo2" style="display: none;">
+                <table class="list bsit" id="studentInfo2" style="display: none;">
                     <thead>
                         <tr>
                             <th>Last Name</th>
@@ -72,18 +85,21 @@
                             <th>First Name</th>
                             <th>Year</th>
                             <th>Course</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="hehe2">
-                        <tr>
-                            <td>Garcia</td>
-                            <td>M</td>
-                            <td>Jefferson</td>
-                            <td>2nd Year</td>
-                            <td>BSIT</td>
-                            <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                        </tr>
+                    
+                        <% BSIT.length >= 1 && BSIT.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                            <tr>
+                                <td><%= stud["FirstName"] %></td>
+                                <td><%= stud["MiddleName"] %></td>
+                                <td><%= stud["LastName"] %></td>
+                                <td><%= stud["Year"] %></td>
+                                <td><%= stud["Course"] %></td>
+                                <td><%= stud["enrolment_status"] %></td>
+                            </tr>
+                        <% } }) %>
                        
                     </tbody>
                     <tfoot>
@@ -93,7 +109,7 @@
                     </tfoot>
                 </table>
                 <!-- 3nd Year Table -->
-                <table class="list" id="studentInfo3" style="display: none;">
+                <table class="list bsit" id="studentInfo3" style="display: none;">
                     <thead>
                         <tr>
                             <th>Last Name</th>
@@ -101,18 +117,22 @@
                             <th>First Name</th>
                             <th>Year</th>
                             <th>Course</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="hehe3">
-                        <tr>
-                            <td>Garcia</td>
-                            <td>M</td>
-                            <td>keciebelle</td>
-                            <td>3rd Year</td>
-                            <td>BSIT</td>
-                            <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                        </tr>
+                        
+                        <% BSIT.length >= 1 && BSIT.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                            <tr>
+                                <td><%= stud["FirstName"] %></td>
+                                <td><%= stud["MiddleName"] %></td>
+                                <td><%= stud["LastName"] %></td>
+                                <td><%= stud["Year"] %></td>
+                                <td><%= stud["Course"] %></td>
+                                <td><%= stud["enrolment_status"] %></td>
+                            </tr>
+                        <% } }) %>
+
                     </tbody>
                     <tfoot>
                         <tr>
@@ -121,7 +141,7 @@
                     </tfoot>
                 </table>
                  <!-- 4th Year Table -->
-                 <table class="list" id="studentInfo4" style="display: none;">
+                 <table class="list bsit" id="studentInfo4" style="display: none;">
                     <thead>
                         <tr>
                             <th>Last Name</th>
@@ -129,18 +149,22 @@
                             <th>First Name</th>
                             <th>Year</th>
                             <th>Course</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="hehe3">
-                        <tr>
-                            <td>Garcia</td>
-                            <td>M</td>
-                            <td>keciebelle</td>
-                            <td>4th Year</td>
-                            <td>BSIT</td>
-                            <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                        </tr>
+                        
+                        <% BSIT.length >= 1 && BSIT.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                            <tr>
+                                <td><%= stud["FirstName"] %></td>
+                                <td><%= stud["MiddleName"] %></td>
+                                <td><%= stud["LastName"] %></td>
+                                <td><%= stud["Year"] %></td>
+                                <td><%= stud["Course"] %></td>
+                                <td><%= stud["enrolment_status"] %></td>
+                            </tr>
+                        <% } }) %>
+
                     </tbody>
                     <tfoot>
                         <tr>
@@ -164,7 +188,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BEED Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list beed" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -172,18 +196,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BEED</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+                            
+                            <% BEED.length >= 1 && BEED.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -192,7 +220,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list beed" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -200,18 +228,21 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BEED</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+                            
+                            <% BEED.length >= 1 && BEED.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
                            
                         </tbody>
                         <tfoot>
@@ -221,7 +252,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list beed" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -229,18 +260,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BEED</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+                            
+                            <% BEED.length >= 1 && BEED.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -249,7 +284,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list beed" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -257,18 +292,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BEED</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+                            
+                            <% BEED.length >= 1 && BEED.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -295,7 +334,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BSBA Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list bsba" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -303,18 +342,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BSBA</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSBA.length >= 1 && BSBA.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -323,7 +366,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list bsba" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -331,19 +374,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BSBA</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSBA.length >= 1 && BSBA.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -352,7 +398,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list bsba" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -360,18 +406,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BSBA</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSBA.length >= 1 && BSBA.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -380,7 +430,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list bsba" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -388,18 +438,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BSBA</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSBA.length >= 1 && BSBA.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -425,7 +479,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BSCA Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list bsca" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -433,18 +487,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCA.length >= 1 && BSCA.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -453,7 +511,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list bsca" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -461,19 +519,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSCA.length >= 1 && BSCA.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -482,7 +543,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list bsca" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -490,18 +551,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCA.length >= 1 && BSCA.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -510,7 +575,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list bsca" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -518,18 +583,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCA.length >= 1 && BSCA.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -555,7 +624,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BSCPE Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list bscpe" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -563,18 +632,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BSCPE</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCpE.length >= 1 && BSCpE.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -583,7 +656,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list bscpe" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -591,19 +664,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BSCPE</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSCpE.length >= 1 && BSCpE.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -612,7 +688,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list bscpe" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -620,18 +696,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BSCPE</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCpE.length >= 1 && BSCpE.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -640,7 +720,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list bscpe" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -648,18 +728,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BSCPE</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSCpE.length >= 1 && BSCpE.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -685,7 +769,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BSHRM Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list bshrm" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -693,19 +777,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSHRM.length >= 1 && BSHRM.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -714,7 +801,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list bshrm" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -722,19 +809,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSHRM.length >= 1 && BSHRM.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -743,7 +833,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list bshrm" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -751,18 +841,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSHRM.length >= 1 && BSHRM.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -771,7 +865,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list bshrm" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -779,18 +873,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BSIT</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSHRM.length >= 1 && BSHRM.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -816,7 +914,7 @@
                 </ul>
                 <div class="table-container">
                     <!-- BSED ENG/BSED MATH Tables go here -->
-                    <table class="list" id="studentInfo1">
+                    <table class="list bsed" id="studentInfo1">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -824,19 +922,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe1">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>1st Year</td>
-                                <td>BSED-ENG</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                            
+
+                            <% BSED.length >= 1 && BSED.forEach((stud) => { if(stud["Year"] == "1st Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -845,7 +946,7 @@
                         </tfoot>
                     </table>
                     <!-- 2nd Year Table -->
-                    <table class="list" id="studentInfo2" style="display: none;">
+                    <table class="list bsed" id="studentInfo2" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -853,19 +954,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe2">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>Jefferson</td>
-                                <td>2nd Year</td>
-                                <td>BSED-ENG</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
-                           
+
+                            <% BSED.length >= 1 && BSED.forEach((stud) => { if(stud["Year"] == "2nd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -874,7 +978,7 @@
                         </tfoot>
                     </table>
                     <!-- 3nd Year Table -->
-                    <table class="list" id="studentInfo3" style="display: none;">
+                    <table class="list bsed" id="studentInfo3" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -882,18 +986,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>3rd Year</td>
-                                <td>BSED-MATH</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSED.length >= 1 && BSED.forEach((stud) => { if(stud["Year"] == "3rd Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -902,7 +1010,7 @@
                         </tfoot>
                     </table>
                      <!-- 4th Year Table -->
-                     <table class="list" id="studentInfo4" style="display: none;">
+                     <table class="list bsed" id="studentInfo4" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -910,18 +1018,22 @@
                                 <th>First Name</th>
                                 <th>Year</th>
                                 <th>Course</th>
-                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody id="hehe3">
-                            <tr>
-                                <td>Garcia</td>
-                                <td>M</td>
-                                <td>keciebelle</td>
-                                <td>4th Year</td>
-                                <td>BSED-MATH</td>
-                                <td><button class="enroll" id="enrolled">Enroll Student</button></td>
-                            </tr>
+
+                            <% BSED.length >= 1 && BSED.forEach((stud) => { if(stud["Year"] == "4th Year"){ %>
+                                <tr>
+                                    <td><%= stud["FirstName"] %></td>
+                                    <td><%= stud["MiddleName"] %></td>
+                                    <td><%= stud["LastName"] %></td>
+                                    <td><%= stud["Year"] %></td>
+                                    <td><%= stud["Course"] %></td>
+                                    <td><%= stud["enrolment_status"] %></td>
+                                </tr>
+                            <% } }) %>
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -970,5 +1082,6 @@
         });
  
     </script>
+    <script type="text/javascript" src="/js/studentCourse.js"></script>
 </body>
 </html>

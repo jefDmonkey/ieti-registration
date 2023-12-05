@@ -31,9 +31,9 @@
                         <% registration_forms.forEach((form) => { %>
                             <tr>
                                 <td>
-                                    <button class="print" id="<%= form.id %>">Print</button>
-                                    <button class="accept" data-action="ACCEPT" id="<%= form.id %>">Accept</button>
-                                    <button class="reject" data-action="REJECT"  id="<%= form.id %>">Reject</button>
+                                    <button class="print" id="<%= form.uid %>">Print</button>
+                                    <button class="accept" data-action="ACCEPT" id="<%= form.uid %>">Accept</button>
+                                    <button class="reject" data-action="REJECT"  id="<%= form.uid %>">Reject</button>
                                 </td>
                                 <td><%= form.FirstName %></td>
                                 <td><%= form.MiddleName %></td>
@@ -137,97 +137,7 @@
                   </div>
                </div>
             </div>
-            <!-- <div class="table-container">
-                <div class="table5">
-                    <div class="row">
-                      <div class="cell">Course Title</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      
-                     
-                      
-                    </div>
-                    <div class="row">
-                      <div class="cell">Unit</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-               
-                      
-                    </div>
-                    <div class="row">
-                      <div class="cell">time</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                
-                    </div>
-                    <div class="row">
-                        <div class="cell">days</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                      
-                      </div>
-                      <div class="row">
-                        <div class="cell">Room</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                    
-                      </div>
-                      <div class="row">
-                        <div class="cell">Instructor</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                      
-                      </div>
-                  </div>
-            </div> -->
+            
             <div class="table-container1">
                 <div class="grid">
                     <div class="header">
@@ -239,7 +149,6 @@
                       <div class="head">Instructor</div>
                    </div>
                    <div class="section first-table">
-                      <div class="cell">1</div>
                       <div class="cell"></div>
                       <div class="cell"></div>
                       <div class="cell"></div>
@@ -251,6 +160,74 @@
                       <div class="cell"></div>
                       <div class="cell"></div>
                       <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      
                    </div>
                    
                  </div>
@@ -259,15 +236,15 @@
                 <p>Approved:</p>
                 <div class="approved">
                     <div class="pirma">
-                    <input type="text" id="first" name="first">
+                    <input type="text" id="firsts" name="first">
                     <label for="first">College Head</label>
                 </div>
                 <div class="pirma">
-                     <input type="text" id="second" name="second">
+                     <input type="text" id="seconds" name="second">
                     <label for="second">Registrar</label>
                 </div>
                 <div class="pirma">
-                    <input type="text" id="third" name="third">
+                    <input type="text" id="thirds" name="third">
                     <label for="third">Date of Registration</label>
                     </div>
                 </div>
@@ -363,97 +340,7 @@
                   </div>
                </div>
             </div>
-            <!-- <div class="table-container">
-                <div class="table5">
-                    <div class="row">
-                      <div class="cell">Course Title</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      
-                     
-                      
-                    </div>
-                    <div class="row">
-                      <div class="cell">Unit</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-               
-                      
-                    </div>
-                    <div class="row">
-                      <div class="cell">time</div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                      <div class="cell"></div>
-                
-                    </div>
-                    <div class="row">
-                        <div class="cell">days</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                      
-                      </div>
-                      <div class="row">
-                        <div class="cell">Room</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                    
-                      </div>
-                      <div class="row">
-                        <div class="cell">Instructor</div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                        <div class="cell"></div>
-                      
-                      </div>
-                  </div>
-            </div> -->
+            
             <div class="table-container1">
                 <div class="grid">
                     <div class="header">
@@ -465,14 +352,80 @@
                       <div class="head">Instructor</div>
                    </div>
                    <div class="section second-table">
-                      <div class="cell">1</div>
-                      <div class="cell">2</div>
-                      <div class="cell">3</div>
-                      <div class="cell">4</div>
-                      <div class="cell">5</div>
-                      <div class="cell">6</div>
-                      <div class="cell">7</div>
-                      <div class="cell">8</div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
+                      <div class="cell"></div>
                       <div class="cell"></div>
                       <div class="cell"></div>
                       <div class="cell"></div>
@@ -485,15 +438,15 @@
                 <p>Approved:</p>
                 <div class="approved">
                     <div class="pirma">
-                    <input type="text" id="first" name="first">
+                    <input type="text" id="firsts" name="first">
                     <label for="first">College Head</label>
                 </div>
                 <div class="pirma">
-                     <input type="text" id="second" name="second">
+                     <input type="text" id="seconds" name="second">
                     <label for="second">Registrar</label>
                 </div>
                 <div class="pirma">
-                    <input type="text" id="third" name="third">
+                    <input type="text" id="thirds" name="third">
                     <label for="third">Date of Registration</label>
                     </div>
                 </div>
@@ -995,12 +948,6 @@
                           <div class="head">Amout</div>
                        </div>
                        <div class="section2 third-table">
-                          <div class="cell">1</div>
-                          <div class="cell">2</div>
-                          <div class="cell">3</div>
-                          <div class="cell">4</div>
-                          <div class="cell">5</div>
-                          <div class="cell">6</div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
@@ -1055,6 +1002,13 @@
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          
                        </div>
                        
                      </div>
@@ -1211,6 +1165,72 @@
                        </div>
                        <div class="section3 fourth-table">
                           <div class="cell">1</div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
+                          <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>
                           <div class="cell"></div>

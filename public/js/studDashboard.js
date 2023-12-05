@@ -14,3 +14,7 @@ $(function(e) {
         })
     })
 })
+
+$("button#subj_taken").click(function(e) {
+    location.replace("/student/subjectsTaken")
+})

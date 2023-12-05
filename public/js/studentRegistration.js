@@ -164,7 +164,7 @@ $(function(e) {
                     icon: "success"
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        location.reload()
+                        location.replace("/student/studDashboard")
                     } 
                 });
             },

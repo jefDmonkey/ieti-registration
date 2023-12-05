@@ -2,10 +2,13 @@ const { sequelize } = require("../config/db");
 const { DataTypes } = require("sequelize");
 
 const StdInfoModel = sequelize.define("studentinfo" ,{
+    uid: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
     },
     "Stud_ID": {
         type: DataTypes.STRING
@@ -123,7 +126,7 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
     },
     selected_subjects: {
         type: DataTypes.TEXT("long"),
-        defaultValue: null
+        defaultValue: "[]"
     },
     enrolment_status: {
         type: DataTypes.STRING,
@@ -131,11 +134,11 @@ const StdInfoModel = sequelize.define("studentinfo" ,{
     },
     passed_subjects: {
         type: DataTypes.TEXT("long"),
-        defaultValue: null
+        defaultValue: "[]"
     }
  },
  {
-     timestamps: false
+     timestamps: false,
  })
  
  module.exports = StdInfoModel

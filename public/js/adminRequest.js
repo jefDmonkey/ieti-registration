@@ -26,6 +26,8 @@ $(document).ready(function(){
             type: "GET",
             url: `/admin/get_student_subj_list_and_selected?id=${id}`,
             success: ({ student, account, sem_subjects, bridging_subjects, completeInfoSubject }) => {
+
+                if(!student) return alert("No active enrolment form")
                 $("div.stud-course p,div.stud-name p").html(``)
                 $("div.for-popup tbody").html(``)
 
@@ -33,7 +35,7 @@ $(document).ready(function(){
                 $("#fullname").html(`<strong>Name:</strong> ${account.fullname}`)
                 
                 if(student){
-                    $("button#finish").attr("student-id", student.id)
+                    $("button#finish").attr("student-id", student.uid)
                     $("p#s_number").html(`<strong>Student Number:</strong> ${student["Stud_ID"]}`)
                     $("#course").html(`<strong>Course:</strong> ${student.Course}`)
                     $("#year_level").html(`<strong>Year:</strong> ${student.Year}`)
@@ -45,8 +47,7 @@ $(document).ready(function(){
                                 <td id="code">${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button id="drop" data-student="${student.id}" data-id="${subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
-                                <!-- <td><button id="failed" data-id="${subj.code}"><i class="fa-solid fa-circle-xmark"></i></button></td> -->
+                                <td><button id="drop" data-student="${student.uid}" data-id="${subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -85,7 +86,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -96,7 +97,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -107,7 +108,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -118,7 +119,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -129,7 +130,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -140,7 +141,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -151,7 +152,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -162,7 +163,7 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -173,103 +174,101 @@ $(document).ready(function(){
                                 <td>${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button type="button" data-action="add" data-student="${student.id}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><button type="button" data-action="add" student-id="${student.id}" data-student="${student.uid}" id="${subj.code}"><i class="fa-solid fa-circle-plus"></i></button></td>
                             </tr>
                         `)
                     })
 
-
-
                 }
 
-                
-                
-                
+                $("#popupForm").fadeToggle();
 
+            },
+            error: (err) => {
+                console.log(err)
+                alert("Something went wrong")
             }
         })
-
-        $("button#finish").click(function(e) {
-            const current = $(this)
-            const subjects = $("tbody.enrolled-tbody tr td#code")
-            const tobepassed = []
-            subjects.each(function(i) {
-                tobepassed.push($(this).text())
-            })
-            $.ajax({
-                type: "PATCH",
-                url: `/admin/pass_subject?codes=${JSON.stringify(tobepassed)}&id=${current.attr("student-id")}`,
-                success: (res) => {
-                    if(res.operation){
-                        $("tbody.enrolled-tbody").html(``)
-                    }
-                },
-                error: (err) => {
-                    console.log(err)
-                }
-            })
-        })
-
-        $("tbody").on("click", "button[data-action=add]", function(e){
-            const current = $(this)
-
-            const check = $("tbody.enrolled-tbody tr td#code")
-
-            let checker = false
-
-            check.each(function(i) {
-                if($(this).text() == current.attr("id")) checker = true
-            })
-
-            if(checker) return alert("Subject already added")
-
-            $.ajax({
-                type: "PATCH",
-                url: `/admin/add_student_subject?code=${current.attr("id")}&id=${current.attr("data-student")}`,
-                success: (res) => {
-                    if(res.operation){
-                        $("tbody.enrolled-tbody").append(`
-                            <tr id="subject">
-                                <td id="code">${res.subj.code}</td>
-                                <td>${res.subj.subject_name}</td>
-                                <td>${res.subj.units}</td>
-                                <td><button id="drop" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
-                                <!-- <td><button id="failed" data-id="${res.subj.code}"><i class="fa-solid fa-circle-xmark"></i></button></td> -->
-                            </tr>
-                        `)
-                        alert("Subject added")
-                    }
-
-                    if(res.msg) alert(res.msg)
-                },
-                error: (err) => {
-                    console.log(err)
-                }
-            })
-        })
-
-        $("tbody").on("click", "button#drop", function(e){
-            const current = $(this)
-            $.ajax({
-                type: "PATCH",
-                url: `/admin/drop_subject?code=${current.attr("data-id")}&id=${current.attr("data-student")}`,
-                success: (res) => {
-                    if(res.operation){
-                        current.closest("tr").remove()
-                    }
-                },
-                error: (err) => {
-                    console.log(err)
-                }
-            })
-        })
-
-        $("#popupForm").fadeToggle();
         
-        $("#back").click(function() {
-            $("#popupForm").fadeOut("slow");
-        })
     });
+
+    $("button#finish").click(function(e) {
+        const current = $(this)
+        const subjects = $("tbody.enrolled-tbody tr td#code")
+        const tobepassed = []
+        subjects.each(function(i) {
+            tobepassed.push($(this).text())
+        })
+        $.ajax({
+            type: "PATCH",
+            url: `/admin/pass_subject?codes=${JSON.stringify(tobepassed)}&id=${current.attr("student-id")}`,
+            success: (res) => {
+                if(res.operation){
+                    $("tbody.enrolled-tbody").html(``)
+                }
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+    })
+
+    $("tbody").on("click", "button[data-action=add]", function(e) {
+        const current = $(this)
+
+        const check = $("tbody.enrolled-tbody tr td#code")
+
+        let checker = false
+
+        check.each(function(i) {
+            if($(this).text() == current.attr("id")) checker = true
+        })
+
+        if(checker) return alert("Subject already added")
+
+        $.ajax({
+            type: "PATCH",
+            url: `/admin/add_student_subject?code=${current.attr("id")}&uid=${current.attr("data-student")}&id=${current.attr("student-id")}`,
+            success: (res) => {
+                if(res.operation){
+                    $("tbody.enrolled-tbody").append(`
+                        <tr id="subject">
+                            <td id="code">${res.subj.code}</td>
+                            <td>${res.subj.subject_name}</td>
+                            <td>${res.subj.units}</td>
+                            <td><button id="drop" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
+                        </tr>
+                    `)
+                    alert("Subject added")
+                }
+
+                if(res.msg) alert(res.msg)
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+    })
+
+    $("tbody").on("click", "button#drop", function(e){
+        const current = $(this)
+        $.ajax({
+            type: "PATCH",
+            url: `/admin/drop_subject?code=${current.attr("data-id")}&id=${current.attr("data-student")}`,
+            success: (res) => {
+                if(res.operation){
+                    current.closest("tr").remove()
+                }
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+    })
+        
+    $("#back").click(function() {
+        $("#popupForm").fadeOut("slow");
+    })
 
     $("td.action-table").on("click", "button#remove", function(){
         const current = $(this)

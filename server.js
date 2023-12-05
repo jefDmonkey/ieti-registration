@@ -74,9 +74,12 @@ app.post("/login", async(req, res) => {
     //KINUHA ANG MGA DATA FROM FRONT END
     const { username, password } = req.body
 
-    const account = await AccountsModel.findOne({ where: {
-      email: username
-    }, raw: true })
+    const account = await AccountsModel.findOne({ 
+      where: {
+        email: username
+      }, 
+      raw: true 
+    })
 
     const adminAccount = await AdminAccountModel.findOne({ where: {
       email: username
@@ -89,7 +92,8 @@ app.post("/login", async(req, res) => {
         fullname: account.fullname,
         id: account.id,
         email: account.email,
-        phone: account.contacts
+        phone: account.contacts,
+        image: account.image
       }
       return res.json({ operation: true, msg: "student" })
     }
@@ -123,6 +127,10 @@ app.get('/register', (req, res) => {
 app.use('/admin', require("./routes/admin"))
 
 app.use('/student', require("./routes/student"))
+
+app.get('/forgotPassword', (req, res) => {
+  res.render("forgotPassword.ejs")
+})
 
 app.get ('/navbar', (req, res) =>{
   res.render("navbar.ejs")

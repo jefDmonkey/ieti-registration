@@ -42,8 +42,47 @@ router.get("/adminRequest", isLoginAdmin, async(req, res) => {
     })
 })
 
-router.get("/studentCourse",isLoginAdmin, (req, res) =>{
-    res.render('admin/studentCourse.ejs')
+router.get("/studentCourse",isLoginAdmin, async(req, res) =>{
+    const allCourses = await StdInfoModel.findAll({ where: { enrolment_status: "ENROLLED" }, raw: true })
+    
+    const BSIT = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BSIT"
+    })) || []
+
+    const BSCpE = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BSCpE"
+    })) || []
+
+    const BSCA = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BSCA"
+    })) || []
+
+    const BSBA = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BSBA"
+    })) || []
+
+    const BSHRM = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BSHRM"
+    })) || []
+
+    const BEED = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"] == "BEED"
+    })) || []
+
+    const BSED = (allCourses.length >= 1 && allCourses.filter((student) => {
+        return student["Course"].includes("BSED")
+    })) || []
+
+    res.render('admin/studentCourse.ejs',
+    {
+        BSIT,
+        BSCA,
+        BSBA,
+        BSHRM,
+        BEED,
+        BSCpE,
+        BSED
+    })
 })
 
 router.get("/enrolledStud", isLoginAdmin, (req, res) =>{
@@ -51,8 +90,7 @@ router.get("/enrolledStud", isLoginAdmin, (req, res) =>{
 })
 
 router.get("/formRequest", isLoginAdmin, async(req, res) => {
-    const registration_forms = await StdInfoModel.findAll({ where: { enrolment_status: { [Op.ne]: "ENROLLED" } }, raw: true })
-    
+    const registration_forms = await StdInfoModel.findAll({ where: { enrolment_status: "PENDING" }, raw: true })
     res.render('admin/formRequest.ejs', { registration_forms })
 })
 
@@ -294,7 +332,7 @@ router.get("/getstudentdata", async(req, res) => {
     try {
         const { id } = req.query
 
-        let student = await StdInfoModel.findOne({ where: { id }, raw: true })
+        let student = await StdInfoModel.findOne({ where: { uid: id }, raw: true })
         
         const parsed = JSON.parse(student.selected_subjects)
 
@@ -334,10 +372,10 @@ router.put("/modifyenrolment", async(req, res) => {
         const { action, id } = req.query
 
         if(action == "ACCEPT"){
-            await StdInfoModel.update({ enrolment_status: "ENROLLED" }, { where: { id } })
+            await StdInfoModel.update({ enrolment_status: "ENROLLED" }, { where: { uid: id } })
             res.json({ operation: true })
         }else{
-            await StdInfoModel.destroy({ where: { id } })
+            await StdInfoModel.destroy({ where: { uid: id } })
             res.json({ operation: true })
         }
     } catch (error) {
@@ -399,10 +437,10 @@ router.patch("/drop_subject", async(req, res) => {
     try {
         const { code, id } = req.query
 
-        const student = await StdInfoModel.findOne({ attributes: ["selected_subjects"], where: { id }, raw: true })
+        const student = await StdInfoModel.findOne({ attributes: ["selected_subjects"], where: { uid: id }, raw: true })
         const newSubjects = JSON.parse(student["selected_subjects"])
         newSubjects.splice(newSubjects.indexOf(code), 1)
-        await StdInfoModel.update({ selected_subjects: JSON.stringify(newSubjects) }, { where: { id } })
+        await StdInfoModel.update({ selected_subjects: JSON.stringify(newSubjects) }, { where: { uid: id } })
 
         res.json({ operation: true })
         
@@ -413,11 +451,28 @@ router.patch("/drop_subject", async(req, res) => {
 
 router.patch("/add_student_subject", async(req, res) => {
     try {
-        const { code, id } = req.query
+        const { code, uid, id } = req.query
 
-        const subject = await SubjectsModel.findOne({ where: { code }, raw: true })
+        let passed_subjects = await StdInfoModel.findAll({
+            attributes: ["passed_subjects"],
+            where: {
+                id
+            },
+            raw: true
+        })
+        
+        if(passed_subjects.length >= 1){
+            passed_subjects = passed_subjects.map((val) => {
+                return JSON.parse(val.passed_subjects)
+            }).flat()
 
-        const student = await StdInfoModel.findOne({ attributes: ["selected_subjects", "passed_subjects"], where: { id }, raw: true })
+            if(passed_subjects.indexOf(code) >= 0) return res.json({ operation: false, msg: "Subject already passed" }) 
+        }
+
+        let subject = await SubjectsModel.findOne({ where: { code }, raw: true })
+        if(!subject) subject = await BridgingSubjectModel.findOne({ where: { code }, raw: true })
+
+        const student = await StdInfoModel.findOne({ attributes: ["selected_subjects", "passed_subjects"], where: { uid }, raw: true })
 
         if(student["passed_subjects"]){
             let checker = false
@@ -430,7 +485,10 @@ router.patch("/add_student_subject", async(req, res) => {
 
         const newSubjects = JSON.parse(student["selected_subjects"])
         newSubjects.push(code)
-        await StdInfoModel.update({ selected_subjects: JSON.stringify(newSubjects) }, { where: { id } })
+
+        await StdInfoModel.update({ selected_subjects: JSON.stringify(newSubjects) }, { where: { uid } })
+
+        console.log(subject)
 
         res.json({ operation: true, subj: subject })
     } catch (error) {
@@ -442,10 +500,33 @@ router.patch("/pass_subject", async(req, res) => {
     try {
         const { codes, id } = req.query
 
-        await StdInfoModel.update({ selected_subjects: "[]", passed_subjects: codes }, { where: { id } })
+        await StdInfoModel.update({ selected_subjects: "[]", passed_subjects: codes }, { where: { uid: id } })
 
         res.json({ operation: true })
 
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.put("/nextyear", async(req, res) => {
+    try {
+        
+        const enrolment_forms = await StdInfoModel.findAll({ attributes: ["uid","selected_subjects","passed_subjects"], where: { enrolment_status: "ENROLLED" }, raw: true })
+
+        if(enrolment_forms.length >= 1){
+            for(let i = 0; i < enrolment_forms.length; i++){
+                let passed = JSON.parse(enrolment_forms[i].passed_subjects)
+                let enrolled = JSON.parse(enrolment_forms[i].selected_subjects)
+
+                let newPassed = [ ...new Set([ ...passed, ...enrolled ]) ]
+
+                await StdInfoModel.update({ selected_subjects: "[]", passed_subjects: JSON.stringify(newPassed) },{ where: { uid: enrolment_forms[i].uid } })
+            }
+        }
+
+        await StdInfoModel.update({ enrolment_status: "DONE" },{ where: { enrolment_status: "ENROLLED" } })
+        res.json({ operation: true, msg: "Success" })
     } catch (error) {
         console.log(error)
     }

@@ -1,4 +1,8 @@
 $(function(e) {
+    $("input[type=text]").keydown(function(e) {
+        e.preventDefault()
+    })
+
     $("tbody#hehe").on("click", "button.print", function(e) {
         const current = $(this)
         $.ajax({
@@ -6,7 +10,6 @@ $(function(e) {
             url: `/admin/getstudentdata?id=${current.attr("id")}`,
             success: ({ data }) => {
                 const year = data["Year"].split(" ")
-                console.log(year)
                 $("div.first-table,div.second-table,div.third-table,div.fourth-table").html('')
 
                 data.selected_subjects.forEach((subj) => {
@@ -55,11 +58,12 @@ $(function(e) {
                 $("input.course").val(data['Course'])
                 $("input.student-number").val(data["Stud_ID"])
 
-                $("input#family,input.lastname").val(data['LastName'])
+                $("input#family,input#lastname,input.lastname").val(data['LastName'])
                 $("input#first,input.firstname").val(data['FirstName'])
                 $("input#middle,input.middle").val(data['MiddleName'])
                 $("input#gender").val(data["Gender"])
                 $("input#status").val(data["Status"])
+                $("input#tel").val(data["Phone"])
                 $("input#nationality").val(data["Nationality"])
                 $("input#birthday").val(data["date_of_Birth"])
                 $("input#placeofBirth").val(data["Place_of_Birth"])
@@ -89,12 +93,12 @@ $(function(e) {
     })
 
     $("tbody#hehe").on("click", "button.accept,button.reject", function(e) {
-        const id = $(this).attr("id")
+        const uid = $(this).attr("id")
         const action = $(this).attr("data-action")
         const current = $(this)
         $.ajax({
             type: "PUT",
-            url: `/admin/modifyenrolment?action=${action}&id=${id}`,
+            url: `/admin/modifyenrolment?action=${action}&id=${uid}`,
             success: (res) => {
                 if(res.operation) return alert("Success")
             },

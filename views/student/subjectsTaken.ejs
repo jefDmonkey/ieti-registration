@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects</title>
+    <link rel="stylesheet" href="/css/subjectsTaken.css">
+</head>
+<body>
+
+    <div class="subjects-container">
+          <div class="current-container">
+                <h2>Current Enrolled Subjects</h2>
+                <table class="current">
+                    <thead>
+                    <tr>
+                        <th>Subject Code</th>
+                        <th>Subject Title</th>
+                        <th>Units</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <% enrolled_subjects.forEach((subj) => { %>
+
+                        <tr>
+                            <td><%= subj.code %></td>
+                            <td><%= subj.subject_name %></td>
+                            <td><%= subj.units %></td>
+                        </tr>
+
+                    <% }) %>
+
+                    </tbody>
+                </table>
+         </div>
+
+         <div class="Taken-container">
+            <h2>Finish Subjects</h2>
+            <table class="taken">
+                <thead>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Title</th>
+                    <th>Units</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% taken_subjects.forEach((subj) => { %>
+
+                        <tr>
+                            <td><%= subj.code %></td>
+                            <td><%= subj.subject_name %></td>
+                            <td><%= subj.units %></td>
+                        </tr>
+
+                    <% }) %>
+                </tbody>
+            </table>
+     </div>
+    </div>
+</body>
+</html>
