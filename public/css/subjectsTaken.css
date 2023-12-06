@@ -1,12 +1,78 @@
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+.subjects-container{
+  /* border: 2px solid #ccc; */
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  height: 700px;
+  position: relative;
+  /* border-radius: 10px; */
+  /* background: #fcfcfc; */
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.8px);
+  -webkit-backdrop-filter: blur(13.8px);
+  border: 1px solid rgba(255, 255, 255, 0.81);
+
+}
+
+.button--container{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.button--container button{
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  font-size: 35px;
+  color: red;
+  border: none;
+}
+
+.current-container{
+  border: 2px solid #ccc;
+  width: 50%;
+  padding: 1rem;
+  border-radius: 10px;
+  max-height: 650px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.Taken-container{
+  border: 2px solid #ccc;
+  width: 50%;
+  padding: 1rem;
+  border-radius: 10px;
+  max-height: 650px;
+  overflow: hidden;
+  background: #fff;
+  
+}
+
 table {
+    margin-top: 1rem;
     border-collapse: collapse;
     width: 100%;
     border: 2px solid black;
+
   }
 
   th, td {
     border: 1px solid #100f0f;
-    text-align: left;
+    text-align: center;
     padding: 8px;
   }
 
