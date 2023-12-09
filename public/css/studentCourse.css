@@ -32,6 +32,12 @@
     align-items: center;
     gap: 1rem;
 }
+
+.unerolled button{
+    color: green;
+    cursor: pointer;
+    background: none;
+}
 .search--box{
     background: rgb(237, 237, 237);
     border-radius: 15px;

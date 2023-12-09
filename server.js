@@ -11,7 +11,8 @@ const cookieSession = require('cookie-session');
 const AdminAccountModel = require("./models/admin_account")
 const { isLogout, isLoginAdmin } = require("./middleware/isLogin")
 const sequelize = require("./config/db").sequelize
-const { QueryTypes } = require("sequelize");
+const { QueryTypes, Op } = require("sequelize");
+const sendEmail = require("./config/mail")
 
 
 app.use(cookieSession({
@@ -52,6 +53,67 @@ app.use((req, res, next) => {
 //   })
 // })
 
+//GET ACCOUNTS
+app.get("/getAccounts", async(req, res) => {
+  try {
+    const accounts = await AdminAccountModel.findAll({ where: { role: { [Op.ne]: "admin" } }, raw: true })
+    res.json({ operation: true, accounts })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//ADD ACCOUNT
+app.post("/addAccount", async(req, res) => {
+  try {
+    const { fullname, email, password } = req.body
+
+    //CHECK IF EMAIL ALREADY EXIST
+    const check = await AdminAccountModel.findOne({ where: { email }, raw: true })
+    if(check){
+      return res.json({ operation: false, msg: "Email already exist" })
+    }
+
+    await AdminAccountModel.create({ email, pass: password, fullname })
+    res.json({ operation: true })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//DELETE ACCOUNT
+app.delete("/deleteAccount", async(req, res) => {
+  try {
+    const { email } = req.query
+    await AdminAccountModel.destroy({ where: { email } })
+    res.json({ operation: true })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//FORGOT PASSWORD
+app.post("/forgotPassword", async(req, res) => {
+  try {
+    const { email } = req.body
+    await sendEmail(email, req)
+    res.json({ operation: true })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//CHANGE PASSWORD
+app.post("/changepassword", async(req, res) => {
+  try {
+    const { newPassword, email } = req.body
+    await AdminAccountModel.update({ pass: newPassword }, { where: { email: email } })
+    res.json({ operation: true })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 //API ROUTES
 app.use("/api/contact", require("./routes/contact"))
 
@@ -88,22 +150,13 @@ app.post("/login", async(req, res) => {
     if(account){
       const checkpwd = await bcrypt.compare(password, account.password)
       if(!checkpwd) return res.json({ operation: false, msg: "Password failed" })
-      req.session.student = {
-        fullname: account.fullname,
-        id: account.id,
-        email: account.email,
-        phone: account.contacts,
-        image: account.image
-      }
+      req.session.student = account
       return res.json({ operation: true, msg: "student" })
     }
 
     if(adminAccount) {
       if(password != adminAccount.pass) return res.json({ operation: false, msg: "Password failed" })
-      req.session.admin = {
-        email: adminAccount.email,
-        fullname: adminAccount.fullname
-      }
+      req.session.admin = adminAccount
       return res.json({ operation: true, msg: "admin" })
     }
 
@@ -129,6 +182,8 @@ app.use('/admin', require("./routes/admin"))
 app.use('/student', require("./routes/student"))
 
 app.get('/forgotPassword', (req, res) => {
+  const { email } = req.query
+  if(!email) return res.redirect("/login")
   res.render("forgotPassword.ejs")
 })
 
@@ -152,7 +207,8 @@ app.get('/adminDashboard', isLoginAdmin, async (req, res) => {
     requests,
     numberofAccounts: accounts.length,
     enrolled: enrolled.length,
-    unenrolled: accounts.length - enrolled.length
+    unenrolled: accounts.length - enrolled.length,
+    admin: req.session.admin
   })
 
 })

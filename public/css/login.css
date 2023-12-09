@@ -154,6 +154,10 @@ button.submit:hover{
     opacity: 0.9;
 }
 
+#forgot{
+    cursor: pointer;
+}
+
 /* -------Responsiveness -------*/
 
 @media (max-width: 780px){

@@ -11,6 +11,10 @@ const AdminAccountModel = sequelize.define("admin_account", {
     },
     fullname: {
         type: DataTypes.STRING
+    },
+    role: {
+        type: DataTypes.STRING,
+        defaultValue: "nonadmin"
     }
 },
 {

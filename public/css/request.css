@@ -127,6 +127,14 @@ tr:nth-child(even) {
     padding-left: 15px;
 }
 
+.action-table #print{
+    color: orange;
+    background: none;
+    font-size: 16px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
 /*popup form*-------------------------------------*/
 
 .for-popup{

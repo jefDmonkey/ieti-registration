@@ -114,14 +114,19 @@ body{
                 <a href="/admin/formRequest"><i class="fa-solid fa-user-plus"></i><span>Form Request</span></a>
                 
             </li>
-            <li class="cour">
-                <a href="/admin/studentCourse"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a>
-                
-            </li>
-            <li class="subj">
-                <a href="/admin/adminSubjects"><i class="fa-solid fa-book"></i><span>Subject</span></a>
-                
-            </li>
+            <% if(admin?.role == "admin"){ %>
+                <li class="cour">
+                    <a href="/admin/studentCourse"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a>
+                    
+                </li>
+                <li class="subj">
+                    <a href="/admin/adminSubjects"><i class="fa-solid fa-book"></i><span>Subject</span></a>
+                    
+                </li>
+                <li class="settings">
+                    <a href="/admin/settings"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+                </li>
+            <% } %>
             <!-- <li class="enr">
                 <a href="/admin/enrolledStud"><i class="fa-solid fa-file-circle-check"></i><span>Enrolled Students</span></a>
                 

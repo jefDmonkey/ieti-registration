@@ -31,18 +31,26 @@ router.get("/", isLoginAdmin, (req, res) =>{
     res.render("admin.ejs")
 })
 
+router.get("/form", isLoginAdmin, (req, res) => {
+    res.render('admin/form.ejs')
+})
 
+router.get("/settings", isLoginAdmin, (req, res) => {
+    res.render("admin/settings.ejs", { admin: req.session.admin})
+})
 
 // BROWSER URL: /admin/adminRequest
 router.get("/adminRequest", isLoginAdmin, async(req, res) => {
    const accounts = await AccountsModel.findAll({raw: true});
     res.render('admin/adminRequest.ejs', 
     {
-        accounts
+        accounts,
+        admin: req.session.admin
     })
 })
 
 router.get("/studentCourse",isLoginAdmin, async(req, res) =>{
+
     const allCourses = await StdInfoModel.findAll({ where: { enrolment_status: "ENROLLED" }, raw: true })
     
     const BSIT = (allCourses.length >= 1 && allCourses.filter((student) => {
@@ -81,7 +89,8 @@ router.get("/studentCourse",isLoginAdmin, async(req, res) =>{
         BSHRM,
         BEED,
         BSCpE,
-        BSED
+        BSED,
+        admin: req.session.admin
     })
 })
 
@@ -91,7 +100,7 @@ router.get("/enrolledStud", isLoginAdmin, (req, res) =>{
 
 router.get("/formRequest", isLoginAdmin, async(req, res) => {
     const registration_forms = await StdInfoModel.findAll({ where: { enrolment_status: "PENDING" }, raw: true })
-    res.render('admin/formRequest.ejs', { registration_forms })
+    res.render('admin/formRequest.ejs', { registration_forms, admin: req.session.admin })
 })
 
 router.get("/studentInfo", isLoginAdmin, (req, res) => {
@@ -100,7 +109,7 @@ router.get("/studentInfo", isLoginAdmin, (req, res) => {
 
 router.get("/adminSubjects",isLoginAdmin,  async(req, res) => {
     const subjects = await SubjectsModel.findAll({ raw: true })
-    res.render('admin/adminSubjects.ejs', { subjects })
+    res.render('admin/adminSubjects.ejs', { subjects, admin: req.session.admin })
 })
 
 router.get("/msgInbox", isLoginAdmin, (req, res) => {

@@ -295,7 +295,21 @@ $(document).ready(function(){
         }
         });
     });
-  
-
+    
+    $("button#print").click(function(e) {
+        const id = $(this).attr("data-id")
+        $.ajax({
+            type: "GET",
+            url: `/admin/get_student_subj_list_and_selected?id=${id}`,
+            success: (res) => {
+                if(!res.student) return alert("No enrolment form")
+                window.open(`/admin/form?uid=${res.student.uid}`)
+            },
+            error: (error) => {
+                console.log(error)
+            }
+        })
+    })
  
 });
+

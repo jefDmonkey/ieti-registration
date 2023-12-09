@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/settings.css">
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css " rel="stylesheet">
+</head>
+<body>
+    <%- include('../sidebar') %>
+    <div class="main-container">
+        <div class="content--wrapper">
+            <div class="header--title">
+                <h2>Support Administrator</h2>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="input-container">
+                <div class="input-child">
+                    <div class="children">
+                        <input type="text" id="name" placeholder="Name">
+                        <input type="text" id="email" placeholder="Email">
+                        <input type="password" id="password" placeholder="Password">
+                        <div class="for-button">
+                            <button class="btn" id="add-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabular--wrapper">
+            <div class="table-container">
+                <table class="list">
+                    <thead class="tablehead">
+                       <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                       </tr>
+                    </thead>
+                    <tbody class="tblbody">
+                    </tbody>
+                    <tfoot class="tblfoot">
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/settings.js"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@
   }
 
 body{
-  background: linear-gradient(rgba(226, 245, 209, 0.6), rgba(0, 0, 0, 0.6));
+  /* background: linear-gradient(rgba(226, 245, 209, 0.6), rgba(0, 0, 0, 0.6)); */
 }
 .nav-links .home{
   background-color: #347C17;

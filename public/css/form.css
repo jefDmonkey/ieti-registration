@@ -6,6 +6,9 @@
 * input{
     border-bottom: 2px solid ;
     text-transform: uppercase;
+    border-width: 0 0 2px;
+    border-color: black;
+    outline: none;
 }
 * label{
     font-size: 10px;

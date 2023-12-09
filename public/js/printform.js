@@ -1,14 +1,14 @@
 $(function(e) {
-    $("input[type=text]").keydown(function(e) {
-        e.preventDefault()
-    })
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
 
-    $("tbody#hehe").on("click", "button.print", function(e) {
-        const current = $(this)
-        $.ajax({
-            type: "GET",
-            url: `/admin/getstudentdata?id=${current.attr("id")}`,
-            success: ({ data }) => {
+    $.ajax({
+        type: "GET",
+        url: `/admin/getstudentdata?id=${params["uid"]}`,
+        success: (res) => {
+            if(res.data){
+                const { data } = res
                 const year = data["Year"].split(" ")
                 $("div.first-table,div.second-table,div.third-table,div.fourth-table").html('')
 
@@ -84,31 +84,14 @@ $(function(e) {
                 $("input#deyear").val(data["college_year"])
 
                 window.print()
-
-            },
-            error: (err) => {
-                console.log(err)
             }
-        })
+        },
+        error: (error) => {
+            console.log(error)
+        }
     })
 
-    $("tbody#hehe").on("click", "button.accept,button.reject", function(e) {
-        const uid = $(this).attr("id")
-        const action = $(this).attr("data-action")
-        const current = $(this)
-        $.ajax({
-            type: "PUT",
-            url: `/admin/modifyenrolment?action=${action}&id=${uid}`,
-            success: (res) => {
-                if(res.operation) return alert("Success")
-            },
-            error: (err) => {
-                console.log(err)
-            },
-            complete: () => {
-                current.closest("tr").remove()
-            }
-        })
+    $(window).on("afterprint", function(e) {
+        window.close()
     })
 })
-
