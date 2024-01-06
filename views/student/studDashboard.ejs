@@ -88,8 +88,8 @@
                                     <img src="<%= student.image %>" alt="">
                                 </div>
                                 <div class="user-name">
-                                    <h4 class="name">Jefferson M. Garcia</h4>
-                                    <h5 class="course">BSIT</h5>
+                                    <h4 class="name"><%= student.fullname %></h4>
+                                    <!-- <h5 class="course">BSIT</h5> -->
                                 </div>
                             </div>
                             </div>
@@ -97,13 +97,13 @@
                             <div class="info-container">
                                 
                                    <ul>
-                                    <li><i class="fa-solid fa-envelope"></i><span>garciajeff2000@gmail.com</span></li>
-                                    <li><i class="fa-solid fa-phone"></i><span>09385827299</span></li>
+                                    <li><i class="fa-solid fa-envelope"></i><span><%= student.email %></span></li>
+                                    <li><i class="fa-solid fa-phone"></i><span><%= student.contacts %></span></li>
                                    </ul>
 
                             </div>
                             <div class="logout-container">
-                                <button id="logout">Logout</button>
+                                <button id="logout2">Logout</button>
                             </div>
                             
                         </div>
@@ -115,6 +115,20 @@
       <script>
             $(function(e) {
                 $("#logout").click(function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/logout",
+                        success: (res) => {
+                            if(res.operation){
+                                location.reload(1)
+                            }
+                        }
+                    })
+                })
+            })
+
+            $(function(e) {
+                $("#logout2").click(function(e) {
                     $.ajax({
                         type: "POST",
                         url: "/logout",

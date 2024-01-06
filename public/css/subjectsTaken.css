@@ -22,7 +22,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(13.8px);
   -webkit-backdrop-filter: blur(13.8px);
-  border: 1px solid rgba(255, 255, 255, 0.81);
+  /* border: 1px solid rgba(255, 255, 255, 0.81); */
 
 }
 
@@ -78,4 +78,19 @@ table {
 
   th {
     background-color: #f2f2f2;
+  }
+
+  @media screen and (max-width: 768px) {
+     .subjects-container{
+      display: flex;
+      flex-direction: column;
+     }
+
+     .Taken-container{
+      width: 100%;
+     }
+
+     .current-container{
+      width: 100%;
+     }
   }
