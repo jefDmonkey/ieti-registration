@@ -128,3 +128,23 @@
     width: 70px;
     margin-left: .6rem;
   }
+
+  @media  screen and (max-width: 768px) {
+    .img-container{
+        display: none;
+    }
+    .content-container{
+        width: 100%;
+
+    }
+    .content-container .input-container{
+        display: grid;
+        grid-template-columns: repeat(1 ,1fr);
+    }
+
+    .login-container{
+        padding-left: 0;
+        text-align: center;
+    }
+    
+  }

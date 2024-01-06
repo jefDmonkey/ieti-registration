@@ -35,6 +35,7 @@ $(document).ready(function(){
                 $("#fullname").html(`<strong>Name:</strong> ${account.fullname}`)
                 
                 if(student){
+                    $("h2#title").html(`${student['Course']} Subjects`)
                     $("button#finish").attr("student-id", student.uid)
                     $("p#s_number").html(`<strong>Student Number:</strong> ${student["Stud_ID"]}`)
                     $("#course").html(`<strong>Course:</strong> ${student.Course}`)
@@ -224,7 +225,7 @@ $(document).ready(function(){
             if($(this).text() == current.attr("id")) checker = true
         })
 
-        if(checker) return alert("Subject already added")
+        if(checker) return null
 
         $.ajax({
             type: "PATCH",
@@ -258,6 +259,7 @@ $(document).ready(function(){
             success: (res) => {
                 if(res.operation){
                     current.closest("tr").remove()
+                    return alert("Subject dropped")
                 }
             },
             error: (err) => {

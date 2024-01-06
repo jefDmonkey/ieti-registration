@@ -131,6 +131,13 @@ body {
     width: 40%;
 }
 
+.inst{
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 15px;
+    color: #9e9d9d;
+}
+
 .image-container{
   
     width: 60%;

@@ -47,7 +47,7 @@
   padding: 1rem;
   border-radius: 10px;
   max-height: 650px;
-  overflow: hidden;
+  overflow: scroll;
   background: #fff;
 }
 
@@ -57,7 +57,7 @@
   padding: 1rem;
   border-radius: 10px;
   max-height: 650px;
-  overflow: hidden;
+  overflow:scroll;
   background: #fff;
   
 }

@@ -24,6 +24,7 @@ const SubjectsModel = require("../models/subjects")
 const BridgingSubjectModel = require("../models/bridging_subject")
 const { isLogout, isLoginAdmin } = require("../middleware/isLogin")
 const { QueryTypes, Sequelize, Op } = require("sequelize")
+const AdminAccountModel = require("../models/admin_account")
 const sequelize = require("../config/db").sequelize
 
 // BROWSER URL: /admin
@@ -167,6 +168,20 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
     try {
         let { fullname, email, contact, password, filename } = req.body
 
+        const checkEmailAdmin = await AdminAccountModel.findAll({
+            where: {
+                email
+            },
+            raw: true
+        })
+
+        const checkUserEmail = await AccountsModel.findAll({
+            where: {
+                email
+            },
+            raw: true
+        })
+
         const checkEmail = await RequestModel.findAll({
             where: {
                 email: email
@@ -174,7 +189,7 @@ router.post("/submitrequest", upload.single("chosenFile"), async(req, res) => {
             raw: true
         })
 
-        if(checkEmail.length >= 1){
+        if(checkEmail.length >= 1 || checkUserEmail.length >= 1 || checkEmailAdmin.length >= 1){
             return res.json({ operation: false, msg: "Email already exist" })
         }
 

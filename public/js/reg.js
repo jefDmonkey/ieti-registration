@@ -47,6 +47,7 @@ $(function() {
     $("#submit").click(function(e) {
        
         const current = $(this)
+        if(contact.val().length > 11 || contact.val().length < 11) return alert("Invalid Phone Number")
 
         if(!fullname.val() || !email.val() || !password.val() || !contact.val() ||  file.prop("files").length <= 0 ) {
              return Swal.fire({

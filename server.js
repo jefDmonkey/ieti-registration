@@ -29,6 +29,26 @@ app.set("views", "views")
 
 app.use(cors())
 
+app.use(async(req, res, next) => {
+  if(req.session.student){
+    const checkUserAccount = await AccountsModel.findOne({ where: { email: req.session?.student?.email }, raw: true })
+    if(!checkUserAccount){
+      req.session = null
+      return res.redirect("/login")
+    }
+  }
+
+  if(req.session.admin){
+    const checkAdminAccount = await AdminAccountModel.findOne({ where: { email: req.session?.admin?.email }, raw: true })
+    if(!checkAdminAccount){
+      req.session = null
+      return res.redirect("/login")
+    }
+  }
+
+  return next();
+})
+
 app.use((req, res, next) => {
   res.set({
     "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
@@ -107,7 +127,12 @@ app.post("/forgotPassword", async(req, res) => {
 app.post("/changepassword", async(req, res) => {
   try {
     const { newPassword, email } = req.body
-    await AdminAccountModel.update({ pass: newPassword }, { where: { email: email } })
+    const isitUser = await AccountsModel.findOne({ where: { email }, raw: true })
+    const isitAdmin = await AdminAccountModel.findOne({ where: { email }, raw: true })
+
+    if(isitAdmin) await AdminAccountModel.update({ pass: newPassword }, { where: { email }})
+    if(isitUser) await AccountsModel.update({ password: await bcrypt.hash(newPassword, 10) }, { where: { email }})
+
     res.json({ operation: true })
   } catch (error) {
     console.log(error)

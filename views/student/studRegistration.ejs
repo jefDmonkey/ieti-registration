@@ -35,8 +35,8 @@
                     <div class="firstname">
                         <input type="text" id="firstname" placeholder="Firstname" required>
                         <input type="text" id="lastname" placeholder="Lastname" required>
-                        <input type="text" id="middlename" placeholder="M.I" required>
-                        <input type="text" id="studnumber" placeholder="Student ID or None if you don't have one " required>
+                        <input type="text" id="middlename" placeholder="M.I or type N/A if you dont have one" required>
+                        <input type="text" id="studnumber" placeholder="Student ID or type None if you don't have one " required>
                     </div>
                     <div class="firstname">
                         <select id="course" required>
@@ -83,16 +83,16 @@
                             <input type="text" id="nationality" placeholder="Nationality" required>
                         </div>
                         <div class="firstname">
-                            <input type="text" placeholder="Status" id="status" required>
+                            <input type="text" placeholder="Civil Status" id="status" required>
                             <input type="text" name="" id="religion" placeholder="Religion" required>
-                            <input type="tel" id="contact" placeholder="telephone number" required>
+                            <input type="tel" id="contact" maxlength="11" placeholder="contact number" required>
                             <input type="email" placeholder="E-mail" id="email" required>
                         </div>
                         <div class="firstname hifive">
                             <input type="text" placeholder="Current Address" id="address" required>
                             <input type="text" placeholder="Provincial Address" id="province" required>
                             <input type="text" placeholder="Guardian or Parent" id="guardian" required>
-                            <input type="tel" placeholder="Guardian Number" id="guardian_num" required>
+                            <input type="tel" placeholder="Guardian Number" maxlength="11" id="guardian_num" required>
                             <input type="text" placeholder="Occupation" id="occupation" required>
                         </div>
                     </div>
