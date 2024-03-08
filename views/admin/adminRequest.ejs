@@ -119,6 +119,7 @@
                         <th>Course Title</th>
                         <th>Units</th>
                         <th>DROP</th>
+                        <th>Incomplete</th>
                         <!-- <th>Passed</th> -->
                         <!-- <th>Failed</th> -->
                     </tr>
@@ -128,9 +129,8 @@
                         <td>GE1</td>
                         <td>Mathematics</td>
                         <td>3</td>
-                        <td><button id="drop"><i class="fa-solid fa-circle-minus"></i></button></td>
-                        <!-- <td><button id="passed"><i class="fa-solid fa-circle-check"></i></button></td> -->
-                        <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                        <td><button id="drop"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                        <!-- <td><button id="failed"><i class="fa-solid fa-circle-xmark"></i></button></td> -->
                     </tr>
                 </tbody>
             </table>
@@ -516,6 +516,32 @@
                            Pending
                         </td> -->
                         <td><button type="button"><i class="fa-solid fa-circle-plus"></i></button></td>
+                    </tr>
+                    <!-- Add subjects for other years as needed -->
+                </tbody>
+            </table>
+
+            <div class = "line">
+                <div class="linya"></div>
+              </div>
+            <h3>Incomplete Subjects</h3>
+            <table>
+                <thead class="krung-1">
+                    <tr>
+                        <th>Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <!-- <th>Status</th> -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="krung-2 incomplete-tbody">
+                    <tr>
+                        <td>GE2</td>
+                        <td>programming</td>
+                        <td>3</td>
+                        <td><button type="button" id="complete"><i class="fa-solid fa-circle-check"></i></button></td>
+                        <td><button type="button" id="fail"><i class="fa-solid fa-circle-plus"></i></button></td>
                     </tr>
                     <!-- Add subjects for other years as needed -->
                 </tbody>

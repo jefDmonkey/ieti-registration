@@ -295,14 +295,15 @@ tr:nth-child(even) {
             color: rgb(12, 223, 12);
         }
         .taken #drop{
-            color: orange;
+            color: red;
             font-size: 17px;
             background: none;
             cursor: pointer;
         }
         .taken #drop:hover{
-            color: rgb(239, 218, 28);
+            color: rgb(234, 98, 40);
         }
+    
         .taken #passed{
             color: green;
             font-size: 17px;
@@ -313,13 +314,13 @@ tr:nth-child(even) {
             color: rgb(12, 223, 12);
         }
         .taken #failed{
-            color: red;
+            color: orange;
             font-size: 17px;
             background: none;
             cursor: pointer;
         }
         .taken #failed:hover{
-            color: rgb(234, 98, 40);
+            color: rgb(239, 218, 28);
         }
         .taken h2{
             font-size: 14px;

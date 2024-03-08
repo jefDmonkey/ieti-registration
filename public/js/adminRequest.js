@@ -48,7 +48,8 @@ $(document).ready(function(){
                                 <td id="code">${subj.code}</td>
                                 <td>${subj.subject_name}</td>
                                 <td>${subj.units}</td>
-                                <td><button id="drop" data-student="${student.uid}" data-id="${subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
+                                <td><button id="drop" data-student="${student.uid}" data-id="${subj.code}"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                                <td><button id="failed" data-student="${student.uid}" data-id="${subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
                             </tr>
                         `)
                     })
@@ -237,10 +238,12 @@ $(document).ready(function(){
                             <td id="code">${res.subj.code}</td>
                             <td>${res.subj.subject_name}</td>
                             <td>${res.subj.units}</td>
-                            <td><button id="drop" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
+                            <td><button id="drop" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-xmark"></i></button></td>
+                            <td><button id="failed" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-minus"></i></button></td>
                         </tr>
                     `)
                     alert("Subject added")
+                    
                 }
 
                 if(res.msg) alert(res.msg)
@@ -260,11 +263,50 @@ $(document).ready(function(){
                 if(res.operation){
                     current.closest("tr").remove()
                     return alert("Subject dropped")
+                    
                 }
             },
             error: (err) => {
                 console.log(err)
             }
+        })
+    })
+
+    $("tbody").on("click", "button#failed", function(e){
+        const current = $(this)
+
+        const check = $("tbody.incomplete-tbody tr td#code")
+
+        let checker = false
+
+        check.each(function(i) {
+            if($(this).text() == current.attr("id")) checker = true
+        })
+
+        if (checker) return null
+        $.ajax({
+            type: "PATCH",
+            url: `/admin/incomplete_subject?code=${current.attr("data-id")}&id=${current.attr("data-student")}`,
+            success: (res) => {
+                if(res.operation){
+                    current.closest("tr").remove()
+                    $("tbody.incomplete-tbody").append(`
+                    <tr id="subject">
+                    <td id="code">${res.subj.code}</td>
+                    <td>${res.subj.subject_name}</td>
+                    <td>${res.subj.units}</td>
+                    <td><button id="complete" data-student="${current.attr("data-student")}" data-id="${res.subj.code}"><i class="fa-solid fa-circle-check"></i></button></td>
+                </tr>
+                    `)
+                    alert("Subject mark as incomplete")
+                    
+                }
+
+                if(res.msg) alert(res.msg)
+            },
+        error: (err) => {
+            console.log(err)
+        }
         })
     })
         
